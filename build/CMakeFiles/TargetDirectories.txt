@@ -1,0 +1,6 @@
+/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles/rebuild_cache.dir
+/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles/edit_cache.dir
+/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles/modelSend.dir
+/home/adduser/documents/css499/libtorch-sdk/build/proto/CMakeFiles/rebuild_cache.dir
+/home/adduser/documents/css499/libtorch-sdk/build/proto/CMakeFiles/edit_cache.dir
+/home/adduser/documents/css499/libtorch-sdk/build/proto/CMakeFiles/protoModule.dir

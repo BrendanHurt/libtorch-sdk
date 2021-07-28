@@ -1,0 +1,2 @@
+/usr/bin/ar qc libprotoModule.a CMakeFiles/protoModule.dir/modelParams.pb.cc.o
+/usr/bin/ranlib libprotoModule.a
