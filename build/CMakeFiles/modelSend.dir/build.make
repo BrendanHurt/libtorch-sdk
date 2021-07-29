@@ -101,6 +101,7 @@ modelSend: CMakeFiles/modelSend.dir/build.make
 modelSend: proto/libprotoModule.a
 modelSend: /home/adduser/anaconda3/lib/python3.6/site-packages/torch/lib/libtorch.so
 modelSend: /home/adduser/anaconda3/lib/python3.6/site-packages/torch/lib/libc10.so
+modelSend: /usr/lib/libprotobuf.so
 modelSend: /home/adduser/anaconda3/lib/python3.6/site-packages/torch/lib/libc10.so
 modelSend: CMakeFiles/modelSend.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable modelSend"

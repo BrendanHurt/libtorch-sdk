@@ -10,7 +10,6 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../proto/PROTO_MODULE_INCLUDE_DIR"
   "/home/adduser/anaconda3/lib/python3.6/site-packages/torch/include"
   "/home/adduser/anaconda3/lib/python3.6/site-packages/torch/include/torch/csrc/api/include"
   )

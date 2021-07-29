@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/adduser/documents/css499/libtorch-sdk/proto/PROTO_MODULE_INCLUDE_DIR
+CXX_INCLUDES = 
 
 CXX_FLAGS = 
 

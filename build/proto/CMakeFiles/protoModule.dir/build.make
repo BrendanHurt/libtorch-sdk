@@ -76,18 +76,26 @@ include proto/CMakeFiles/protoModule.dir/progress.make
 # Include the compile flags for this target's objects.
 include proto/CMakeFiles/protoModule.dir/flags.make
 
+proto/modelParams.pb.h: ../proto/modelParams.proto
+proto/modelParams.pb.h: /usr/bin/protoc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running cpp protocol buffer compiler on modelParams.proto"
+	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && /usr/bin/protoc --cpp_out /home/adduser/documents/css499/libtorch-sdk/build/proto -I /home/adduser/documents/css499/libtorch-sdk/proto /home/adduser/documents/css499/libtorch-sdk/proto/modelParams.proto
+
+proto/modelParams.pb.cc: proto/modelParams.pb.h
+	@$(CMAKE_COMMAND) -E touch_nocreate proto/modelParams.pb.cc
+
 proto/CMakeFiles/protoModule.dir/modelParams.pb.cc.o: proto/CMakeFiles/protoModule.dir/flags.make
-proto/CMakeFiles/protoModule.dir/modelParams.pb.cc.o: ../proto/modelParams.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object proto/CMakeFiles/protoModule.dir/modelParams.pb.cc.o"
-	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/protoModule.dir/modelParams.pb.cc.o -c /home/adduser/documents/css499/libtorch-sdk/proto/modelParams.pb.cc
+proto/CMakeFiles/protoModule.dir/modelParams.pb.cc.o: proto/modelParams.pb.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object proto/CMakeFiles/protoModule.dir/modelParams.pb.cc.o"
+	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/protoModule.dir/modelParams.pb.cc.o -c /home/adduser/documents/css499/libtorch-sdk/build/proto/modelParams.pb.cc
 
 proto/CMakeFiles/protoModule.dir/modelParams.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/protoModule.dir/modelParams.pb.cc.i"
-	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/adduser/documents/css499/libtorch-sdk/proto/modelParams.pb.cc > CMakeFiles/protoModule.dir/modelParams.pb.cc.i
+	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/adduser/documents/css499/libtorch-sdk/build/proto/modelParams.pb.cc > CMakeFiles/protoModule.dir/modelParams.pb.cc.i
 
 proto/CMakeFiles/protoModule.dir/modelParams.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/protoModule.dir/modelParams.pb.cc.s"
-	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adduser/documents/css499/libtorch-sdk/proto/modelParams.pb.cc -o CMakeFiles/protoModule.dir/modelParams.pb.cc.s
+	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adduser/documents/css499/libtorch-sdk/build/proto/modelParams.pb.cc -o CMakeFiles/protoModule.dir/modelParams.pb.cc.s
 
 # Object files for target protoModule
 protoModule_OBJECTS = \
@@ -99,7 +107,7 @@ protoModule_EXTERNAL_OBJECTS =
 proto/libprotoModule.a: proto/CMakeFiles/protoModule.dir/modelParams.pb.cc.o
 proto/libprotoModule.a: proto/CMakeFiles/protoModule.dir/build.make
 proto/libprotoModule.a: proto/CMakeFiles/protoModule.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libprotoModule.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libprotoModule.a"
 	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && $(CMAKE_COMMAND) -P CMakeFiles/protoModule.dir/cmake_clean_target.cmake
 	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/protoModule.dir/link.txt --verbose=$(VERBOSE)
 
@@ -112,7 +120,8 @@ proto/CMakeFiles/protoModule.dir/clean:
 	cd /home/adduser/documents/css499/libtorch-sdk/build/proto && $(CMAKE_COMMAND) -P CMakeFiles/protoModule.dir/cmake_clean.cmake
 .PHONY : proto/CMakeFiles/protoModule.dir/clean
 
-proto/CMakeFiles/protoModule.dir/depend:
+proto/CMakeFiles/protoModule.dir/depend: proto/modelParams.pb.cc
+proto/CMakeFiles/protoModule.dir/depend: proto/modelParams.pb.h
 	cd /home/adduser/documents/css499/libtorch-sdk/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/adduser/documents/css499/libtorch-sdk /home/adduser/documents/css499/libtorch-sdk/proto /home/adduser/documents/css499/libtorch-sdk/build /home/adduser/documents/css499/libtorch-sdk/build/proto /home/adduser/documents/css499/libtorch-sdk/build/proto/CMakeFiles/protoModule.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : proto/CMakeFiles/protoModule.dir/depend
 
