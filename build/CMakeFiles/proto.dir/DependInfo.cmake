@@ -4,19 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/adduser/documents/css499/libtorch-sdk/modelSend.cpp" "/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles/modelSend.dir/modelSend.cpp.o"
+  "/home/adduser/documents/css499/libtorch-sdk/proto/modelParams.pb.cc" "/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles/proto.dir/proto/modelParams.pb.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/adduser/libtorch/include"
-  "/home/adduser/libtorch/include/torch/csrc/api/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/adduser/documents/css499/libtorch-sdk/build/proto/CMakeFiles/protoModule.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

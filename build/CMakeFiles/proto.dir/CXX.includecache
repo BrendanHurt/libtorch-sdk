@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/adduser/documents/css499/libtorch-sdk/build/proto/modelParams.pb.cc
+/home/adduser/documents/css499/libtorch-sdk/proto/modelParams.pb.cc
 modelParams.pb.h
-/home/adduser/documents/css499/libtorch-sdk/build/proto/modelParams.pb.h
+/home/adduser/documents/css499/libtorch-sdk/proto/modelParams.pb.h
 algorithm
 -
 google/protobuf/io/coded_stream.h
@@ -30,7 +30,7 @@ google/protobuf/port_def.inc
 google/protobuf/port_undef.inc
 -
 
-/home/adduser/documents/css499/libtorch-sdk/build/proto/modelParams.pb.h
+/home/adduser/documents/css499/libtorch-sdk/proto/modelParams.pb.h
 limits
 -
 string

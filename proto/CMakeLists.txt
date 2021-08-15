@@ -1,10 +1,10 @@
 find_package(Protobuf REQUIRED)
 
-include_directories(${Protobuf_INCLUDE_DIRS})
-protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS modelParams.proto)
-add_library(protoModule ${PROTO_HDRS} ${PROTO_SRCS})
-target_link_libraries(protoModule ${Protobuf_LIBRARIES})
+protobuf_generate_cpp(PROTO_SRC PROTO_HEADER modelParams.proto)
 
+add_library(protoModule ${PROTO_SRC} ${PROTO_HEADER})
+target_link_libraries(protoModule ${Protobuf_LIBRARIES})
+target_include_directories(protoModule PUBLIC ${Protobuf_INCLUDE_DIRS})
 
 #old method (keeping for now in case things break)
 #add_library(protoModule modelParams.pb.cc)

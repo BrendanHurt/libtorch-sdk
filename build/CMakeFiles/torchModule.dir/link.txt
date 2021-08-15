@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtorchModule.a CMakeFiles/torchModule.dir/modelSend.cpp.o
+/usr/bin/ranlib libtorchModule.a

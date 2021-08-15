@@ -74,23 +74,22 @@ int main(int argc, char* argv[]) {
     }
     
     //testing saving the weights
-    /*std::vector<char> buffer = torch::pickle_save(net->layer2->weight);
-    std::ofstream output;
-    output.open("paramsOut.txt");
-    output << buffer;
-    output.close();*/
-    
-
-    //testing the parameters
-    char temp = 'A';
-    outputParams.set_parameters(std::string(temp, sizeof(char)));
+    std::vector<char> buffer = torch::pickle_save(net->layer2->weight);
+    outputParams.set_parameters(std::string(buffer.begin(), buffer.end()));
 
     //write the serialized data to a file
     std::fstream output(argv[1], std::ios::out | std::ios::trunc | std::ios::binary);
     if (!outputParams.SerializeToOstream(&output)) {
         std::cerr << "Failed to write to file" << std::endl;
+        output.close();
         return -1;
     }
+    output.close();
+
+    //write the weights out so they can be checked against the receiving weights
+    output.open("weights.txt", std::ios::out);
+    output << net->layer2->weight;
+    output.close();
 
     google::protobuf::ShutdownProtobufLibrary();
     return 0;

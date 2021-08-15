@@ -99,10 +99,11 @@ modelSend_EXTERNAL_OBJECTS =
 modelSend: CMakeFiles/modelSend.dir/modelSend.cpp.o
 modelSend: CMakeFiles/modelSend.dir/build.make
 modelSend: proto/libprotoModule.a
-modelSend: /home/adduser/anaconda3/lib/python3.6/site-packages/torch/lib/libtorch.so
-modelSend: /home/adduser/anaconda3/lib/python3.6/site-packages/torch/lib/libc10.so
+modelSend: /home/adduser/libtorch/lib/libtorch.so
+modelSend: /home/adduser/libtorch/lib/libc10.so
+modelSend: /home/adduser/libtorch/lib/libkineto.a
 modelSend: /usr/lib/libprotobuf.so
-modelSend: /home/adduser/anaconda3/lib/python3.6/site-packages/torch/lib/libc10.so
+modelSend: /home/adduser/libtorch/lib/libc10.so
 modelSend: CMakeFiles/modelSend.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adduser/documents/css499/libtorch-sdk/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable modelSend"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/modelSend.dir/link.txt --verbose=$(VERBOSE)

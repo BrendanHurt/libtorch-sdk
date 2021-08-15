@@ -95,7 +95,7 @@ modelParams::modelParams(const modelParams& from)
   // @@protoc_insertion_point(copy_constructor:params.modelParams)
 }
 
-inline void modelParams::SharedCtor() {
+void modelParams::SharedCtor() {
 parameters_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
