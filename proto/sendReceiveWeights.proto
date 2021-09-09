@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package params;
+
+service weightsPasser {
+    rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
+}
+
+//message modelParams {
+message WeightsToServer {
+    //repeated bytes parameters = 1;
+    //swap back to repeated bytes when protobuf's working
+    bytes parameters = 1;
+    //string parameters = 1;
+    string tensor_type = 2;
+}
+
+message WeightsToClient {
+    string reply = 1;
+}
