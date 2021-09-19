@@ -21,63 +21,56 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace params {
 
-static const char* weightsPasser_method_names[] = {
-  "/params.weightsPasser/sendWeights",
+static const char* WeightsPasser_method_names[] = {
+  "/params.WeightsPasser/sendWeights",
 };
 
-std::unique_ptr< weightsPasser::Stub> weightsPasser::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< WeightsPasser::Stub> WeightsPasser::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< weightsPasser::Stub> stub(new weightsPasser::Stub(channel, options));
+  std::unique_ptr< WeightsPasser::Stub> stub(new WeightsPasser::Stub(channel, options));
   return stub;
 }
 
-weightsPasser::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_sendWeights_(weightsPasser_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+WeightsPasser::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_sendWeights_(WeightsPasser_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   {}
 
-::grpc::Status weightsPasser::Stub::sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::params::WeightsToClient* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::params::WeightsToServer, ::params::WeightsToClient, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_sendWeights_, context, request, response);
+::grpc::ClientReader< ::params::Parameters>* WeightsPasser::Stub::sendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request) {
+  return ::grpc::internal::ClientReaderFactory< ::params::Parameters>::Create(channel_.get(), rpcmethod_sendWeights_, context, request);
 }
 
-void weightsPasser::Stub::experimental_async::sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::params::WeightsToServer, ::params::WeightsToClient, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_sendWeights_, context, request, response, std::move(f));
+void WeightsPasser::Stub::experimental_async::sendWeights(::grpc::ClientContext* context, const ::params::Parameters* request, ::grpc::experimental::ClientReadReactor< ::params::Parameters>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::params::Parameters>::Create(stub_->channel_.get(), stub_->rpcmethod_sendWeights_, context, request, reactor);
 }
 
-void weightsPasser::Stub::experimental_async::sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_sendWeights_, context, request, response, reactor);
+::grpc::ClientAsyncReader< ::params::Parameters>* WeightsPasser::Stub::AsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::params::Parameters>::Create(channel_.get(), cq, rpcmethod_sendWeights_, context, request, true, tag);
 }
 
-::grpc::ClientAsyncResponseReader< ::params::WeightsToClient>* weightsPasser::Stub::PrepareAsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::params::WeightsToClient, ::params::WeightsToServer, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_sendWeights_, context, request);
+::grpc::ClientAsyncReader< ::params::Parameters>* WeightsPasser::Stub::PrepareAsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::params::Parameters>::Create(channel_.get(), cq, rpcmethod_sendWeights_, context, request, false, nullptr);
 }
 
-::grpc::ClientAsyncResponseReader< ::params::WeightsToClient>* weightsPasser::Stub::AsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncsendWeightsRaw(context, request, cq);
-  result->StartCall();
-  return result;
-}
-
-weightsPasser::Service::Service() {
+WeightsPasser::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      weightsPasser_method_names[0],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< weightsPasser::Service, ::params::WeightsToServer, ::params::WeightsToClient, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](weightsPasser::Service* service,
+      WeightsPasser_method_names[0],
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< WeightsPasser::Service, ::params::Parameters, ::params::Parameters>(
+          [](WeightsPasser::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::params::WeightsToServer* req,
-             ::params::WeightsToClient* resp) {
-               return service->sendWeights(ctx, req, resp);
+             const ::params::Parameters* req,
+             ::grpc::ServerWriter<::params::Parameters>* writer) {
+               return service->sendWeights(ctx, req, writer);
              }, this)));
 }
 
-weightsPasser::Service::~Service() {
+WeightsPasser::Service::~Service() {
 }
 
-::grpc::Status weightsPasser::Service::sendWeights(::grpc::ServerContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response) {
+::grpc::Status WeightsPasser::Service::sendWeights(::grpc::ServerContext* context, const ::params::Parameters* request, ::grpc::ServerWriter< ::params::Parameters>* writer) {
   (void) context;
   (void) request;
-  (void) response;
+  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

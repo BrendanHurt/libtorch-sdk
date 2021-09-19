@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 
 project(modelSend C CXX)
-set(CMAKE_PREFIX_PATH "/home/adduser/grpc;/home/adduser/libtorch/share/cmake/Torch")
+set(CMAKE_PREFIX_PATH "/home/adduser/libtorch/share/cmake/Torch")
 
 #find the packagaes & link the proto directory
 find_package(Threads REQUIRED)
@@ -49,9 +49,9 @@ target_link_libraries(protoModule
 )
 
 #make the executables
-add_executable(client client.cpp ${GRPC_SRC} ${PROTO_SRC})
+add_executable(client client.cc ${GRPC_SRC} ${PROTO_SRC})
 target_link_libraries(client protoModule)
-add_executable(server server.cpp ${GRPC_SRC} ${PROTO_SRC})
+add_executable(server server.cc ${GRPC_SRC} ${PROTO_SRC})
 target_link_libraries(server protoModule)
 
 #protoc -I. --grpc_out=. --plugin=protoc-gen-grpc=/home/adduser/grpc/bin/grpc_cpp_plugin sendReceiveWeights.proto
@@ -59,5 +59,5 @@ target_link_libraries(server protoModule)
 
 #grpc 1.32
 #client side version > 1.27
-#grpcio
-#grpcio-tools
+#grpcio > 1.27
+#grpcio-tools 1.32

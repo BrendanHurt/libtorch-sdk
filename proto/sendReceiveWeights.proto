@@ -2,12 +2,18 @@ syntax = "proto3";
 
 package params;
 
-service weightsPasser {
-    rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
+service WeightsPasser {
+    //rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
+    //rpc sendWeights (stream Parameters) returns (stream Parameters) {}
+    rpc sendWeights (Parameters) returns (stream Parameters) {}
 }
 
-//message modelParams {
-message WeightsToServer {
+message Parameters {
+    bytes parameters = 1;
+    string tensor_type = 2;
+}
+
+/*message WeightsToServer {
     //repeated bytes parameters = 1;
     //swap back to repeated bytes when protobuf's working
     bytes parameters = 1;
@@ -17,4 +23,4 @@ message WeightsToServer {
 
 message WeightsToClient {
     string reply = 1;
-}
+}*/

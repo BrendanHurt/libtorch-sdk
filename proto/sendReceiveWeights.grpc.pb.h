@@ -28,29 +28,34 @@
 
 namespace params {
 
-class weightsPasser final {
+class WeightsPasser final {
  public:
   static constexpr char const* service_full_name() {
-    return "params.weightsPasser";
+    return "params.WeightsPasser";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::params::WeightsToClient* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::params::WeightsToClient>> AsyncsendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::params::WeightsToClient>>(AsyncsendWeightsRaw(context, request, cq));
+    // rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
+    // rpc sendWeights (stream Parameters) returns (stream Parameters) {}
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::params::Parameters>> sendWeights(::grpc::ClientContext* context, const ::params::Parameters& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::params::Parameters>>(sendWeightsRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::params::WeightsToClient>> PrepareAsyncsendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::params::WeightsToClient>>(PrepareAsyncsendWeightsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::params::Parameters>> AsyncsendWeights(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::params::Parameters>>(AsyncsendWeightsRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::params::Parameters>> PrepareAsyncsendWeights(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::params::Parameters>>(PrepareAsyncsendWeightsRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response, std::function<void(::grpc::Status)>) = 0;
+      // rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
+      // rpc sendWeights (stream Parameters) returns (stream Parameters) {}
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void sendWeights(::grpc::ClientContext* context, const ::params::Parameters* request, ::grpc::ClientReadReactor< ::params::Parameters>* reactor) = 0;
       #else
-      virtual void sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void sendWeights(::grpc::ClientContext* context, const ::params::Parameters* request, ::grpc::experimental::ClientReadReactor< ::params::Parameters>* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -61,27 +66,29 @@ class weightsPasser final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::params::WeightsToClient>* AsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::params::WeightsToClient>* PrepareAsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::params::Parameters>* sendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::params::Parameters>* AsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::params::Parameters>* PrepareAsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::params::WeightsToClient* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::params::WeightsToClient>> AsyncsendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::params::WeightsToClient>>(AsyncsendWeightsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientReader< ::params::Parameters>> sendWeights(::grpc::ClientContext* context, const ::params::Parameters& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::params::Parameters>>(sendWeightsRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::params::WeightsToClient>> PrepareAsyncsendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::params::WeightsToClient>>(PrepareAsyncsendWeightsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::params::Parameters>> AsyncsendWeights(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::params::Parameters>>(AsyncsendWeightsRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::params::Parameters>> PrepareAsyncsendWeights(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::params::Parameters>>(PrepareAsyncsendWeightsRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void sendWeights(::grpc::ClientContext* context, const ::params::Parameters* request, ::grpc::ClientReadReactor< ::params::Parameters>* reactor) override;
       #else
-      void sendWeights(::grpc::ClientContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void sendWeights(::grpc::ClientContext* context, const ::params::Parameters* request, ::grpc::experimental::ClientReadReactor< ::params::Parameters>* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -94,8 +101,9 @@ class weightsPasser final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::params::WeightsToClient>* AsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::params::WeightsToClient>* PrepareAsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::WeightsToServer& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReader< ::params::Parameters>* sendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request) override;
+    ::grpc::ClientAsyncReader< ::params::Parameters>* AsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::params::Parameters>* PrepareAsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_sendWeights_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -104,7 +112,9 @@ class weightsPasser final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status sendWeights(::grpc::ServerContext* context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response);
+    // rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
+    // rpc sendWeights (stream Parameters) returns (stream Parameters) {}
+    virtual ::grpc::Status sendWeights(::grpc::ServerContext* context, const ::params::Parameters* request, ::grpc::ServerWriter< ::params::Parameters>* writer);
   };
   template <class BaseClass>
   class WithAsyncMethod_sendWeights : public BaseClass {
@@ -118,12 +128,12 @@ class weightsPasser final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::WeightsToServer* /*request*/, ::params::WeightsToClient* /*response*/) override {
+    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::Parameters* /*request*/, ::grpc::ServerWriter< ::params::Parameters>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestsendWeights(::grpc::ServerContext* context, ::params::WeightsToServer* request, ::grpc::ServerAsyncResponseWriter< ::params::WeightsToClient>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    void RequestsendWeights(::grpc::ServerContext* context, ::params::Parameters* request, ::grpc::ServerAsyncWriter< ::params::Parameters>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   typedef WithAsyncMethod_sendWeights<Service > AsyncService;
@@ -139,38 +149,29 @@ class weightsPasser final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::params::WeightsToServer, ::params::WeightsToClient>(
+          new ::grpc::internal::CallbackServerStreamingHandler< ::params::Parameters, ::params::Parameters>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::params::WeightsToServer* request, ::params::WeightsToClient* response) { return this->sendWeights(context, request, response); }));}
-    void SetMessageAllocatorFor_sendWeights(
-        ::grpc::experimental::MessageAllocator< ::params::WeightsToServer, ::params::WeightsToClient>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::params::WeightsToServer, ::params::WeightsToClient>*>(handler)
-              ->SetMessageAllocator(allocator);
+                     context, const ::params::Parameters* request) { return this->sendWeights(context, request); }));
     }
     ~ExperimentalWithCallbackMethod_sendWeights() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::WeightsToServer* /*request*/, ::params::WeightsToClient* /*response*/) override {
+    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::Parameters* /*request*/, ::grpc::ServerWriter< ::params::Parameters>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* sendWeights(
-      ::grpc::CallbackServerContext* /*context*/, const ::params::WeightsToServer* /*request*/, ::params::WeightsToClient* /*response*/)
+    virtual ::grpc::ServerWriteReactor< ::params::Parameters>* sendWeights(
+      ::grpc::CallbackServerContext* /*context*/, const ::params::Parameters* /*request*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* sendWeights(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::params::WeightsToServer* /*request*/, ::params::WeightsToClient* /*response*/)
+    virtual ::grpc::experimental::ServerWriteReactor< ::params::Parameters>* sendWeights(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::params::Parameters* /*request*/)
     #endif
       { return nullptr; }
   };
@@ -191,7 +192,7 @@ class weightsPasser final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::WeightsToServer* /*request*/, ::params::WeightsToClient* /*response*/) override {
+    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::Parameters* /*request*/, ::grpc::ServerWriter< ::params::Parameters>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -208,12 +209,12 @@ class weightsPasser final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::WeightsToServer* /*request*/, ::params::WeightsToClient* /*response*/) override {
+    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::Parameters* /*request*/, ::grpc::ServerWriter< ::params::Parameters>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestsendWeights(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    void RequestsendWeights(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -228,62 +229,62 @@ class weightsPasser final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodRawCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->sendWeights(context, request, response); }));
+                     context, const::grpc::ByteBuffer* request) { return this->sendWeights(context, request); }));
     }
     ~ExperimentalWithRawCallbackMethod_sendWeights() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::WeightsToServer* /*request*/, ::params::WeightsToClient* /*response*/) override {
+    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::Parameters* /*request*/, ::grpc::ServerWriter< ::params::Parameters>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* sendWeights(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* sendWeights(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* sendWeights(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* sendWeights(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
     #endif
       { return nullptr; }
   };
+  typedef Service StreamedUnaryService;
   template <class BaseClass>
-  class WithStreamedUnaryMethod_sendWeights : public BaseClass {
+  class WithSplitStreamingMethod_sendWeights : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_sendWeights() {
+    WithSplitStreamingMethod_sendWeights() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::params::WeightsToServer, ::params::WeightsToClient>(
+        new ::grpc::internal::SplitServerStreamingHandler<
+          ::params::Parameters, ::params::Parameters>(
             [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::params::WeightsToServer, ::params::WeightsToClient>* streamer) {
+                   ::grpc::ServerSplitStreamer<
+                     ::params::Parameters, ::params::Parameters>* streamer) {
                        return this->StreamedsendWeights(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_sendWeights() override {
+    ~WithSplitStreamingMethod_sendWeights() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::WeightsToServer* /*request*/, ::params::WeightsToClient* /*response*/) override {
+    ::grpc::Status sendWeights(::grpc::ServerContext* /*context*/, const ::params::Parameters* /*request*/, ::grpc::ServerWriter< ::params::Parameters>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedsendWeights(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::params::WeightsToServer,::params::WeightsToClient>* server_unary_streamer) = 0;
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedsendWeights(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::params::Parameters,::params::Parameters>* server_split_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_sendWeights<Service > StreamedUnaryService;
-  typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_sendWeights<Service > StreamedService;
+  typedef WithSplitStreamingMethod_sendWeights<Service > SplitStreamedService;
+  typedef WithSplitStreamingMethod_sendWeights<Service > StreamedService;
 };
 
 }  // namespace params
