@@ -22,6 +22,7 @@
 namespace params {
 
 static const char* WeightsPasser_method_names[] = {
+  "/params.WeightsPasser/streamWeights",
   "/params.WeightsPasser/sendWeights",
 };
 
@@ -32,8 +33,25 @@ std::unique_ptr< WeightsPasser::Stub> WeightsPasser::NewStub(const std::shared_p
 }
 
 WeightsPasser::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_sendWeights_(WeightsPasser_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  : channel_(channel), rpcmethod_streamWeights_(WeightsPasser_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
+  , rpcmethod_sendWeights_(WeightsPasser_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   {}
+
+::grpc::ClientReaderWriter< ::params::Parameters, ::params::Parameters>* WeightsPasser::Stub::streamWeightsRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::params::Parameters, ::params::Parameters>::Create(channel_.get(), rpcmethod_streamWeights_, context);
+}
+
+void WeightsPasser::Stub::experimental_async::streamWeights(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::params::Parameters,::params::Parameters>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::params::Parameters,::params::Parameters>::Create(stub_->channel_.get(), stub_->rpcmethod_streamWeights_, context, reactor);
+}
+
+::grpc::ClientAsyncReaderWriter< ::params::Parameters, ::params::Parameters>* WeightsPasser::Stub::AsyncstreamWeightsRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::params::Parameters, ::params::Parameters>::Create(channel_.get(), cq, rpcmethod_streamWeights_, context, true, tag);
+}
+
+::grpc::ClientAsyncReaderWriter< ::params::Parameters, ::params::Parameters>* WeightsPasser::Stub::PrepareAsyncstreamWeightsRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::params::Parameters, ::params::Parameters>::Create(channel_.get(), cq, rpcmethod_streamWeights_, context, false, nullptr);
+}
 
 ::grpc::ClientReader< ::params::Parameters>* WeightsPasser::Stub::sendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request) {
   return ::grpc::internal::ClientReaderFactory< ::params::Parameters>::Create(channel_.get(), rpcmethod_sendWeights_, context, request);
@@ -54,6 +72,16 @@ void WeightsPasser::Stub::experimental_async::sendWeights(::grpc::ClientContext*
 WeightsPasser::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       WeightsPasser_method_names[0],
+      ::grpc::internal::RpcMethod::BIDI_STREAMING,
+      new ::grpc::internal::BidiStreamingHandler< WeightsPasser::Service, ::params::Parameters, ::params::Parameters>(
+          [](WeightsPasser::Service* service,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReaderWriter<::params::Parameters,
+             ::params::Parameters>* stream) {
+               return service->streamWeights(ctx, stream);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      WeightsPasser_method_names[1],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
       new ::grpc::internal::ServerStreamingHandler< WeightsPasser::Service, ::params::Parameters, ::params::Parameters>(
           [](WeightsPasser::Service* service,
@@ -65,6 +93,12 @@ WeightsPasser::Service::Service() {
 }
 
 WeightsPasser::Service::~Service() {
+}
+
+::grpc::Status WeightsPasser::Service::streamWeights(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::params::Parameters, ::params::Parameters>* stream) {
+  (void) context;
+  (void) stream;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
 ::grpc::Status WeightsPasser::Service::sendWeights(::grpc::ServerContext* context, const ::params::Parameters* request, ::grpc::ServerWriter< ::params::Parameters>* writer) {

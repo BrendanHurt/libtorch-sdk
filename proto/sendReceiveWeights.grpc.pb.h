@@ -37,7 +37,15 @@ class WeightsPasser final {
    public:
     virtual ~StubInterface() {}
     // rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
-    // rpc sendWeights (stream Parameters) returns (stream Parameters) {}
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::params::Parameters, ::params::Parameters>> streamWeights(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::params::Parameters, ::params::Parameters>>(streamWeightsRaw(context));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::params::Parameters, ::params::Parameters>> AsyncstreamWeights(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::params::Parameters, ::params::Parameters>>(AsyncstreamWeightsRaw(context, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::params::Parameters, ::params::Parameters>> PrepareAsyncstreamWeights(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::params::Parameters, ::params::Parameters>>(PrepareAsyncstreamWeightsRaw(context, cq));
+    }
     std::unique_ptr< ::grpc::ClientReaderInterface< ::params::Parameters>> sendWeights(::grpc::ClientContext* context, const ::params::Parameters& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::params::Parameters>>(sendWeightsRaw(context, request));
     }
@@ -51,7 +59,11 @@ class WeightsPasser final {
      public:
       virtual ~experimental_async_interface() {}
       // rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
-      // rpc sendWeights (stream Parameters) returns (stream Parameters) {}
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void streamWeights(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::params::Parameters,::params::Parameters>* reactor) = 0;
+      #else
+      virtual void streamWeights(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::params::Parameters,::params::Parameters>* reactor) = 0;
+      #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void sendWeights(::grpc::ClientContext* context, const ::params::Parameters* request, ::grpc::ClientReadReactor< ::params::Parameters>* reactor) = 0;
       #else
@@ -66,6 +78,9 @@ class WeightsPasser final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
+    virtual ::grpc::ClientReaderWriterInterface< ::params::Parameters, ::params::Parameters>* streamWeightsRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::params::Parameters, ::params::Parameters>* AsyncstreamWeightsRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::params::Parameters, ::params::Parameters>* PrepareAsyncstreamWeightsRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientReaderInterface< ::params::Parameters>* sendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::params::Parameters>* AsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::params::Parameters>* PrepareAsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq) = 0;
@@ -73,6 +88,15 @@ class WeightsPasser final {
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::params::Parameters, ::params::Parameters>> streamWeights(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::params::Parameters, ::params::Parameters>>(streamWeightsRaw(context));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::params::Parameters, ::params::Parameters>> AsyncstreamWeights(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::params::Parameters, ::params::Parameters>>(AsyncstreamWeightsRaw(context, cq, tag));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::params::Parameters, ::params::Parameters>> PrepareAsyncstreamWeights(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::params::Parameters, ::params::Parameters>>(PrepareAsyncstreamWeightsRaw(context, cq));
+    }
     std::unique_ptr< ::grpc::ClientReader< ::params::Parameters>> sendWeights(::grpc::ClientContext* context, const ::params::Parameters& request) {
       return std::unique_ptr< ::grpc::ClientReader< ::params::Parameters>>(sendWeightsRaw(context, request));
     }
@@ -85,6 +109,11 @@ class WeightsPasser final {
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void streamWeights(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::params::Parameters,::params::Parameters>* reactor) override;
+      #else
+      void streamWeights(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::params::Parameters,::params::Parameters>* reactor) override;
+      #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void sendWeights(::grpc::ClientContext* context, const ::params::Parameters* request, ::grpc::ClientReadReactor< ::params::Parameters>* reactor) override;
       #else
@@ -101,9 +130,13 @@ class WeightsPasser final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
+    ::grpc::ClientReaderWriter< ::params::Parameters, ::params::Parameters>* streamWeightsRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::params::Parameters, ::params::Parameters>* AsyncstreamWeightsRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::params::Parameters, ::params::Parameters>* PrepareAsyncstreamWeightsRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientReader< ::params::Parameters>* sendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request) override;
     ::grpc::ClientAsyncReader< ::params::Parameters>* AsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::params::Parameters>* PrepareAsyncsendWeightsRaw(::grpc::ClientContext* context, const ::params::Parameters& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_streamWeights_;
     const ::grpc::internal::RpcMethod rpcmethod_sendWeights_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -113,8 +146,28 @@ class WeightsPasser final {
     Service();
     virtual ~Service();
     // rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
-    // rpc sendWeights (stream Parameters) returns (stream Parameters) {}
+    virtual ::grpc::Status streamWeights(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::params::Parameters, ::params::Parameters>* stream);
     virtual ::grpc::Status sendWeights(::grpc::ServerContext* context, const ::params::Parameters* request, ::grpc::ServerWriter< ::params::Parameters>* writer);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_streamWeights : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_streamWeights() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_streamWeights() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status streamWeights(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::Parameters, ::params::Parameters>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequeststreamWeights(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::params::Parameters, ::params::Parameters>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(0, context, stream, new_call_cq, notification_cq, tag);
+    }
   };
   template <class BaseClass>
   class WithAsyncMethod_sendWeights : public BaseClass {
@@ -122,7 +175,7 @@ class WeightsPasser final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_sendWeights() {
-      ::grpc::Service::MarkMethodAsync(0);
+      ::grpc::Service::MarkMethodAsync(1);
     }
     ~WithAsyncMethod_sendWeights() override {
       BaseClassMustBeDerivedFromService(this);
@@ -133,10 +186,48 @@ class WeightsPasser final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestsendWeights(::grpc::ServerContext* context, ::params::Parameters* request, ::grpc::ServerAsyncWriter< ::params::Parameters>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncServerStreaming(1, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_sendWeights<Service > AsyncService;
+  typedef WithAsyncMethod_streamWeights<WithAsyncMethod_sendWeights<Service > > AsyncService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_streamWeights : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_streamWeights() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc::internal::CallbackBidiHandler< ::params::Parameters, ::params::Parameters>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context) { return this->streamWeights(context); }));
+    }
+    ~ExperimentalWithCallbackMethod_streamWeights() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status streamWeights(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::Parameters, ::params::Parameters>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerBidiReactor< ::params::Parameters, ::params::Parameters>* streamWeights(
+      ::grpc::CallbackServerContext* /*context*/)
+    #else
+    virtual ::grpc::experimental::ServerBidiReactor< ::params::Parameters, ::params::Parameters>* streamWeights(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
+    #endif
+      { return nullptr; }
+  };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_sendWeights : public BaseClass {
    private:
@@ -148,7 +239,7 @@ class WeightsPasser final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(0,
+        MarkMethodCallback(1,
           new ::grpc::internal::CallbackServerStreamingHandler< ::params::Parameters, ::params::Parameters>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -176,17 +267,34 @@ class WeightsPasser final {
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_sendWeights<Service > CallbackService;
+  typedef ExperimentalWithCallbackMethod_streamWeights<ExperimentalWithCallbackMethod_sendWeights<Service > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_sendWeights<Service > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_streamWeights<ExperimentalWithCallbackMethod_sendWeights<Service > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class WithGenericMethod_streamWeights : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_streamWeights() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_streamWeights() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status streamWeights(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::Parameters, ::params::Parameters>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
   template <class BaseClass>
   class WithGenericMethod_sendWeights : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_sendWeights() {
-      ::grpc::Service::MarkMethodGeneric(0);
+      ::grpc::Service::MarkMethodGeneric(1);
     }
     ~WithGenericMethod_sendWeights() override {
       BaseClassMustBeDerivedFromService(this);
@@ -198,12 +306,32 @@ class WeightsPasser final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_streamWeights : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_streamWeights() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_streamWeights() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status streamWeights(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::Parameters, ::params::Parameters>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequeststreamWeights(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(0, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_sendWeights : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_sendWeights() {
-      ::grpc::Service::MarkMethodRaw(0);
+      ::grpc::Service::MarkMethodRaw(1);
     }
     ~WithRawMethod_sendWeights() override {
       BaseClassMustBeDerivedFromService(this);
@@ -214,8 +342,46 @@ class WeightsPasser final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestsendWeights(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncServerStreaming(1, context, request, writer, new_call_cq, notification_cq, tag);
     }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_streamWeights : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_streamWeights() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context) { return this->streamWeights(context); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_streamWeights() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status streamWeights(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::Parameters, ::params::Parameters>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* streamWeights(
+      ::grpc::CallbackServerContext* /*context*/)
+    #else
+    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* streamWeights(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_sendWeights : public BaseClass {
@@ -228,7 +394,7 @@ class WeightsPasser final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(0,
+        MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -262,7 +428,7 @@ class WeightsPasser final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithSplitStreamingMethod_sendWeights() {
-      ::grpc::Service::MarkMethodStreamed(0,
+      ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::SplitServerStreamingHandler<
           ::params::Parameters, ::params::Parameters>(
             [this](::grpc::ServerContext* context,

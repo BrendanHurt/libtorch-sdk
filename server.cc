@@ -59,42 +59,41 @@ public:
     }
 
     //bidirectional stream method (come back to later)
-    /*Status sendWeights(ServerContext* context, 
+    Status streamWeights(ServerContext* context, 
                 ServerReaderWriter<Parameters, Parameters>* serverStream) override {
         
          //parameters received from the client
-        Parameters readParams; //used to read in parameters from clients
-        Parameters writeParams;
+        Parameters receivedMessage; //used to read in parameters from clients
         std::stringstream serverWeights;
 
-        while (serverStream->Read(&readParams)) {
+        while (serverStream->Read(&receivedMessage)) {
 
+            //currently working-ish version
             std::unique_lock<std::mutex> lock(serverLock);
-            for (const Parameters& param : clientParams) {
+            loadWeights(receivedMessage);
+            writeToFile("serverWeights.txt");
 
-                //remove later--------------------
-                std::fstream temp;
-                temp.open("temp.txt", std::ios::out);
-                temp << "it do";
-                temp.close();
-                //--------------------------------
+            runModel();
+            writeToFile("newServerWeights.txt");
 
-                loadWeights(param);
-                writeToFile("serverWeights.txt"); //remove later
-                runModel();
-                writeToFile("newServerWeights.txt"); //remove later
+            serverWeights << serverNetwork->parameters();
+            receivedMessage.set_parameters(serverWeights.str());
+            serverStream->Write(receivedMessage);
+            //serverStream->WritesDone();
 
-                torch::save(serverNetwork, serverWeights);
-                //pack serverWeights into a params::Parameters
-                //writeParams.set_parameters(serverWeights.str());
-                //writeParams.set_tensor_type("Linear");
-                //serverStream->Write(writeParams);
+            std::unique_lock<std::mutex> unlock(serverLock);
+
+            //trying out the new version
+            /*std::unique_lock<std::mutex> lock(serverLock);
+            for (const Parameters& message : clientMessages) {
+                serverStream->Write(message);
             }
-            clientParams.push_back(readParams);
+            clientMessages.push_back(receivedMessage);
+            std::unique_lock<std::mutex> unlock(serverLock);*/
         }
 
         return Status::OK;
-    }*/
+    }
 
     //server-side streaming method (one step at a time)
     Status sendWeights(ServerContext* context,
@@ -183,7 +182,7 @@ public:
 
 private:
     //Network Net;
-    std::vector<Parameters> clientParams;
+    std::vector<Parameters> clientMessages;
     std::shared_ptr<Network> serverNetwork;
     std::mutex serverLock;
 };

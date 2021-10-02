@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <thread>
 //torch
 #include <torch/torch.h>
 #include <torch/script.h>
@@ -79,25 +80,38 @@ public:
     }*/
     //--------------------------------------------------------------------------
 
-    //bidirectional method (come back to later)
-    /*std::string sendWeights(const std::string &weights, std::string tensorType) {
+    //method that threads use to pack up the parameters
+    static void sendThread(
+        std::shared_ptr<ClientReaderWriter<Parameters, Parameters>> stream,
+        Parameters model,
+        const std::string &weights, 
+        std::string tensorType) {
+
+        model.set_parameters(weights);
+        model.set_tensor_type(tensorType);
+        stream->Write(model);
+        stream->WritesDone();
+    }
+
+    //bidirectional method
+    std::string streamWeights(const std::string &weights, std::string tensorType) {
         ClientContext context;
         Parameters clientModel, serverModel;
         std::shared_ptr<ClientReaderWriter<Parameters, Parameters>> stream(
-            stub_->sendWeights(&context)
+            stub_->streamWeights(&context)
         );
 
-        //writing side of the read/write stream
-        clientModel.set_parameters(weights);
-        clientModel.set_tensor_type(tensorType);
-        stream->Write(clientModel);
-        stream->WritesDone();
+        //thread makes it more modular?
+        std::thread writer(sendThread, stream, clientModel, weights, tensorType);
+        writer.join();
         
         //reading side of the read/write stream
         while (stream->Read(&serverModel)) {
             std::cout << "got it\n";
         }
+        std::cout << "done reading\n";
 
+        
         Status status = stream->Finish();
         if (status.ok()) {
             return "ye\n";
@@ -105,7 +119,7 @@ public:
         else {
             return "no do\n";
         }
-    }*/
+    }
 
     //server-side stream method
     std::string sendWeights(const std::string& weights, std::string tensorType) {
@@ -188,7 +202,8 @@ public:
         std::stringstream weights;
         torch::save(net, weights);
         std::string layer("Layer2");
-        std::string reply = sendWeights(weights.str(), layer);
+        //std::string reply = sendWeights(weights.str(), layer);
+        std::string reply = streamWeights(weights.str(), layer);
         std::cout << "Server received tensor: " << reply << std::endl;
     }
 
@@ -200,38 +215,13 @@ private:
 
 //----------------------------------------------------------------------------
 int main(int argc, char* argv[]) {
-    //proto locals
-    //params::WeightsToServer clientSideWeights;
-    //params::WeightsToClient serverSideWeights;
-    //ClientContext context;
-    //Status status;
     std::string targetString = "localhost:50051";
-    //Client client;
-
-    
-
-    //create a new network
-    //auto net = std::make_shared<Network>();
-    //std::shared_ptr<Network> Net(new Network);
-
 
     //make the service
     Client client(
         grpc::CreateChannel(targetString, grpc::InsecureChannelCredentials()));
 
     client.runModel();
-
-    
-    //write the weights out so they can be checked against the receiving weights
-    /*std::fstream output;
-    output.open("weights.txt", std::ios::out);
-    output << net->parameters();
-    output.close();
-
-    //now the loaded model
-    output.open("loadedWeights.txt", std::ios::out);
-    output << Net->layer2->weight;
-    output.close();*/
     
     google::protobuf::ShutdownProtobufLibrary();
     return 0;

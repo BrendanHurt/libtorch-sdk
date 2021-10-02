@@ -55,13 +55,14 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_sendReceiveWeights_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030sendReceiveWeights.proto\022\006params\"5\n\nPa"
   "rameters\022\022\n\nparameters\030\001 \001(\014\022\023\n\013tensor_t"
-  "ype\030\002 \001(\t2J\n\rWeightsPasser\0229\n\013sendWeight"
-  "s\022\022.params.Parameters\032\022.params.Parameter"
-  "s\"\0000\001b\006proto3"
+  "ype\030\002 \001(\t2\211\001\n\rWeightsPasser\022=\n\rstreamWei"
+  "ghts\022\022.params.Parameters\032\022.params.Parame"
+  "ters\"\000(\0010\001\0229\n\013sendWeights\022\022.params.Param"
+  "eters\032\022.params.Parameters\"\0000\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sendReceiveWeights_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sendReceiveWeights_2eproto = {
-  false, false, 173, descriptor_table_protodef_sendReceiveWeights_2eproto, "sendReceiveWeights.proto", 
+  false, false, 237, descriptor_table_protodef_sendReceiveWeights_2eproto, "sendReceiveWeights.proto", 
   &descriptor_table_sendReceiveWeights_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_sendReceiveWeights_2eproto::offsets,
   file_level_metadata_sendReceiveWeights_2eproto, file_level_enum_descriptors_sendReceiveWeights_2eproto, file_level_service_descriptors_sendReceiveWeights_2eproto,
