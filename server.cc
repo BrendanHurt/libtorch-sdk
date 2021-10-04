@@ -79,17 +79,6 @@ public:
             serverWeights << serverNetwork->parameters();
             receivedMessage.set_parameters(serverWeights.str());
             serverStream->Write(receivedMessage);
-            //serverStream->WritesDone();
-
-            std::unique_lock<std::mutex> unlock(serverLock);
-
-            //trying out the new version
-            /*std::unique_lock<std::mutex> lock(serverLock);
-            for (const Parameters& message : clientMessages) {
-                serverStream->Write(message);
-            }
-            clientMessages.push_back(receivedMessage);
-            std::unique_lock<std::mutex> unlock(serverLock);*/
         }
 
         return Status::OK;

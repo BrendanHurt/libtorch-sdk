@@ -103,15 +103,14 @@ public:
 
         //thread makes it more modular?
         std::thread writer(sendThread, stream, clientModel, weights, tensorType);
-        writer.join();
-        
+
         //reading side of the read/write stream
         while (stream->Read(&serverModel)) {
             std::cout << "got it\n";
         }
         std::cout << "done reading\n";
 
-        
+        writer.join();
         Status status = stream->Finish();
         if (status.ok()) {
             return "ye\n";
