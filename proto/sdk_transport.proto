@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+package params;
+
+/*service WeightsPasser {
+    //rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
+    rpc streamWeights (stream Parameters) returns (stream Parameters) {}
+    rpc sendWeights (Parameters) returns (stream Parameters) {}
+}*/
+
+service FlowerServiceSDK {
+    rpc Join (stream ClientMessage) returns (stream ServerMessage) {}
+}
+
+message Parameters {
+    bytes parameters = 1;
+    string tensor_type = 2;
+}
+
+//disconnection reasons
+enum Reason {
+    UNKOWN = 0;
+    RECONNECT = 1;
+    POWER_DISCONNECTED = 2;
+    WIFI_UNAVAILABLE = 3;
+    ACK = 4;
+}
+
+//--------------------------------------------------------------
+//server message
+message ServerMessage {
+
+    //reason for why the client lost connection
+    message Reconnect { int64 seconds = 1; }
+
+    //parameters from client
+    message GetParameters {}
+
+    //fit client params into the server model
+    message FitIns {
+        Parameters parameters = 1;          //model params
+        map<string, Scalar> config = 2;     //test metrics
+    }
+
+    //Evaluation details
+    message EvaluateIns {
+        Parameters parameters = 1;          //model params
+        map<string, Scalar> config = 2;     //test metrics
+    }
+
+    //model properties that the server's taking in
+    message PropertiesIns { map<string, Scalar> config = 1; }
+
+    //compiled server message
+    oneof msg {
+        Reconnect reconnect = 1;
+        GetParameters get_parameters = 2;
+        FitIns fit_ins = 3;
+        EvaluateIns evaluate_ins = 4;
+        PropertiesIns properties_ons = 5;
+    }
+}
+
+message ClientMessage {
+
+    //disconnect from the server
+    message Disconnect { Reason reason = 1; }
+
+    //params to send to the server
+    message ParametersRes { Parameters parameters = 1; }
+
+    //Model Fit details
+    message FitRes {
+        Parameters parameters = 1;          //model params
+        int64 num_examples = 2;             //# of test examples
+        //include deprecated variables?
+        map<string, Scalar> metrics = 5;    //test metrics
+    }
+
+    //Evaluation details
+    message EvaluateRes {
+        int64 num_examples = 1;             //# of test examples
+        float loss = 2;                     //model's loss (loss of accuracy?)
+        //include depcrated variable?
+        map<string, Scalar> metrics = 4;    //test metrics
+    }
+
+    //Model properties?
+    message PropertiesRes { map<string, Scalar> properties = 1; }
+
+    oneof msg {
+        Disconnect disconnect = 1;
+        ParametersRes parameters_res = 2;
+        FitRes fit_res = 3;
+        EvaluateRes evaluate_res = 4;
+        PropertiesRes properties_res = 5;
+    }
+}
+
+message Scalar {
+    oneof scalar {
+        double double = 1;
+        sint64 sint64 = 2;
+        bool bool = 3;
+        string string = 4;
+        bytes bytes = 5;
+    }
+}

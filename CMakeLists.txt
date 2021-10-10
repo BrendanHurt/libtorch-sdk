@@ -54,8 +54,8 @@ target_link_libraries(client protoModule)
 add_executable(server server.cc ${GRPC_SRC} ${PROTO_SRC})
 target_link_libraries(server protoModule)
 
-#protoc -I. --grpc_out=. --plugin=protoc-gen-grpc=/home/adduser/grpc/bin/grpc_cpp_plugin sendReceiveWeights.proto
-#protoc -I. --cpp_out=. sendReceiveWeights.proto
+#protoc -I. --grpc_out=. --plugin=protoc-gen-grpc=/home/adduser/grpc/bin/grpc_cpp_plugin sdk_transport.proto
+#protoc -I. --cpp_out=. sdk_transport.proto
 
 #grpc 1.32
 #client side version > 1.27
