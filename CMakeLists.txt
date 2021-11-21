@@ -30,10 +30,10 @@ message("gRPC plugin location: ${_GRPC_CPP_PLUGIN_EXECUTABLE}")
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 
 #get the proto files
-set(PROTO_SRC "proto/sendReceiveWeights.pb.cc")
-set(PROTO_HDR "proto/sendReceiveWeights.pb.h")
-set(GRPC_SRC "proto/sendReceiveWeights.grpc.pb.cc")
-set(GRPC_HDR "proto/sendReceiveWeights.grpc.pb.h")
+set(PROTO_SRC "proto/sdk_transport.pb.cc")
+set(PROTO_HDR "proto/sdk_transport.pb.h")
+set(GRPC_SRC "proto/sdk_transport.grpc.pb.cc")
+set(GRPC_HDR "proto/sdk_transport.grpc.pb.h")
 
 add_library(protoModule
     ${GRPC_SRC}
@@ -49,7 +49,7 @@ target_link_libraries(protoModule
 )
 
 #make the executables
-add_executable(client client.cc ${GRPC_SRC} ${PROTO_SRC})
+add_executable(client client.cc testModel.cc ${GRPC_SRC} ${PROTO_SRC})
 target_link_libraries(client protoModule)
 add_executable(server server.cc ${GRPC_SRC} ${PROTO_SRC})
 target_link_libraries(server protoModule)

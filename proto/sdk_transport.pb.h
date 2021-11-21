@@ -58,7 +58,7 @@ struct TableStruct_sdk_5ftransport_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sdk_5ftransport_2eproto;
 ::PROTOBUF_NAMESPACE_ID::Metadata descriptor_table_sdk_5ftransport_2eproto_metadata_getter(int index);
-namespace params {
+namespace flower_sdk {
 class ClientMessage;
 struct ClientMessageDefaultTypeInternal;
 extern ClientMessageDefaultTypeInternal _ClientMessage_default_instance_;
@@ -119,30 +119,30 @@ extern ServerMessage_PropertiesIns_ConfigEntry_DoNotUseDefaultTypeInternal _Serv
 class ServerMessage_Reconnect;
 struct ServerMessage_ReconnectDefaultTypeInternal;
 extern ServerMessage_ReconnectDefaultTypeInternal _ServerMessage_Reconnect_default_instance_;
-}  // namespace params
+}  // namespace flower_sdk
 PROTOBUF_NAMESPACE_OPEN
-template<> ::params::ClientMessage* Arena::CreateMaybeMessage<::params::ClientMessage>(Arena*);
-template<> ::params::ClientMessage_Disconnect* Arena::CreateMaybeMessage<::params::ClientMessage_Disconnect>(Arena*);
-template<> ::params::ClientMessage_EvaluateRes* Arena::CreateMaybeMessage<::params::ClientMessage_EvaluateRes>(Arena*);
-template<> ::params::ClientMessage_EvaluateRes_MetricsEntry_DoNotUse* Arena::CreateMaybeMessage<::params::ClientMessage_EvaluateRes_MetricsEntry_DoNotUse>(Arena*);
-template<> ::params::ClientMessage_FitRes* Arena::CreateMaybeMessage<::params::ClientMessage_FitRes>(Arena*);
-template<> ::params::ClientMessage_FitRes_MetricsEntry_DoNotUse* Arena::CreateMaybeMessage<::params::ClientMessage_FitRes_MetricsEntry_DoNotUse>(Arena*);
-template<> ::params::ClientMessage_ParametersRes* Arena::CreateMaybeMessage<::params::ClientMessage_ParametersRes>(Arena*);
-template<> ::params::ClientMessage_PropertiesRes* Arena::CreateMaybeMessage<::params::ClientMessage_PropertiesRes>(Arena*);
-template<> ::params::ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse* Arena::CreateMaybeMessage<::params::ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse>(Arena*);
-template<> ::params::Parameters* Arena::CreateMaybeMessage<::params::Parameters>(Arena*);
-template<> ::params::Scalar* Arena::CreateMaybeMessage<::params::Scalar>(Arena*);
-template<> ::params::ServerMessage* Arena::CreateMaybeMessage<::params::ServerMessage>(Arena*);
-template<> ::params::ServerMessage_EvaluateIns* Arena::CreateMaybeMessage<::params::ServerMessage_EvaluateIns>(Arena*);
-template<> ::params::ServerMessage_EvaluateIns_ConfigEntry_DoNotUse* Arena::CreateMaybeMessage<::params::ServerMessage_EvaluateIns_ConfigEntry_DoNotUse>(Arena*);
-template<> ::params::ServerMessage_FitIns* Arena::CreateMaybeMessage<::params::ServerMessage_FitIns>(Arena*);
-template<> ::params::ServerMessage_FitIns_ConfigEntry_DoNotUse* Arena::CreateMaybeMessage<::params::ServerMessage_FitIns_ConfigEntry_DoNotUse>(Arena*);
-template<> ::params::ServerMessage_GetParameters* Arena::CreateMaybeMessage<::params::ServerMessage_GetParameters>(Arena*);
-template<> ::params::ServerMessage_PropertiesIns* Arena::CreateMaybeMessage<::params::ServerMessage_PropertiesIns>(Arena*);
-template<> ::params::ServerMessage_PropertiesIns_ConfigEntry_DoNotUse* Arena::CreateMaybeMessage<::params::ServerMessage_PropertiesIns_ConfigEntry_DoNotUse>(Arena*);
-template<> ::params::ServerMessage_Reconnect* Arena::CreateMaybeMessage<::params::ServerMessage_Reconnect>(Arena*);
+template<> ::flower_sdk::ClientMessage* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage>(Arena*);
+template<> ::flower_sdk::ClientMessage_Disconnect* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage_Disconnect>(Arena*);
+template<> ::flower_sdk::ClientMessage_EvaluateRes* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage_EvaluateRes>(Arena*);
+template<> ::flower_sdk::ClientMessage_EvaluateRes_MetricsEntry_DoNotUse* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage_EvaluateRes_MetricsEntry_DoNotUse>(Arena*);
+template<> ::flower_sdk::ClientMessage_FitRes* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage_FitRes>(Arena*);
+template<> ::flower_sdk::ClientMessage_FitRes_MetricsEntry_DoNotUse* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage_FitRes_MetricsEntry_DoNotUse>(Arena*);
+template<> ::flower_sdk::ClientMessage_ParametersRes* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage_ParametersRes>(Arena*);
+template<> ::flower_sdk::ClientMessage_PropertiesRes* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage_PropertiesRes>(Arena*);
+template<> ::flower_sdk::ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse* Arena::CreateMaybeMessage<::flower_sdk::ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse>(Arena*);
+template<> ::flower_sdk::Parameters* Arena::CreateMaybeMessage<::flower_sdk::Parameters>(Arena*);
+template<> ::flower_sdk::Scalar* Arena::CreateMaybeMessage<::flower_sdk::Scalar>(Arena*);
+template<> ::flower_sdk::ServerMessage* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage>(Arena*);
+template<> ::flower_sdk::ServerMessage_EvaluateIns* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage_EvaluateIns>(Arena*);
+template<> ::flower_sdk::ServerMessage_EvaluateIns_ConfigEntry_DoNotUse* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage_EvaluateIns_ConfigEntry_DoNotUse>(Arena*);
+template<> ::flower_sdk::ServerMessage_FitIns* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage_FitIns>(Arena*);
+template<> ::flower_sdk::ServerMessage_FitIns_ConfigEntry_DoNotUse* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage_FitIns_ConfigEntry_DoNotUse>(Arena*);
+template<> ::flower_sdk::ServerMessage_GetParameters* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage_GetParameters>(Arena*);
+template<> ::flower_sdk::ServerMessage_PropertiesIns* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage_PropertiesIns>(Arena*);
+template<> ::flower_sdk::ServerMessage_PropertiesIns_ConfigEntry_DoNotUse* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage_PropertiesIns_ConfigEntry_DoNotUse>(Arena*);
+template<> ::flower_sdk::ServerMessage_Reconnect* Arena::CreateMaybeMessage<::flower_sdk::ServerMessage_Reconnect>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace params {
+namespace flower_sdk {
 
 enum Reason : int {
   UNKOWN = 0,
@@ -175,7 +175,7 @@ inline bool Reason_Parse(
 // ===================================================================
 
 class Parameters PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.Parameters) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.Parameters) */ {
  public:
   inline Parameters() : Parameters(nullptr) {}
   virtual ~Parameters();
@@ -265,7 +265,7 @@ class Parameters PROTOBUF_FINAL :
   void InternalSwap(Parameters* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.Parameters";
+    return "flower_sdk.Parameters";
   }
   protected:
   explicit Parameters(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -290,20 +290,28 @@ class Parameters PROTOBUF_FINAL :
     kParametersFieldNumber = 1,
     kTensorTypeFieldNumber = 2,
   };
-  // bytes parameters = 1;
-  void clear_parameters();
-  const std::string& parameters() const;
-  void set_parameters(const std::string& value);
-  void set_parameters(std::string&& value);
-  void set_parameters(const char* value);
-  void set_parameters(const void* value, size_t size);
-  std::string* mutable_parameters();
-  std::string* release_parameters();
-  void set_allocated_parameters(std::string* parameters);
+  // repeated bytes parameters = 1;
+  int parameters_size() const;
   private:
-  const std::string& _internal_parameters() const;
-  void _internal_set_parameters(const std::string& value);
-  std::string* _internal_mutable_parameters();
+  int _internal_parameters_size() const;
+  public:
+  void clear_parameters();
+  const std::string& parameters(int index) const;
+  std::string* mutable_parameters(int index);
+  void set_parameters(int index, const std::string& value);
+  void set_parameters(int index, std::string&& value);
+  void set_parameters(int index, const char* value);
+  void set_parameters(int index, const void* value, size_t size);
+  std::string* add_parameters();
+  void add_parameters(const std::string& value);
+  void add_parameters(std::string&& value);
+  void add_parameters(const char* value);
+  void add_parameters(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& parameters() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_parameters();
+  private:
+  const std::string& _internal_parameters(int index) const;
+  std::string* _internal_add_parameters();
   public:
 
   // string tensor_type = 2;
@@ -322,14 +330,14 @@ class Parameters PROTOBUF_FINAL :
   std::string* _internal_mutable_tensor_type();
   public:
 
-  // @@protoc_insertion_point(class_scope:params.Parameters)
+  // @@protoc_insertion_point(class_scope:flower_sdk.Parameters)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr parameters_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> parameters_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr tensor_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sdk_5ftransport_2eproto;
@@ -337,7 +345,7 @@ class Parameters PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ServerMessage_Reconnect PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ServerMessage.Reconnect) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ServerMessage.Reconnect) */ {
  public:
   inline ServerMessage_Reconnect() : ServerMessage_Reconnect(nullptr) {}
   virtual ~ServerMessage_Reconnect();
@@ -427,7 +435,7 @@ class ServerMessage_Reconnect PROTOBUF_FINAL :
   void InternalSwap(ServerMessage_Reconnect* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ServerMessage.Reconnect";
+    return "flower_sdk.ServerMessage.Reconnect";
   }
   protected:
   explicit ServerMessage_Reconnect(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -460,7 +468,7 @@ class ServerMessage_Reconnect PROTOBUF_FINAL :
   void _internal_set_seconds(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:params.ServerMessage.Reconnect)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ServerMessage.Reconnect)
  private:
   class _Internal;
 
@@ -474,7 +482,7 @@ class ServerMessage_Reconnect PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ServerMessage_GetParameters PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ServerMessage.GetParameters) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ServerMessage.GetParameters) */ {
  public:
   inline ServerMessage_GetParameters() : ServerMessage_GetParameters(nullptr) {}
   virtual ~ServerMessage_GetParameters();
@@ -564,7 +572,7 @@ class ServerMessage_GetParameters PROTOBUF_FINAL :
   void InternalSwap(ServerMessage_GetParameters* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ServerMessage.GetParameters";
+    return "flower_sdk.ServerMessage.GetParameters";
   }
   protected:
   explicit ServerMessage_GetParameters(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -585,7 +593,7 @@ class ServerMessage_GetParameters PROTOBUF_FINAL :
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:params.ServerMessage.GetParameters)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ServerMessage.GetParameters)
  private:
   class _Internal;
 
@@ -598,12 +606,12 @@ class ServerMessage_GetParameters PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ServerMessage_FitIns_ConfigEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ServerMessage_FitIns_ConfigEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ServerMessage_FitIns_ConfigEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
   ServerMessage_FitIns_ConfigEntry_DoNotUse();
@@ -613,7 +621,7 @@ public:
   void MergeFrom(const ServerMessage_FitIns_ConfigEntry_DoNotUse& other);
   static const ServerMessage_FitIns_ConfigEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ServerMessage_FitIns_ConfigEntry_DoNotUse*>(&_ServerMessage_FitIns_ConfigEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "params.ServerMessage.FitIns.ConfigEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "flower_sdk.ServerMessage.FitIns.ConfigEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
@@ -630,7 +638,7 @@ public:
 // -------------------------------------------------------------------
 
 class ServerMessage_FitIns PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ServerMessage.FitIns) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ServerMessage.FitIns) */ {
  public:
   inline ServerMessage_FitIns() : ServerMessage_FitIns(nullptr) {}
   virtual ~ServerMessage_FitIns();
@@ -720,7 +728,7 @@ class ServerMessage_FitIns PROTOBUF_FINAL :
   void InternalSwap(ServerMessage_FitIns* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ServerMessage.FitIns";
+    return "flower_sdk.ServerMessage.FitIns";
   }
   protected:
   explicit ServerMessage_FitIns(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -746,42 +754,42 @@ class ServerMessage_FitIns PROTOBUF_FINAL :
     kConfigFieldNumber = 2,
     kParametersFieldNumber = 1,
   };
-  // map<string, .params.Scalar> config = 2;
+  // map<string, .flower_sdk.Scalar> config = 2;
   int config_size() const;
   private:
   int _internal_config_size() const;
   public:
   void clear_config();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       _internal_config() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       _internal_mutable_config();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       config() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       mutable_config();
 
-  // .params.Parameters parameters = 1;
+  // .flower_sdk.Parameters parameters = 1;
   bool has_parameters() const;
   private:
   bool _internal_has_parameters() const;
   public:
   void clear_parameters();
-  const ::params::Parameters& parameters() const;
-  ::params::Parameters* release_parameters();
-  ::params::Parameters* mutable_parameters();
-  void set_allocated_parameters(::params::Parameters* parameters);
+  const ::flower_sdk::Parameters& parameters() const;
+  ::flower_sdk::Parameters* release_parameters();
+  ::flower_sdk::Parameters* mutable_parameters();
+  void set_allocated_parameters(::flower_sdk::Parameters* parameters);
   private:
-  const ::params::Parameters& _internal_parameters() const;
-  ::params::Parameters* _internal_mutable_parameters();
+  const ::flower_sdk::Parameters& _internal_parameters() const;
+  ::flower_sdk::Parameters* _internal_mutable_parameters();
   public:
   void unsafe_arena_set_allocated_parameters(
-      ::params::Parameters* parameters);
-  ::params::Parameters* unsafe_arena_release_parameters();
+      ::flower_sdk::Parameters* parameters);
+  ::flower_sdk::Parameters* unsafe_arena_release_parameters();
 
-  // @@protoc_insertion_point(class_scope:params.ServerMessage.FitIns)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ServerMessage.FitIns)
  private:
   class _Internal;
 
@@ -790,22 +798,22 @@ class ServerMessage_FitIns PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
       ServerMessage_FitIns_ConfigEntry_DoNotUse,
-      std::string, ::params::Scalar,
+      std::string, ::flower_sdk::Scalar,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> config_;
-  ::params::Parameters* parameters_;
+  ::flower_sdk::Parameters* parameters_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sdk_5ftransport_2eproto;
 };
 // -------------------------------------------------------------------
 
 class ServerMessage_EvaluateIns_ConfigEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ServerMessage_EvaluateIns_ConfigEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ServerMessage_EvaluateIns_ConfigEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
   ServerMessage_EvaluateIns_ConfigEntry_DoNotUse();
@@ -815,7 +823,7 @@ public:
   void MergeFrom(const ServerMessage_EvaluateIns_ConfigEntry_DoNotUse& other);
   static const ServerMessage_EvaluateIns_ConfigEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ServerMessage_EvaluateIns_ConfigEntry_DoNotUse*>(&_ServerMessage_EvaluateIns_ConfigEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "params.ServerMessage.EvaluateIns.ConfigEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "flower_sdk.ServerMessage.EvaluateIns.ConfigEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
@@ -832,7 +840,7 @@ public:
 // -------------------------------------------------------------------
 
 class ServerMessage_EvaluateIns PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ServerMessage.EvaluateIns) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ServerMessage.EvaluateIns) */ {
  public:
   inline ServerMessage_EvaluateIns() : ServerMessage_EvaluateIns(nullptr) {}
   virtual ~ServerMessage_EvaluateIns();
@@ -922,7 +930,7 @@ class ServerMessage_EvaluateIns PROTOBUF_FINAL :
   void InternalSwap(ServerMessage_EvaluateIns* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ServerMessage.EvaluateIns";
+    return "flower_sdk.ServerMessage.EvaluateIns";
   }
   protected:
   explicit ServerMessage_EvaluateIns(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -948,42 +956,42 @@ class ServerMessage_EvaluateIns PROTOBUF_FINAL :
     kConfigFieldNumber = 2,
     kParametersFieldNumber = 1,
   };
-  // map<string, .params.Scalar> config = 2;
+  // map<string, .flower_sdk.Scalar> config = 2;
   int config_size() const;
   private:
   int _internal_config_size() const;
   public:
   void clear_config();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       _internal_config() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       _internal_mutable_config();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       config() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       mutable_config();
 
-  // .params.Parameters parameters = 1;
+  // .flower_sdk.Parameters parameters = 1;
   bool has_parameters() const;
   private:
   bool _internal_has_parameters() const;
   public:
   void clear_parameters();
-  const ::params::Parameters& parameters() const;
-  ::params::Parameters* release_parameters();
-  ::params::Parameters* mutable_parameters();
-  void set_allocated_parameters(::params::Parameters* parameters);
+  const ::flower_sdk::Parameters& parameters() const;
+  ::flower_sdk::Parameters* release_parameters();
+  ::flower_sdk::Parameters* mutable_parameters();
+  void set_allocated_parameters(::flower_sdk::Parameters* parameters);
   private:
-  const ::params::Parameters& _internal_parameters() const;
-  ::params::Parameters* _internal_mutable_parameters();
+  const ::flower_sdk::Parameters& _internal_parameters() const;
+  ::flower_sdk::Parameters* _internal_mutable_parameters();
   public:
   void unsafe_arena_set_allocated_parameters(
-      ::params::Parameters* parameters);
-  ::params::Parameters* unsafe_arena_release_parameters();
+      ::flower_sdk::Parameters* parameters);
+  ::flower_sdk::Parameters* unsafe_arena_release_parameters();
 
-  // @@protoc_insertion_point(class_scope:params.ServerMessage.EvaluateIns)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ServerMessage.EvaluateIns)
  private:
   class _Internal;
 
@@ -992,22 +1000,22 @@ class ServerMessage_EvaluateIns PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
       ServerMessage_EvaluateIns_ConfigEntry_DoNotUse,
-      std::string, ::params::Scalar,
+      std::string, ::flower_sdk::Scalar,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> config_;
-  ::params::Parameters* parameters_;
+  ::flower_sdk::Parameters* parameters_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sdk_5ftransport_2eproto;
 };
 // -------------------------------------------------------------------
 
 class ServerMessage_PropertiesIns_ConfigEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ServerMessage_PropertiesIns_ConfigEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ServerMessage_PropertiesIns_ConfigEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
   ServerMessage_PropertiesIns_ConfigEntry_DoNotUse();
@@ -1017,7 +1025,7 @@ public:
   void MergeFrom(const ServerMessage_PropertiesIns_ConfigEntry_DoNotUse& other);
   static const ServerMessage_PropertiesIns_ConfigEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ServerMessage_PropertiesIns_ConfigEntry_DoNotUse*>(&_ServerMessage_PropertiesIns_ConfigEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "params.ServerMessage.PropertiesIns.ConfigEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "flower_sdk.ServerMessage.PropertiesIns.ConfigEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
@@ -1034,7 +1042,7 @@ public:
 // -------------------------------------------------------------------
 
 class ServerMessage_PropertiesIns PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ServerMessage.PropertiesIns) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ServerMessage.PropertiesIns) */ {
  public:
   inline ServerMessage_PropertiesIns() : ServerMessage_PropertiesIns(nullptr) {}
   virtual ~ServerMessage_PropertiesIns();
@@ -1124,7 +1132,7 @@ class ServerMessage_PropertiesIns PROTOBUF_FINAL :
   void InternalSwap(ServerMessage_PropertiesIns* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ServerMessage.PropertiesIns";
+    return "flower_sdk.ServerMessage.PropertiesIns";
   }
   protected:
   explicit ServerMessage_PropertiesIns(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1149,24 +1157,24 @@ class ServerMessage_PropertiesIns PROTOBUF_FINAL :
   enum : int {
     kConfigFieldNumber = 1,
   };
-  // map<string, .params.Scalar> config = 1;
+  // map<string, .flower_sdk.Scalar> config = 1;
   int config_size() const;
   private:
   int _internal_config_size() const;
   public:
   void clear_config();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       _internal_config() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       _internal_mutable_config();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       config() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       mutable_config();
 
-  // @@protoc_insertion_point(class_scope:params.ServerMessage.PropertiesIns)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ServerMessage.PropertiesIns)
  private:
   class _Internal;
 
@@ -1175,7 +1183,7 @@ class ServerMessage_PropertiesIns PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
       ServerMessage_PropertiesIns_ConfigEntry_DoNotUse,
-      std::string, ::params::Scalar,
+      std::string, ::flower_sdk::Scalar,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> config_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1184,7 +1192,7 @@ class ServerMessage_PropertiesIns PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ServerMessage PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ServerMessage) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ServerMessage) */ {
  public:
   inline ServerMessage() : ServerMessage(nullptr) {}
   virtual ~ServerMessage();
@@ -1226,7 +1234,7 @@ class ServerMessage PROTOBUF_FINAL :
     kGetParameters = 2,
     kFitIns = 3,
     kEvaluateIns = 4,
-    kPropertiesOns = 5,
+    kPropertiesIns = 5,
     MSG_NOT_SET = 0,
   };
 
@@ -1283,7 +1291,7 @@ class ServerMessage PROTOBUF_FINAL :
   void InternalSwap(ServerMessage* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ServerMessage";
+    return "flower_sdk.ServerMessage";
   }
   protected:
   explicit ServerMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1315,108 +1323,108 @@ class ServerMessage PROTOBUF_FINAL :
     kGetParametersFieldNumber = 2,
     kFitInsFieldNumber = 3,
     kEvaluateInsFieldNumber = 4,
-    kPropertiesOnsFieldNumber = 5,
+    kPropertiesInsFieldNumber = 5,
   };
-  // .params.ServerMessage.Reconnect reconnect = 1;
+  // .flower_sdk.ServerMessage.Reconnect reconnect = 1;
   bool has_reconnect() const;
   private:
   bool _internal_has_reconnect() const;
   public:
   void clear_reconnect();
-  const ::params::ServerMessage_Reconnect& reconnect() const;
-  ::params::ServerMessage_Reconnect* release_reconnect();
-  ::params::ServerMessage_Reconnect* mutable_reconnect();
-  void set_allocated_reconnect(::params::ServerMessage_Reconnect* reconnect);
+  const ::flower_sdk::ServerMessage_Reconnect& reconnect() const;
+  ::flower_sdk::ServerMessage_Reconnect* release_reconnect();
+  ::flower_sdk::ServerMessage_Reconnect* mutable_reconnect();
+  void set_allocated_reconnect(::flower_sdk::ServerMessage_Reconnect* reconnect);
   private:
-  const ::params::ServerMessage_Reconnect& _internal_reconnect() const;
-  ::params::ServerMessage_Reconnect* _internal_mutable_reconnect();
+  const ::flower_sdk::ServerMessage_Reconnect& _internal_reconnect() const;
+  ::flower_sdk::ServerMessage_Reconnect* _internal_mutable_reconnect();
   public:
   void unsafe_arena_set_allocated_reconnect(
-      ::params::ServerMessage_Reconnect* reconnect);
-  ::params::ServerMessage_Reconnect* unsafe_arena_release_reconnect();
+      ::flower_sdk::ServerMessage_Reconnect* reconnect);
+  ::flower_sdk::ServerMessage_Reconnect* unsafe_arena_release_reconnect();
 
-  // .params.ServerMessage.GetParameters get_parameters = 2;
+  // .flower_sdk.ServerMessage.GetParameters get_parameters = 2;
   bool has_get_parameters() const;
   private:
   bool _internal_has_get_parameters() const;
   public:
   void clear_get_parameters();
-  const ::params::ServerMessage_GetParameters& get_parameters() const;
-  ::params::ServerMessage_GetParameters* release_get_parameters();
-  ::params::ServerMessage_GetParameters* mutable_get_parameters();
-  void set_allocated_get_parameters(::params::ServerMessage_GetParameters* get_parameters);
+  const ::flower_sdk::ServerMessage_GetParameters& get_parameters() const;
+  ::flower_sdk::ServerMessage_GetParameters* release_get_parameters();
+  ::flower_sdk::ServerMessage_GetParameters* mutable_get_parameters();
+  void set_allocated_get_parameters(::flower_sdk::ServerMessage_GetParameters* get_parameters);
   private:
-  const ::params::ServerMessage_GetParameters& _internal_get_parameters() const;
-  ::params::ServerMessage_GetParameters* _internal_mutable_get_parameters();
+  const ::flower_sdk::ServerMessage_GetParameters& _internal_get_parameters() const;
+  ::flower_sdk::ServerMessage_GetParameters* _internal_mutable_get_parameters();
   public:
   void unsafe_arena_set_allocated_get_parameters(
-      ::params::ServerMessage_GetParameters* get_parameters);
-  ::params::ServerMessage_GetParameters* unsafe_arena_release_get_parameters();
+      ::flower_sdk::ServerMessage_GetParameters* get_parameters);
+  ::flower_sdk::ServerMessage_GetParameters* unsafe_arena_release_get_parameters();
 
-  // .params.ServerMessage.FitIns fit_ins = 3;
+  // .flower_sdk.ServerMessage.FitIns fit_ins = 3;
   bool has_fit_ins() const;
   private:
   bool _internal_has_fit_ins() const;
   public:
   void clear_fit_ins();
-  const ::params::ServerMessage_FitIns& fit_ins() const;
-  ::params::ServerMessage_FitIns* release_fit_ins();
-  ::params::ServerMessage_FitIns* mutable_fit_ins();
-  void set_allocated_fit_ins(::params::ServerMessage_FitIns* fit_ins);
+  const ::flower_sdk::ServerMessage_FitIns& fit_ins() const;
+  ::flower_sdk::ServerMessage_FitIns* release_fit_ins();
+  ::flower_sdk::ServerMessage_FitIns* mutable_fit_ins();
+  void set_allocated_fit_ins(::flower_sdk::ServerMessage_FitIns* fit_ins);
   private:
-  const ::params::ServerMessage_FitIns& _internal_fit_ins() const;
-  ::params::ServerMessage_FitIns* _internal_mutable_fit_ins();
+  const ::flower_sdk::ServerMessage_FitIns& _internal_fit_ins() const;
+  ::flower_sdk::ServerMessage_FitIns* _internal_mutable_fit_ins();
   public:
   void unsafe_arena_set_allocated_fit_ins(
-      ::params::ServerMessage_FitIns* fit_ins);
-  ::params::ServerMessage_FitIns* unsafe_arena_release_fit_ins();
+      ::flower_sdk::ServerMessage_FitIns* fit_ins);
+  ::flower_sdk::ServerMessage_FitIns* unsafe_arena_release_fit_ins();
 
-  // .params.ServerMessage.EvaluateIns evaluate_ins = 4;
+  // .flower_sdk.ServerMessage.EvaluateIns evaluate_ins = 4;
   bool has_evaluate_ins() const;
   private:
   bool _internal_has_evaluate_ins() const;
   public:
   void clear_evaluate_ins();
-  const ::params::ServerMessage_EvaluateIns& evaluate_ins() const;
-  ::params::ServerMessage_EvaluateIns* release_evaluate_ins();
-  ::params::ServerMessage_EvaluateIns* mutable_evaluate_ins();
-  void set_allocated_evaluate_ins(::params::ServerMessage_EvaluateIns* evaluate_ins);
+  const ::flower_sdk::ServerMessage_EvaluateIns& evaluate_ins() const;
+  ::flower_sdk::ServerMessage_EvaluateIns* release_evaluate_ins();
+  ::flower_sdk::ServerMessage_EvaluateIns* mutable_evaluate_ins();
+  void set_allocated_evaluate_ins(::flower_sdk::ServerMessage_EvaluateIns* evaluate_ins);
   private:
-  const ::params::ServerMessage_EvaluateIns& _internal_evaluate_ins() const;
-  ::params::ServerMessage_EvaluateIns* _internal_mutable_evaluate_ins();
+  const ::flower_sdk::ServerMessage_EvaluateIns& _internal_evaluate_ins() const;
+  ::flower_sdk::ServerMessage_EvaluateIns* _internal_mutable_evaluate_ins();
   public:
   void unsafe_arena_set_allocated_evaluate_ins(
-      ::params::ServerMessage_EvaluateIns* evaluate_ins);
-  ::params::ServerMessage_EvaluateIns* unsafe_arena_release_evaluate_ins();
+      ::flower_sdk::ServerMessage_EvaluateIns* evaluate_ins);
+  ::flower_sdk::ServerMessage_EvaluateIns* unsafe_arena_release_evaluate_ins();
 
-  // .params.ServerMessage.PropertiesIns properties_ons = 5;
-  bool has_properties_ons() const;
+  // .flower_sdk.ServerMessage.PropertiesIns properties_ins = 5;
+  bool has_properties_ins() const;
   private:
-  bool _internal_has_properties_ons() const;
+  bool _internal_has_properties_ins() const;
   public:
-  void clear_properties_ons();
-  const ::params::ServerMessage_PropertiesIns& properties_ons() const;
-  ::params::ServerMessage_PropertiesIns* release_properties_ons();
-  ::params::ServerMessage_PropertiesIns* mutable_properties_ons();
-  void set_allocated_properties_ons(::params::ServerMessage_PropertiesIns* properties_ons);
+  void clear_properties_ins();
+  const ::flower_sdk::ServerMessage_PropertiesIns& properties_ins() const;
+  ::flower_sdk::ServerMessage_PropertiesIns* release_properties_ins();
+  ::flower_sdk::ServerMessage_PropertiesIns* mutable_properties_ins();
+  void set_allocated_properties_ins(::flower_sdk::ServerMessage_PropertiesIns* properties_ins);
   private:
-  const ::params::ServerMessage_PropertiesIns& _internal_properties_ons() const;
-  ::params::ServerMessage_PropertiesIns* _internal_mutable_properties_ons();
+  const ::flower_sdk::ServerMessage_PropertiesIns& _internal_properties_ins() const;
+  ::flower_sdk::ServerMessage_PropertiesIns* _internal_mutable_properties_ins();
   public:
-  void unsafe_arena_set_allocated_properties_ons(
-      ::params::ServerMessage_PropertiesIns* properties_ons);
-  ::params::ServerMessage_PropertiesIns* unsafe_arena_release_properties_ons();
+  void unsafe_arena_set_allocated_properties_ins(
+      ::flower_sdk::ServerMessage_PropertiesIns* properties_ins);
+  ::flower_sdk::ServerMessage_PropertiesIns* unsafe_arena_release_properties_ins();
 
   void clear_msg();
   MsgCase msg_case() const;
-  // @@protoc_insertion_point(class_scope:params.ServerMessage)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ServerMessage)
  private:
   class _Internal;
   void set_has_reconnect();
   void set_has_get_parameters();
   void set_has_fit_ins();
   void set_has_evaluate_ins();
-  void set_has_properties_ons();
+  void set_has_properties_ins();
 
   inline bool has_msg() const;
   inline void clear_has_msg();
@@ -1427,11 +1435,11 @@ class ServerMessage PROTOBUF_FINAL :
   union MsgUnion {
     constexpr MsgUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::params::ServerMessage_Reconnect* reconnect_;
-    ::params::ServerMessage_GetParameters* get_parameters_;
-    ::params::ServerMessage_FitIns* fit_ins_;
-    ::params::ServerMessage_EvaluateIns* evaluate_ins_;
-    ::params::ServerMessage_PropertiesIns* properties_ons_;
+    ::flower_sdk::ServerMessage_Reconnect* reconnect_;
+    ::flower_sdk::ServerMessage_GetParameters* get_parameters_;
+    ::flower_sdk::ServerMessage_FitIns* fit_ins_;
+    ::flower_sdk::ServerMessage_EvaluateIns* evaluate_ins_;
+    ::flower_sdk::ServerMessage_PropertiesIns* properties_ins_;
   } msg_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -1441,7 +1449,7 @@ class ServerMessage PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ClientMessage_Disconnect PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ClientMessage.Disconnect) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ClientMessage.Disconnect) */ {
  public:
   inline ClientMessage_Disconnect() : ClientMessage_Disconnect(nullptr) {}
   virtual ~ClientMessage_Disconnect();
@@ -1531,7 +1539,7 @@ class ClientMessage_Disconnect PROTOBUF_FINAL :
   void InternalSwap(ClientMessage_Disconnect* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ClientMessage.Disconnect";
+    return "flower_sdk.ClientMessage.Disconnect";
   }
   protected:
   explicit ClientMessage_Disconnect(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1555,16 +1563,16 @@ class ClientMessage_Disconnect PROTOBUF_FINAL :
   enum : int {
     kReasonFieldNumber = 1,
   };
-  // .params.Reason reason = 1;
+  // .flower_sdk.Reason reason = 1;
   void clear_reason();
-  ::params::Reason reason() const;
-  void set_reason(::params::Reason value);
+  ::flower_sdk::Reason reason() const;
+  void set_reason(::flower_sdk::Reason value);
   private:
-  ::params::Reason _internal_reason() const;
-  void _internal_set_reason(::params::Reason value);
+  ::flower_sdk::Reason _internal_reason() const;
+  void _internal_set_reason(::flower_sdk::Reason value);
   public:
 
-  // @@protoc_insertion_point(class_scope:params.ClientMessage.Disconnect)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ClientMessage.Disconnect)
  private:
   class _Internal;
 
@@ -1578,7 +1586,7 @@ class ClientMessage_Disconnect PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ClientMessage_ParametersRes PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ClientMessage.ParametersRes) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ClientMessage.ParametersRes) */ {
  public:
   inline ClientMessage_ParametersRes() : ClientMessage_ParametersRes(nullptr) {}
   virtual ~ClientMessage_ParametersRes();
@@ -1668,7 +1676,7 @@ class ClientMessage_ParametersRes PROTOBUF_FINAL :
   void InternalSwap(ClientMessage_ParametersRes* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ClientMessage.ParametersRes";
+    return "flower_sdk.ClientMessage.ParametersRes";
   }
   protected:
   explicit ClientMessage_ParametersRes(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1692,44 +1700,44 @@ class ClientMessage_ParametersRes PROTOBUF_FINAL :
   enum : int {
     kParametersFieldNumber = 1,
   };
-  // .params.Parameters parameters = 1;
+  // .flower_sdk.Parameters parameters = 1;
   bool has_parameters() const;
   private:
   bool _internal_has_parameters() const;
   public:
   void clear_parameters();
-  const ::params::Parameters& parameters() const;
-  ::params::Parameters* release_parameters();
-  ::params::Parameters* mutable_parameters();
-  void set_allocated_parameters(::params::Parameters* parameters);
+  const ::flower_sdk::Parameters& parameters() const;
+  ::flower_sdk::Parameters* release_parameters();
+  ::flower_sdk::Parameters* mutable_parameters();
+  void set_allocated_parameters(::flower_sdk::Parameters* parameters);
   private:
-  const ::params::Parameters& _internal_parameters() const;
-  ::params::Parameters* _internal_mutable_parameters();
+  const ::flower_sdk::Parameters& _internal_parameters() const;
+  ::flower_sdk::Parameters* _internal_mutable_parameters();
   public:
   void unsafe_arena_set_allocated_parameters(
-      ::params::Parameters* parameters);
-  ::params::Parameters* unsafe_arena_release_parameters();
+      ::flower_sdk::Parameters* parameters);
+  ::flower_sdk::Parameters* unsafe_arena_release_parameters();
 
-  // @@protoc_insertion_point(class_scope:params.ClientMessage.ParametersRes)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ClientMessage.ParametersRes)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::params::Parameters* parameters_;
+  ::flower_sdk::Parameters* parameters_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sdk_5ftransport_2eproto;
 };
 // -------------------------------------------------------------------
 
 class ClientMessage_FitRes_MetricsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ClientMessage_FitRes_MetricsEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ClientMessage_FitRes_MetricsEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
   ClientMessage_FitRes_MetricsEntry_DoNotUse();
@@ -1739,7 +1747,7 @@ public:
   void MergeFrom(const ClientMessage_FitRes_MetricsEntry_DoNotUse& other);
   static const ClientMessage_FitRes_MetricsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ClientMessage_FitRes_MetricsEntry_DoNotUse*>(&_ClientMessage_FitRes_MetricsEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "params.ClientMessage.FitRes.MetricsEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "flower_sdk.ClientMessage.FitRes.MetricsEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
@@ -1756,7 +1764,7 @@ public:
 // -------------------------------------------------------------------
 
 class ClientMessage_FitRes PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ClientMessage.FitRes) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ClientMessage.FitRes) */ {
  public:
   inline ClientMessage_FitRes() : ClientMessage_FitRes(nullptr) {}
   virtual ~ClientMessage_FitRes();
@@ -1846,7 +1854,7 @@ class ClientMessage_FitRes PROTOBUF_FINAL :
   void InternalSwap(ClientMessage_FitRes* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ClientMessage.FitRes";
+    return "flower_sdk.ClientMessage.FitRes";
   }
   protected:
   explicit ClientMessage_FitRes(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1873,40 +1881,40 @@ class ClientMessage_FitRes PROTOBUF_FINAL :
     kParametersFieldNumber = 1,
     kNumExamplesFieldNumber = 2,
   };
-  // map<string, .params.Scalar> metrics = 5;
+  // map<string, .flower_sdk.Scalar> metrics = 5;
   int metrics_size() const;
   private:
   int _internal_metrics_size() const;
   public:
   void clear_metrics();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       _internal_metrics() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       _internal_mutable_metrics();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       metrics() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       mutable_metrics();
 
-  // .params.Parameters parameters = 1;
+  // .flower_sdk.Parameters parameters = 1;
   bool has_parameters() const;
   private:
   bool _internal_has_parameters() const;
   public:
   void clear_parameters();
-  const ::params::Parameters& parameters() const;
-  ::params::Parameters* release_parameters();
-  ::params::Parameters* mutable_parameters();
-  void set_allocated_parameters(::params::Parameters* parameters);
+  const ::flower_sdk::Parameters& parameters() const;
+  ::flower_sdk::Parameters* release_parameters();
+  ::flower_sdk::Parameters* mutable_parameters();
+  void set_allocated_parameters(::flower_sdk::Parameters* parameters);
   private:
-  const ::params::Parameters& _internal_parameters() const;
-  ::params::Parameters* _internal_mutable_parameters();
+  const ::flower_sdk::Parameters& _internal_parameters() const;
+  ::flower_sdk::Parameters* _internal_mutable_parameters();
   public:
   void unsafe_arena_set_allocated_parameters(
-      ::params::Parameters* parameters);
-  ::params::Parameters* unsafe_arena_release_parameters();
+      ::flower_sdk::Parameters* parameters);
+  ::flower_sdk::Parameters* unsafe_arena_release_parameters();
 
   // int64 num_examples = 2;
   void clear_num_examples();
@@ -1917,7 +1925,7 @@ class ClientMessage_FitRes PROTOBUF_FINAL :
   void _internal_set_num_examples(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:params.ClientMessage.FitRes)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ClientMessage.FitRes)
  private:
   class _Internal;
 
@@ -1926,10 +1934,10 @@ class ClientMessage_FitRes PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
       ClientMessage_FitRes_MetricsEntry_DoNotUse,
-      std::string, ::params::Scalar,
+      std::string, ::flower_sdk::Scalar,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> metrics_;
-  ::params::Parameters* parameters_;
+  ::flower_sdk::Parameters* parameters_;
   ::PROTOBUF_NAMESPACE_ID::int64 num_examples_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sdk_5ftransport_2eproto;
@@ -1937,12 +1945,12 @@ class ClientMessage_FitRes PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ClientMessage_EvaluateRes_MetricsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ClientMessage_EvaluateRes_MetricsEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ClientMessage_EvaluateRes_MetricsEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
   ClientMessage_EvaluateRes_MetricsEntry_DoNotUse();
@@ -1952,7 +1960,7 @@ public:
   void MergeFrom(const ClientMessage_EvaluateRes_MetricsEntry_DoNotUse& other);
   static const ClientMessage_EvaluateRes_MetricsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ClientMessage_EvaluateRes_MetricsEntry_DoNotUse*>(&_ClientMessage_EvaluateRes_MetricsEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "params.ClientMessage.EvaluateRes.MetricsEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "flower_sdk.ClientMessage.EvaluateRes.MetricsEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
@@ -1969,7 +1977,7 @@ public:
 // -------------------------------------------------------------------
 
 class ClientMessage_EvaluateRes PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ClientMessage.EvaluateRes) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ClientMessage.EvaluateRes) */ {
  public:
   inline ClientMessage_EvaluateRes() : ClientMessage_EvaluateRes(nullptr) {}
   virtual ~ClientMessage_EvaluateRes();
@@ -2059,7 +2067,7 @@ class ClientMessage_EvaluateRes PROTOBUF_FINAL :
   void InternalSwap(ClientMessage_EvaluateRes* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ClientMessage.EvaluateRes";
+    return "flower_sdk.ClientMessage.EvaluateRes";
   }
   protected:
   explicit ClientMessage_EvaluateRes(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2086,21 +2094,21 @@ class ClientMessage_EvaluateRes PROTOBUF_FINAL :
     kNumExamplesFieldNumber = 1,
     kLossFieldNumber = 2,
   };
-  // map<string, .params.Scalar> metrics = 4;
+  // map<string, .flower_sdk.Scalar> metrics = 4;
   int metrics_size() const;
   private:
   int _internal_metrics_size() const;
   public:
   void clear_metrics();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       _internal_metrics() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       _internal_mutable_metrics();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       metrics() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       mutable_metrics();
 
   // int64 num_examples = 1;
@@ -2121,7 +2129,7 @@ class ClientMessage_EvaluateRes PROTOBUF_FINAL :
   void _internal_set_loss(float value);
   public:
 
-  // @@protoc_insertion_point(class_scope:params.ClientMessage.EvaluateRes)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ClientMessage.EvaluateRes)
  private:
   class _Internal;
 
@@ -2130,7 +2138,7 @@ class ClientMessage_EvaluateRes PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
       ClientMessage_EvaluateRes_MetricsEntry_DoNotUse,
-      std::string, ::params::Scalar,
+      std::string, ::flower_sdk::Scalar,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> metrics_;
   ::PROTOBUF_NAMESPACE_ID::int64 num_examples_;
@@ -2141,12 +2149,12 @@ class ClientMessage_EvaluateRes PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse, 
-    std::string, ::params::Scalar,
+    std::string, ::flower_sdk::Scalar,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
   ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse();
@@ -2156,7 +2164,7 @@ public:
   void MergeFrom(const ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse& other);
   static const ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse*>(&_ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "params.ClientMessage.PropertiesRes.PropertiesEntry.key");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "flower_sdk.ClientMessage.PropertiesRes.PropertiesEntry.key");
  }
   static bool ValidateValue(void*) { return true; }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
@@ -2173,7 +2181,7 @@ public:
 // -------------------------------------------------------------------
 
 class ClientMessage_PropertiesRes PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ClientMessage.PropertiesRes) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ClientMessage.PropertiesRes) */ {
  public:
   inline ClientMessage_PropertiesRes() : ClientMessage_PropertiesRes(nullptr) {}
   virtual ~ClientMessage_PropertiesRes();
@@ -2263,7 +2271,7 @@ class ClientMessage_PropertiesRes PROTOBUF_FINAL :
   void InternalSwap(ClientMessage_PropertiesRes* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ClientMessage.PropertiesRes";
+    return "flower_sdk.ClientMessage.PropertiesRes";
   }
   protected:
   explicit ClientMessage_PropertiesRes(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2288,24 +2296,24 @@ class ClientMessage_PropertiesRes PROTOBUF_FINAL :
   enum : int {
     kPropertiesFieldNumber = 1,
   };
-  // map<string, .params.Scalar> properties = 1;
+  // map<string, .flower_sdk.Scalar> properties = 1;
   int properties_size() const;
   private:
   int _internal_properties_size() const;
   public:
   void clear_properties();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       _internal_properties() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       _internal_mutable_properties();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
       properties() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
       mutable_properties();
 
-  // @@protoc_insertion_point(class_scope:params.ClientMessage.PropertiesRes)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ClientMessage.PropertiesRes)
  private:
   class _Internal;
 
@@ -2314,7 +2322,7 @@ class ClientMessage_PropertiesRes PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
       ClientMessage_PropertiesRes_PropertiesEntry_DoNotUse,
-      std::string, ::params::Scalar,
+      std::string, ::flower_sdk::Scalar,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> properties_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2323,7 +2331,7 @@ class ClientMessage_PropertiesRes PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class ClientMessage PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.ClientMessage) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.ClientMessage) */ {
  public:
   inline ClientMessage() : ClientMessage(nullptr) {}
   virtual ~ClientMessage();
@@ -2422,7 +2430,7 @@ class ClientMessage PROTOBUF_FINAL :
   void InternalSwap(ClientMessage* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.ClientMessage";
+    return "flower_sdk.ClientMessage";
   }
   protected:
   explicit ClientMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2456,99 +2464,99 @@ class ClientMessage PROTOBUF_FINAL :
     kEvaluateResFieldNumber = 4,
     kPropertiesResFieldNumber = 5,
   };
-  // .params.ClientMessage.Disconnect disconnect = 1;
+  // .flower_sdk.ClientMessage.Disconnect disconnect = 1;
   bool has_disconnect() const;
   private:
   bool _internal_has_disconnect() const;
   public:
   void clear_disconnect();
-  const ::params::ClientMessage_Disconnect& disconnect() const;
-  ::params::ClientMessage_Disconnect* release_disconnect();
-  ::params::ClientMessage_Disconnect* mutable_disconnect();
-  void set_allocated_disconnect(::params::ClientMessage_Disconnect* disconnect);
+  const ::flower_sdk::ClientMessage_Disconnect& disconnect() const;
+  ::flower_sdk::ClientMessage_Disconnect* release_disconnect();
+  ::flower_sdk::ClientMessage_Disconnect* mutable_disconnect();
+  void set_allocated_disconnect(::flower_sdk::ClientMessage_Disconnect* disconnect);
   private:
-  const ::params::ClientMessage_Disconnect& _internal_disconnect() const;
-  ::params::ClientMessage_Disconnect* _internal_mutable_disconnect();
+  const ::flower_sdk::ClientMessage_Disconnect& _internal_disconnect() const;
+  ::flower_sdk::ClientMessage_Disconnect* _internal_mutable_disconnect();
   public:
   void unsafe_arena_set_allocated_disconnect(
-      ::params::ClientMessage_Disconnect* disconnect);
-  ::params::ClientMessage_Disconnect* unsafe_arena_release_disconnect();
+      ::flower_sdk::ClientMessage_Disconnect* disconnect);
+  ::flower_sdk::ClientMessage_Disconnect* unsafe_arena_release_disconnect();
 
-  // .params.ClientMessage.ParametersRes parameters_res = 2;
+  // .flower_sdk.ClientMessage.ParametersRes parameters_res = 2;
   bool has_parameters_res() const;
   private:
   bool _internal_has_parameters_res() const;
   public:
   void clear_parameters_res();
-  const ::params::ClientMessage_ParametersRes& parameters_res() const;
-  ::params::ClientMessage_ParametersRes* release_parameters_res();
-  ::params::ClientMessage_ParametersRes* mutable_parameters_res();
-  void set_allocated_parameters_res(::params::ClientMessage_ParametersRes* parameters_res);
+  const ::flower_sdk::ClientMessage_ParametersRes& parameters_res() const;
+  ::flower_sdk::ClientMessage_ParametersRes* release_parameters_res();
+  ::flower_sdk::ClientMessage_ParametersRes* mutable_parameters_res();
+  void set_allocated_parameters_res(::flower_sdk::ClientMessage_ParametersRes* parameters_res);
   private:
-  const ::params::ClientMessage_ParametersRes& _internal_parameters_res() const;
-  ::params::ClientMessage_ParametersRes* _internal_mutable_parameters_res();
+  const ::flower_sdk::ClientMessage_ParametersRes& _internal_parameters_res() const;
+  ::flower_sdk::ClientMessage_ParametersRes* _internal_mutable_parameters_res();
   public:
   void unsafe_arena_set_allocated_parameters_res(
-      ::params::ClientMessage_ParametersRes* parameters_res);
-  ::params::ClientMessage_ParametersRes* unsafe_arena_release_parameters_res();
+      ::flower_sdk::ClientMessage_ParametersRes* parameters_res);
+  ::flower_sdk::ClientMessage_ParametersRes* unsafe_arena_release_parameters_res();
 
-  // .params.ClientMessage.FitRes fit_res = 3;
+  // .flower_sdk.ClientMessage.FitRes fit_res = 3;
   bool has_fit_res() const;
   private:
   bool _internal_has_fit_res() const;
   public:
   void clear_fit_res();
-  const ::params::ClientMessage_FitRes& fit_res() const;
-  ::params::ClientMessage_FitRes* release_fit_res();
-  ::params::ClientMessage_FitRes* mutable_fit_res();
-  void set_allocated_fit_res(::params::ClientMessage_FitRes* fit_res);
+  const ::flower_sdk::ClientMessage_FitRes& fit_res() const;
+  ::flower_sdk::ClientMessage_FitRes* release_fit_res();
+  ::flower_sdk::ClientMessage_FitRes* mutable_fit_res();
+  void set_allocated_fit_res(::flower_sdk::ClientMessage_FitRes* fit_res);
   private:
-  const ::params::ClientMessage_FitRes& _internal_fit_res() const;
-  ::params::ClientMessage_FitRes* _internal_mutable_fit_res();
+  const ::flower_sdk::ClientMessage_FitRes& _internal_fit_res() const;
+  ::flower_sdk::ClientMessage_FitRes* _internal_mutable_fit_res();
   public:
   void unsafe_arena_set_allocated_fit_res(
-      ::params::ClientMessage_FitRes* fit_res);
-  ::params::ClientMessage_FitRes* unsafe_arena_release_fit_res();
+      ::flower_sdk::ClientMessage_FitRes* fit_res);
+  ::flower_sdk::ClientMessage_FitRes* unsafe_arena_release_fit_res();
 
-  // .params.ClientMessage.EvaluateRes evaluate_res = 4;
+  // .flower_sdk.ClientMessage.EvaluateRes evaluate_res = 4;
   bool has_evaluate_res() const;
   private:
   bool _internal_has_evaluate_res() const;
   public:
   void clear_evaluate_res();
-  const ::params::ClientMessage_EvaluateRes& evaluate_res() const;
-  ::params::ClientMessage_EvaluateRes* release_evaluate_res();
-  ::params::ClientMessage_EvaluateRes* mutable_evaluate_res();
-  void set_allocated_evaluate_res(::params::ClientMessage_EvaluateRes* evaluate_res);
+  const ::flower_sdk::ClientMessage_EvaluateRes& evaluate_res() const;
+  ::flower_sdk::ClientMessage_EvaluateRes* release_evaluate_res();
+  ::flower_sdk::ClientMessage_EvaluateRes* mutable_evaluate_res();
+  void set_allocated_evaluate_res(::flower_sdk::ClientMessage_EvaluateRes* evaluate_res);
   private:
-  const ::params::ClientMessage_EvaluateRes& _internal_evaluate_res() const;
-  ::params::ClientMessage_EvaluateRes* _internal_mutable_evaluate_res();
+  const ::flower_sdk::ClientMessage_EvaluateRes& _internal_evaluate_res() const;
+  ::flower_sdk::ClientMessage_EvaluateRes* _internal_mutable_evaluate_res();
   public:
   void unsafe_arena_set_allocated_evaluate_res(
-      ::params::ClientMessage_EvaluateRes* evaluate_res);
-  ::params::ClientMessage_EvaluateRes* unsafe_arena_release_evaluate_res();
+      ::flower_sdk::ClientMessage_EvaluateRes* evaluate_res);
+  ::flower_sdk::ClientMessage_EvaluateRes* unsafe_arena_release_evaluate_res();
 
-  // .params.ClientMessage.PropertiesRes properties_res = 5;
+  // .flower_sdk.ClientMessage.PropertiesRes properties_res = 5;
   bool has_properties_res() const;
   private:
   bool _internal_has_properties_res() const;
   public:
   void clear_properties_res();
-  const ::params::ClientMessage_PropertiesRes& properties_res() const;
-  ::params::ClientMessage_PropertiesRes* release_properties_res();
-  ::params::ClientMessage_PropertiesRes* mutable_properties_res();
-  void set_allocated_properties_res(::params::ClientMessage_PropertiesRes* properties_res);
+  const ::flower_sdk::ClientMessage_PropertiesRes& properties_res() const;
+  ::flower_sdk::ClientMessage_PropertiesRes* release_properties_res();
+  ::flower_sdk::ClientMessage_PropertiesRes* mutable_properties_res();
+  void set_allocated_properties_res(::flower_sdk::ClientMessage_PropertiesRes* properties_res);
   private:
-  const ::params::ClientMessage_PropertiesRes& _internal_properties_res() const;
-  ::params::ClientMessage_PropertiesRes* _internal_mutable_properties_res();
+  const ::flower_sdk::ClientMessage_PropertiesRes& _internal_properties_res() const;
+  ::flower_sdk::ClientMessage_PropertiesRes* _internal_mutable_properties_res();
   public:
   void unsafe_arena_set_allocated_properties_res(
-      ::params::ClientMessage_PropertiesRes* properties_res);
-  ::params::ClientMessage_PropertiesRes* unsafe_arena_release_properties_res();
+      ::flower_sdk::ClientMessage_PropertiesRes* properties_res);
+  ::flower_sdk::ClientMessage_PropertiesRes* unsafe_arena_release_properties_res();
 
   void clear_msg();
   MsgCase msg_case() const;
-  // @@protoc_insertion_point(class_scope:params.ClientMessage)
+  // @@protoc_insertion_point(class_scope:flower_sdk.ClientMessage)
  private:
   class _Internal;
   void set_has_disconnect();
@@ -2566,11 +2574,11 @@ class ClientMessage PROTOBUF_FINAL :
   union MsgUnion {
     constexpr MsgUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::params::ClientMessage_Disconnect* disconnect_;
-    ::params::ClientMessage_ParametersRes* parameters_res_;
-    ::params::ClientMessage_FitRes* fit_res_;
-    ::params::ClientMessage_EvaluateRes* evaluate_res_;
-    ::params::ClientMessage_PropertiesRes* properties_res_;
+    ::flower_sdk::ClientMessage_Disconnect* disconnect_;
+    ::flower_sdk::ClientMessage_ParametersRes* parameters_res_;
+    ::flower_sdk::ClientMessage_FitRes* fit_res_;
+    ::flower_sdk::ClientMessage_EvaluateRes* evaluate_res_;
+    ::flower_sdk::ClientMessage_PropertiesRes* properties_res_;
   } msg_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -2580,7 +2588,7 @@ class ClientMessage PROTOBUF_FINAL :
 // -------------------------------------------------------------------
 
 class Scalar PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:params.Scalar) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:flower_sdk.Scalar) */ {
  public:
   inline Scalar() : Scalar(nullptr) {}
   virtual ~Scalar();
@@ -2679,7 +2687,7 @@ class Scalar PROTOBUF_FINAL :
   void InternalSwap(Scalar* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "params.Scalar";
+    return "flower_sdk.Scalar";
   }
   protected:
   explicit Scalar(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2788,7 +2796,7 @@ class Scalar PROTOBUF_FINAL :
 
   void clear_scalar();
   ScalarCase scalar_case() const;
-  // @@protoc_insertion_point(class_scope:params.Scalar)
+  // @@protoc_insertion_point(class_scope:flower_sdk.Scalar)
  private:
   class _Internal;
   void set_has_double_();
@@ -2828,65 +2836,78 @@ class Scalar PROTOBUF_FINAL :
 #endif  // __GNUC__
 // Parameters
 
-// bytes parameters = 1;
+// repeated bytes parameters = 1;
+inline int Parameters::_internal_parameters_size() const {
+  return parameters_.size();
+}
+inline int Parameters::parameters_size() const {
+  return _internal_parameters_size();
+}
 inline void Parameters::clear_parameters() {
-  parameters_.ClearToEmpty();
+  parameters_.Clear();
 }
-inline const std::string& Parameters::parameters() const {
-  // @@protoc_insertion_point(field_get:params.Parameters.parameters)
-  return _internal_parameters();
+inline std::string* Parameters::add_parameters() {
+  // @@protoc_insertion_point(field_add_mutable:flower_sdk.Parameters.parameters)
+  return _internal_add_parameters();
 }
-inline void Parameters::set_parameters(const std::string& value) {
-  _internal_set_parameters(value);
-  // @@protoc_insertion_point(field_set:params.Parameters.parameters)
+inline const std::string& Parameters::_internal_parameters(int index) const {
+  return parameters_.Get(index);
 }
-inline std::string* Parameters::mutable_parameters() {
-  // @@protoc_insertion_point(field_mutable:params.Parameters.parameters)
-  return _internal_mutable_parameters();
+inline const std::string& Parameters::parameters(int index) const {
+  // @@protoc_insertion_point(field_get:flower_sdk.Parameters.parameters)
+  return _internal_parameters(index);
 }
-inline const std::string& Parameters::_internal_parameters() const {
-  return parameters_.Get();
+inline std::string* Parameters::mutable_parameters(int index) {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.Parameters.parameters)
+  return parameters_.Mutable(index);
 }
-inline void Parameters::_internal_set_parameters(const std::string& value) {
-  
-  parameters_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+inline void Parameters::set_parameters(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:flower_sdk.Parameters.parameters)
+  parameters_.Mutable(index)->assign(value);
 }
-inline void Parameters::set_parameters(std::string&& value) {
-  
-  parameters_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:params.Parameters.parameters)
+inline void Parameters::set_parameters(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:flower_sdk.Parameters.parameters)
+  parameters_.Mutable(index)->assign(std::move(value));
 }
-inline void Parameters::set_parameters(const char* value) {
+inline void Parameters::set_parameters(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  
-  parameters_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:params.Parameters.parameters)
+  parameters_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:flower_sdk.Parameters.parameters)
 }
-inline void Parameters::set_parameters(const void* value,
-    size_t size) {
-  
-  parameters_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:params.Parameters.parameters)
+inline void Parameters::set_parameters(int index, const void* value, size_t size) {
+  parameters_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:flower_sdk.Parameters.parameters)
 }
-inline std::string* Parameters::_internal_mutable_parameters() {
-  
-  return parameters_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+inline std::string* Parameters::_internal_add_parameters() {
+  return parameters_.Add();
 }
-inline std::string* Parameters::release_parameters() {
-  // @@protoc_insertion_point(field_release:params.Parameters.parameters)
-  return parameters_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline void Parameters::add_parameters(const std::string& value) {
+  parameters_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:flower_sdk.Parameters.parameters)
 }
-inline void Parameters::set_allocated_parameters(std::string* parameters) {
-  if (parameters != nullptr) {
-    
-  } else {
-    
-  }
-  parameters_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), parameters,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:params.Parameters.parameters)
+inline void Parameters::add_parameters(std::string&& value) {
+  parameters_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:flower_sdk.Parameters.parameters)
+}
+inline void Parameters::add_parameters(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  parameters_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:flower_sdk.Parameters.parameters)
+}
+inline void Parameters::add_parameters(const void* value, size_t size) {
+  parameters_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:flower_sdk.Parameters.parameters)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Parameters::parameters() const {
+  // @@protoc_insertion_point(field_list:flower_sdk.Parameters.parameters)
+  return parameters_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Parameters::mutable_parameters() {
+  // @@protoc_insertion_point(field_mutable_list:flower_sdk.Parameters.parameters)
+  return &parameters_;
 }
 
 // string tensor_type = 2;
@@ -2894,15 +2915,15 @@ inline void Parameters::clear_tensor_type() {
   tensor_type_.ClearToEmpty();
 }
 inline const std::string& Parameters::tensor_type() const {
-  // @@protoc_insertion_point(field_get:params.Parameters.tensor_type)
+  // @@protoc_insertion_point(field_get:flower_sdk.Parameters.tensor_type)
   return _internal_tensor_type();
 }
 inline void Parameters::set_tensor_type(const std::string& value) {
   _internal_set_tensor_type(value);
-  // @@protoc_insertion_point(field_set:params.Parameters.tensor_type)
+  // @@protoc_insertion_point(field_set:flower_sdk.Parameters.tensor_type)
 }
 inline std::string* Parameters::mutable_tensor_type() {
-  // @@protoc_insertion_point(field_mutable:params.Parameters.tensor_type)
+  // @@protoc_insertion_point(field_mutable:flower_sdk.Parameters.tensor_type)
   return _internal_mutable_tensor_type();
 }
 inline const std::string& Parameters::_internal_tensor_type() const {
@@ -2916,27 +2937,27 @@ inline void Parameters::set_tensor_type(std::string&& value) {
   
   tensor_type_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:params.Parameters.tensor_type)
+  // @@protoc_insertion_point(field_set_rvalue:flower_sdk.Parameters.tensor_type)
 }
 inline void Parameters::set_tensor_type(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   tensor_type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:params.Parameters.tensor_type)
+  // @@protoc_insertion_point(field_set_char:flower_sdk.Parameters.tensor_type)
 }
 inline void Parameters::set_tensor_type(const char* value,
     size_t size) {
   
   tensor_type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:params.Parameters.tensor_type)
+  // @@protoc_insertion_point(field_set_pointer:flower_sdk.Parameters.tensor_type)
 }
 inline std::string* Parameters::_internal_mutable_tensor_type() {
   
   return tensor_type_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Parameters::release_tensor_type() {
-  // @@protoc_insertion_point(field_release:params.Parameters.tensor_type)
+  // @@protoc_insertion_point(field_release:flower_sdk.Parameters.tensor_type)
   return tensor_type_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Parameters::set_allocated_tensor_type(std::string* tensor_type) {
@@ -2947,7 +2968,7 @@ inline void Parameters::set_allocated_tensor_type(std::string* tensor_type) {
   }
   tensor_type_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), tensor_type,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:params.Parameters.tensor_type)
+  // @@protoc_insertion_point(field_set_allocated:flower_sdk.Parameters.tensor_type)
 }
 
 // -------------------------------------------------------------------
@@ -2962,7 +2983,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 ServerMessage_Reconnect::_internal_seconds
   return seconds_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 ServerMessage_Reconnect::seconds() const {
-  // @@protoc_insertion_point(field_get:params.ServerMessage.Reconnect.seconds)
+  // @@protoc_insertion_point(field_get:flower_sdk.ServerMessage.Reconnect.seconds)
   return _internal_seconds();
 }
 inline void ServerMessage_Reconnect::_internal_set_seconds(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -2971,7 +2992,7 @@ inline void ServerMessage_Reconnect::_internal_set_seconds(::PROTOBUF_NAMESPACE_
 }
 inline void ServerMessage_Reconnect::set_seconds(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_seconds(value);
-  // @@protoc_insertion_point(field_set:params.ServerMessage.Reconnect.seconds)
+  // @@protoc_insertion_point(field_set:flower_sdk.ServerMessage.Reconnect.seconds)
 }
 
 // -------------------------------------------------------------------
@@ -2984,7 +3005,7 @@ inline void ServerMessage_Reconnect::set_seconds(::PROTOBUF_NAMESPACE_ID::int64 
 
 // ServerMessage_FitIns
 
-// .params.Parameters parameters = 1;
+// .flower_sdk.Parameters parameters = 1;
 inline bool ServerMessage_FitIns::_internal_has_parameters() const {
   return this != internal_default_instance() && parameters_ != nullptr;
 }
@@ -2997,17 +3018,17 @@ inline void ServerMessage_FitIns::clear_parameters() {
   }
   parameters_ = nullptr;
 }
-inline const ::params::Parameters& ServerMessage_FitIns::_internal_parameters() const {
-  const ::params::Parameters* p = parameters_;
-  return p != nullptr ? *p : reinterpret_cast<const ::params::Parameters&>(
-      ::params::_Parameters_default_instance_);
+inline const ::flower_sdk::Parameters& ServerMessage_FitIns::_internal_parameters() const {
+  const ::flower_sdk::Parameters* p = parameters_;
+  return p != nullptr ? *p : reinterpret_cast<const ::flower_sdk::Parameters&>(
+      ::flower_sdk::_Parameters_default_instance_);
 }
-inline const ::params::Parameters& ServerMessage_FitIns::parameters() const {
-  // @@protoc_insertion_point(field_get:params.ServerMessage.FitIns.parameters)
+inline const ::flower_sdk::Parameters& ServerMessage_FitIns::parameters() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ServerMessage.FitIns.parameters)
   return _internal_parameters();
 }
 inline void ServerMessage_FitIns::unsafe_arena_set_allocated_parameters(
-    ::params::Parameters* parameters) {
+    ::flower_sdk::Parameters* parameters) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(parameters_);
   }
@@ -3017,37 +3038,37 @@ inline void ServerMessage_FitIns::unsafe_arena_set_allocated_parameters(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ServerMessage.FitIns.parameters)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ServerMessage.FitIns.parameters)
 }
-inline ::params::Parameters* ServerMessage_FitIns::release_parameters() {
+inline ::flower_sdk::Parameters* ServerMessage_FitIns::release_parameters() {
   
-  ::params::Parameters* temp = parameters_;
+  ::flower_sdk::Parameters* temp = parameters_;
   parameters_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::params::Parameters* ServerMessage_FitIns::unsafe_arena_release_parameters() {
-  // @@protoc_insertion_point(field_release:params.ServerMessage.FitIns.parameters)
+inline ::flower_sdk::Parameters* ServerMessage_FitIns::unsafe_arena_release_parameters() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ServerMessage.FitIns.parameters)
   
-  ::params::Parameters* temp = parameters_;
+  ::flower_sdk::Parameters* temp = parameters_;
   parameters_ = nullptr;
   return temp;
 }
-inline ::params::Parameters* ServerMessage_FitIns::_internal_mutable_parameters() {
+inline ::flower_sdk::Parameters* ServerMessage_FitIns::_internal_mutable_parameters() {
   
   if (parameters_ == nullptr) {
-    auto* p = CreateMaybeMessage<::params::Parameters>(GetArena());
+    auto* p = CreateMaybeMessage<::flower_sdk::Parameters>(GetArena());
     parameters_ = p;
   }
   return parameters_;
 }
-inline ::params::Parameters* ServerMessage_FitIns::mutable_parameters() {
-  // @@protoc_insertion_point(field_mutable:params.ServerMessage.FitIns.parameters)
+inline ::flower_sdk::Parameters* ServerMessage_FitIns::mutable_parameters() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ServerMessage.FitIns.parameters)
   return _internal_mutable_parameters();
 }
-inline void ServerMessage_FitIns::set_allocated_parameters(::params::Parameters* parameters) {
+inline void ServerMessage_FitIns::set_allocated_parameters(::flower_sdk::Parameters* parameters) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete parameters_;
@@ -3064,10 +3085,10 @@ inline void ServerMessage_FitIns::set_allocated_parameters(::params::Parameters*
     
   }
   parameters_ = parameters;
-  // @@protoc_insertion_point(field_set_allocated:params.ServerMessage.FitIns.parameters)
+  // @@protoc_insertion_point(field_set_allocated:flower_sdk.ServerMessage.FitIns.parameters)
 }
 
-// map<string, .params.Scalar> config = 2;
+// map<string, .flower_sdk.Scalar> config = 2;
 inline int ServerMessage_FitIns::_internal_config_size() const {
   return config_.size();
 }
@@ -3077,22 +3098,22 @@ inline int ServerMessage_FitIns::config_size() const {
 inline void ServerMessage_FitIns::clear_config() {
   config_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ServerMessage_FitIns::_internal_config() const {
   return config_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ServerMessage_FitIns::config() const {
-  // @@protoc_insertion_point(field_map:params.ServerMessage.FitIns.config)
+  // @@protoc_insertion_point(field_map:flower_sdk.ServerMessage.FitIns.config)
   return _internal_config();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ServerMessage_FitIns::_internal_mutable_config() {
   return config_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ServerMessage_FitIns::mutable_config() {
-  // @@protoc_insertion_point(field_mutable_map:params.ServerMessage.FitIns.config)
+  // @@protoc_insertion_point(field_mutable_map:flower_sdk.ServerMessage.FitIns.config)
   return _internal_mutable_config();
 }
 
@@ -3102,7 +3123,7 @@ ServerMessage_FitIns::mutable_config() {
 
 // ServerMessage_EvaluateIns
 
-// .params.Parameters parameters = 1;
+// .flower_sdk.Parameters parameters = 1;
 inline bool ServerMessage_EvaluateIns::_internal_has_parameters() const {
   return this != internal_default_instance() && parameters_ != nullptr;
 }
@@ -3115,17 +3136,17 @@ inline void ServerMessage_EvaluateIns::clear_parameters() {
   }
   parameters_ = nullptr;
 }
-inline const ::params::Parameters& ServerMessage_EvaluateIns::_internal_parameters() const {
-  const ::params::Parameters* p = parameters_;
-  return p != nullptr ? *p : reinterpret_cast<const ::params::Parameters&>(
-      ::params::_Parameters_default_instance_);
+inline const ::flower_sdk::Parameters& ServerMessage_EvaluateIns::_internal_parameters() const {
+  const ::flower_sdk::Parameters* p = parameters_;
+  return p != nullptr ? *p : reinterpret_cast<const ::flower_sdk::Parameters&>(
+      ::flower_sdk::_Parameters_default_instance_);
 }
-inline const ::params::Parameters& ServerMessage_EvaluateIns::parameters() const {
-  // @@protoc_insertion_point(field_get:params.ServerMessage.EvaluateIns.parameters)
+inline const ::flower_sdk::Parameters& ServerMessage_EvaluateIns::parameters() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ServerMessage.EvaluateIns.parameters)
   return _internal_parameters();
 }
 inline void ServerMessage_EvaluateIns::unsafe_arena_set_allocated_parameters(
-    ::params::Parameters* parameters) {
+    ::flower_sdk::Parameters* parameters) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(parameters_);
   }
@@ -3135,37 +3156,37 @@ inline void ServerMessage_EvaluateIns::unsafe_arena_set_allocated_parameters(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ServerMessage.EvaluateIns.parameters)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ServerMessage.EvaluateIns.parameters)
 }
-inline ::params::Parameters* ServerMessage_EvaluateIns::release_parameters() {
+inline ::flower_sdk::Parameters* ServerMessage_EvaluateIns::release_parameters() {
   
-  ::params::Parameters* temp = parameters_;
+  ::flower_sdk::Parameters* temp = parameters_;
   parameters_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::params::Parameters* ServerMessage_EvaluateIns::unsafe_arena_release_parameters() {
-  // @@protoc_insertion_point(field_release:params.ServerMessage.EvaluateIns.parameters)
+inline ::flower_sdk::Parameters* ServerMessage_EvaluateIns::unsafe_arena_release_parameters() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ServerMessage.EvaluateIns.parameters)
   
-  ::params::Parameters* temp = parameters_;
+  ::flower_sdk::Parameters* temp = parameters_;
   parameters_ = nullptr;
   return temp;
 }
-inline ::params::Parameters* ServerMessage_EvaluateIns::_internal_mutable_parameters() {
+inline ::flower_sdk::Parameters* ServerMessage_EvaluateIns::_internal_mutable_parameters() {
   
   if (parameters_ == nullptr) {
-    auto* p = CreateMaybeMessage<::params::Parameters>(GetArena());
+    auto* p = CreateMaybeMessage<::flower_sdk::Parameters>(GetArena());
     parameters_ = p;
   }
   return parameters_;
 }
-inline ::params::Parameters* ServerMessage_EvaluateIns::mutable_parameters() {
-  // @@protoc_insertion_point(field_mutable:params.ServerMessage.EvaluateIns.parameters)
+inline ::flower_sdk::Parameters* ServerMessage_EvaluateIns::mutable_parameters() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ServerMessage.EvaluateIns.parameters)
   return _internal_mutable_parameters();
 }
-inline void ServerMessage_EvaluateIns::set_allocated_parameters(::params::Parameters* parameters) {
+inline void ServerMessage_EvaluateIns::set_allocated_parameters(::flower_sdk::Parameters* parameters) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete parameters_;
@@ -3182,10 +3203,10 @@ inline void ServerMessage_EvaluateIns::set_allocated_parameters(::params::Parame
     
   }
   parameters_ = parameters;
-  // @@protoc_insertion_point(field_set_allocated:params.ServerMessage.EvaluateIns.parameters)
+  // @@protoc_insertion_point(field_set_allocated:flower_sdk.ServerMessage.EvaluateIns.parameters)
 }
 
-// map<string, .params.Scalar> config = 2;
+// map<string, .flower_sdk.Scalar> config = 2;
 inline int ServerMessage_EvaluateIns::_internal_config_size() const {
   return config_.size();
 }
@@ -3195,22 +3216,22 @@ inline int ServerMessage_EvaluateIns::config_size() const {
 inline void ServerMessage_EvaluateIns::clear_config() {
   config_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ServerMessage_EvaluateIns::_internal_config() const {
   return config_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ServerMessage_EvaluateIns::config() const {
-  // @@protoc_insertion_point(field_map:params.ServerMessage.EvaluateIns.config)
+  // @@protoc_insertion_point(field_map:flower_sdk.ServerMessage.EvaluateIns.config)
   return _internal_config();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ServerMessage_EvaluateIns::_internal_mutable_config() {
   return config_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ServerMessage_EvaluateIns::mutable_config() {
-  // @@protoc_insertion_point(field_mutable_map:params.ServerMessage.EvaluateIns.config)
+  // @@protoc_insertion_point(field_mutable_map:flower_sdk.ServerMessage.EvaluateIns.config)
   return _internal_mutable_config();
 }
 
@@ -3220,7 +3241,7 @@ ServerMessage_EvaluateIns::mutable_config() {
 
 // ServerMessage_PropertiesIns
 
-// map<string, .params.Scalar> config = 1;
+// map<string, .flower_sdk.Scalar> config = 1;
 inline int ServerMessage_PropertiesIns::_internal_config_size() const {
   return config_.size();
 }
@@ -3230,22 +3251,22 @@ inline int ServerMessage_PropertiesIns::config_size() const {
 inline void ServerMessage_PropertiesIns::clear_config() {
   config_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ServerMessage_PropertiesIns::_internal_config() const {
   return config_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ServerMessage_PropertiesIns::config() const {
-  // @@protoc_insertion_point(field_map:params.ServerMessage.PropertiesIns.config)
+  // @@protoc_insertion_point(field_map:flower_sdk.ServerMessage.PropertiesIns.config)
   return _internal_config();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ServerMessage_PropertiesIns::_internal_mutable_config() {
   return config_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ServerMessage_PropertiesIns::mutable_config() {
-  // @@protoc_insertion_point(field_mutable_map:params.ServerMessage.PropertiesIns.config)
+  // @@protoc_insertion_point(field_mutable_map:flower_sdk.ServerMessage.PropertiesIns.config)
   return _internal_mutable_config();
 }
 
@@ -3253,7 +3274,7 @@ ServerMessage_PropertiesIns::mutable_config() {
 
 // ServerMessage
 
-// .params.ServerMessage.Reconnect reconnect = 1;
+// .flower_sdk.ServerMessage.Reconnect reconnect = 1;
 inline bool ServerMessage::_internal_has_reconnect() const {
   return msg_case() == kReconnect;
 }
@@ -3271,11 +3292,11 @@ inline void ServerMessage::clear_reconnect() {
     clear_has_msg();
   }
 }
-inline ::params::ServerMessage_Reconnect* ServerMessage::release_reconnect() {
-  // @@protoc_insertion_point(field_release:params.ServerMessage.reconnect)
+inline ::flower_sdk::ServerMessage_Reconnect* ServerMessage::release_reconnect() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ServerMessage.reconnect)
   if (_internal_has_reconnect()) {
     clear_has_msg();
-      ::params::ServerMessage_Reconnect* temp = msg_.reconnect_;
+      ::flower_sdk::ServerMessage_Reconnect* temp = msg_.reconnect_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -3285,48 +3306,48 @@ inline ::params::ServerMessage_Reconnect* ServerMessage::release_reconnect() {
     return nullptr;
   }
 }
-inline const ::params::ServerMessage_Reconnect& ServerMessage::_internal_reconnect() const {
+inline const ::flower_sdk::ServerMessage_Reconnect& ServerMessage::_internal_reconnect() const {
   return _internal_has_reconnect()
       ? *msg_.reconnect_
-      : reinterpret_cast< ::params::ServerMessage_Reconnect&>(::params::_ServerMessage_Reconnect_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ServerMessage_Reconnect&>(::flower_sdk::_ServerMessage_Reconnect_default_instance_);
 }
-inline const ::params::ServerMessage_Reconnect& ServerMessage::reconnect() const {
-  // @@protoc_insertion_point(field_get:params.ServerMessage.reconnect)
+inline const ::flower_sdk::ServerMessage_Reconnect& ServerMessage::reconnect() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ServerMessage.reconnect)
   return _internal_reconnect();
 }
-inline ::params::ServerMessage_Reconnect* ServerMessage::unsafe_arena_release_reconnect() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ServerMessage.reconnect)
+inline ::flower_sdk::ServerMessage_Reconnect* ServerMessage::unsafe_arena_release_reconnect() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ServerMessage.reconnect)
   if (_internal_has_reconnect()) {
     clear_has_msg();
-    ::params::ServerMessage_Reconnect* temp = msg_.reconnect_;
+    ::flower_sdk::ServerMessage_Reconnect* temp = msg_.reconnect_;
     msg_.reconnect_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ServerMessage::unsafe_arena_set_allocated_reconnect(::params::ServerMessage_Reconnect* reconnect) {
+inline void ServerMessage::unsafe_arena_set_allocated_reconnect(::flower_sdk::ServerMessage_Reconnect* reconnect) {
   clear_msg();
   if (reconnect) {
     set_has_reconnect();
     msg_.reconnect_ = reconnect;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ServerMessage.reconnect)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ServerMessage.reconnect)
 }
-inline ::params::ServerMessage_Reconnect* ServerMessage::_internal_mutable_reconnect() {
+inline ::flower_sdk::ServerMessage_Reconnect* ServerMessage::_internal_mutable_reconnect() {
   if (!_internal_has_reconnect()) {
     clear_msg();
     set_has_reconnect();
-    msg_.reconnect_ = CreateMaybeMessage< ::params::ServerMessage_Reconnect >(GetArena());
+    msg_.reconnect_ = CreateMaybeMessage< ::flower_sdk::ServerMessage_Reconnect >(GetArena());
   }
   return msg_.reconnect_;
 }
-inline ::params::ServerMessage_Reconnect* ServerMessage::mutable_reconnect() {
-  // @@protoc_insertion_point(field_mutable:params.ServerMessage.reconnect)
+inline ::flower_sdk::ServerMessage_Reconnect* ServerMessage::mutable_reconnect() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ServerMessage.reconnect)
   return _internal_mutable_reconnect();
 }
 
-// .params.ServerMessage.GetParameters get_parameters = 2;
+// .flower_sdk.ServerMessage.GetParameters get_parameters = 2;
 inline bool ServerMessage::_internal_has_get_parameters() const {
   return msg_case() == kGetParameters;
 }
@@ -3344,11 +3365,11 @@ inline void ServerMessage::clear_get_parameters() {
     clear_has_msg();
   }
 }
-inline ::params::ServerMessage_GetParameters* ServerMessage::release_get_parameters() {
-  // @@protoc_insertion_point(field_release:params.ServerMessage.get_parameters)
+inline ::flower_sdk::ServerMessage_GetParameters* ServerMessage::release_get_parameters() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ServerMessage.get_parameters)
   if (_internal_has_get_parameters()) {
     clear_has_msg();
-      ::params::ServerMessage_GetParameters* temp = msg_.get_parameters_;
+      ::flower_sdk::ServerMessage_GetParameters* temp = msg_.get_parameters_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -3358,48 +3379,48 @@ inline ::params::ServerMessage_GetParameters* ServerMessage::release_get_paramet
     return nullptr;
   }
 }
-inline const ::params::ServerMessage_GetParameters& ServerMessage::_internal_get_parameters() const {
+inline const ::flower_sdk::ServerMessage_GetParameters& ServerMessage::_internal_get_parameters() const {
   return _internal_has_get_parameters()
       ? *msg_.get_parameters_
-      : reinterpret_cast< ::params::ServerMessage_GetParameters&>(::params::_ServerMessage_GetParameters_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ServerMessage_GetParameters&>(::flower_sdk::_ServerMessage_GetParameters_default_instance_);
 }
-inline const ::params::ServerMessage_GetParameters& ServerMessage::get_parameters() const {
-  // @@protoc_insertion_point(field_get:params.ServerMessage.get_parameters)
+inline const ::flower_sdk::ServerMessage_GetParameters& ServerMessage::get_parameters() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ServerMessage.get_parameters)
   return _internal_get_parameters();
 }
-inline ::params::ServerMessage_GetParameters* ServerMessage::unsafe_arena_release_get_parameters() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ServerMessage.get_parameters)
+inline ::flower_sdk::ServerMessage_GetParameters* ServerMessage::unsafe_arena_release_get_parameters() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ServerMessage.get_parameters)
   if (_internal_has_get_parameters()) {
     clear_has_msg();
-    ::params::ServerMessage_GetParameters* temp = msg_.get_parameters_;
+    ::flower_sdk::ServerMessage_GetParameters* temp = msg_.get_parameters_;
     msg_.get_parameters_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ServerMessage::unsafe_arena_set_allocated_get_parameters(::params::ServerMessage_GetParameters* get_parameters) {
+inline void ServerMessage::unsafe_arena_set_allocated_get_parameters(::flower_sdk::ServerMessage_GetParameters* get_parameters) {
   clear_msg();
   if (get_parameters) {
     set_has_get_parameters();
     msg_.get_parameters_ = get_parameters;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ServerMessage.get_parameters)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ServerMessage.get_parameters)
 }
-inline ::params::ServerMessage_GetParameters* ServerMessage::_internal_mutable_get_parameters() {
+inline ::flower_sdk::ServerMessage_GetParameters* ServerMessage::_internal_mutable_get_parameters() {
   if (!_internal_has_get_parameters()) {
     clear_msg();
     set_has_get_parameters();
-    msg_.get_parameters_ = CreateMaybeMessage< ::params::ServerMessage_GetParameters >(GetArena());
+    msg_.get_parameters_ = CreateMaybeMessage< ::flower_sdk::ServerMessage_GetParameters >(GetArena());
   }
   return msg_.get_parameters_;
 }
-inline ::params::ServerMessage_GetParameters* ServerMessage::mutable_get_parameters() {
-  // @@protoc_insertion_point(field_mutable:params.ServerMessage.get_parameters)
+inline ::flower_sdk::ServerMessage_GetParameters* ServerMessage::mutable_get_parameters() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ServerMessage.get_parameters)
   return _internal_mutable_get_parameters();
 }
 
-// .params.ServerMessage.FitIns fit_ins = 3;
+// .flower_sdk.ServerMessage.FitIns fit_ins = 3;
 inline bool ServerMessage::_internal_has_fit_ins() const {
   return msg_case() == kFitIns;
 }
@@ -3417,11 +3438,11 @@ inline void ServerMessage::clear_fit_ins() {
     clear_has_msg();
   }
 }
-inline ::params::ServerMessage_FitIns* ServerMessage::release_fit_ins() {
-  // @@protoc_insertion_point(field_release:params.ServerMessage.fit_ins)
+inline ::flower_sdk::ServerMessage_FitIns* ServerMessage::release_fit_ins() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ServerMessage.fit_ins)
   if (_internal_has_fit_ins()) {
     clear_has_msg();
-      ::params::ServerMessage_FitIns* temp = msg_.fit_ins_;
+      ::flower_sdk::ServerMessage_FitIns* temp = msg_.fit_ins_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -3431,48 +3452,48 @@ inline ::params::ServerMessage_FitIns* ServerMessage::release_fit_ins() {
     return nullptr;
   }
 }
-inline const ::params::ServerMessage_FitIns& ServerMessage::_internal_fit_ins() const {
+inline const ::flower_sdk::ServerMessage_FitIns& ServerMessage::_internal_fit_ins() const {
   return _internal_has_fit_ins()
       ? *msg_.fit_ins_
-      : reinterpret_cast< ::params::ServerMessage_FitIns&>(::params::_ServerMessage_FitIns_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ServerMessage_FitIns&>(::flower_sdk::_ServerMessage_FitIns_default_instance_);
 }
-inline const ::params::ServerMessage_FitIns& ServerMessage::fit_ins() const {
-  // @@protoc_insertion_point(field_get:params.ServerMessage.fit_ins)
+inline const ::flower_sdk::ServerMessage_FitIns& ServerMessage::fit_ins() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ServerMessage.fit_ins)
   return _internal_fit_ins();
 }
-inline ::params::ServerMessage_FitIns* ServerMessage::unsafe_arena_release_fit_ins() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ServerMessage.fit_ins)
+inline ::flower_sdk::ServerMessage_FitIns* ServerMessage::unsafe_arena_release_fit_ins() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ServerMessage.fit_ins)
   if (_internal_has_fit_ins()) {
     clear_has_msg();
-    ::params::ServerMessage_FitIns* temp = msg_.fit_ins_;
+    ::flower_sdk::ServerMessage_FitIns* temp = msg_.fit_ins_;
     msg_.fit_ins_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ServerMessage::unsafe_arena_set_allocated_fit_ins(::params::ServerMessage_FitIns* fit_ins) {
+inline void ServerMessage::unsafe_arena_set_allocated_fit_ins(::flower_sdk::ServerMessage_FitIns* fit_ins) {
   clear_msg();
   if (fit_ins) {
     set_has_fit_ins();
     msg_.fit_ins_ = fit_ins;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ServerMessage.fit_ins)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ServerMessage.fit_ins)
 }
-inline ::params::ServerMessage_FitIns* ServerMessage::_internal_mutable_fit_ins() {
+inline ::flower_sdk::ServerMessage_FitIns* ServerMessage::_internal_mutable_fit_ins() {
   if (!_internal_has_fit_ins()) {
     clear_msg();
     set_has_fit_ins();
-    msg_.fit_ins_ = CreateMaybeMessage< ::params::ServerMessage_FitIns >(GetArena());
+    msg_.fit_ins_ = CreateMaybeMessage< ::flower_sdk::ServerMessage_FitIns >(GetArena());
   }
   return msg_.fit_ins_;
 }
-inline ::params::ServerMessage_FitIns* ServerMessage::mutable_fit_ins() {
-  // @@protoc_insertion_point(field_mutable:params.ServerMessage.fit_ins)
+inline ::flower_sdk::ServerMessage_FitIns* ServerMessage::mutable_fit_ins() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ServerMessage.fit_ins)
   return _internal_mutable_fit_ins();
 }
 
-// .params.ServerMessage.EvaluateIns evaluate_ins = 4;
+// .flower_sdk.ServerMessage.EvaluateIns evaluate_ins = 4;
 inline bool ServerMessage::_internal_has_evaluate_ins() const {
   return msg_case() == kEvaluateIns;
 }
@@ -3490,11 +3511,11 @@ inline void ServerMessage::clear_evaluate_ins() {
     clear_has_msg();
   }
 }
-inline ::params::ServerMessage_EvaluateIns* ServerMessage::release_evaluate_ins() {
-  // @@protoc_insertion_point(field_release:params.ServerMessage.evaluate_ins)
+inline ::flower_sdk::ServerMessage_EvaluateIns* ServerMessage::release_evaluate_ins() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ServerMessage.evaluate_ins)
   if (_internal_has_evaluate_ins()) {
     clear_has_msg();
-      ::params::ServerMessage_EvaluateIns* temp = msg_.evaluate_ins_;
+      ::flower_sdk::ServerMessage_EvaluateIns* temp = msg_.evaluate_ins_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -3504,118 +3525,118 @@ inline ::params::ServerMessage_EvaluateIns* ServerMessage::release_evaluate_ins(
     return nullptr;
   }
 }
-inline const ::params::ServerMessage_EvaluateIns& ServerMessage::_internal_evaluate_ins() const {
+inline const ::flower_sdk::ServerMessage_EvaluateIns& ServerMessage::_internal_evaluate_ins() const {
   return _internal_has_evaluate_ins()
       ? *msg_.evaluate_ins_
-      : reinterpret_cast< ::params::ServerMessage_EvaluateIns&>(::params::_ServerMessage_EvaluateIns_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ServerMessage_EvaluateIns&>(::flower_sdk::_ServerMessage_EvaluateIns_default_instance_);
 }
-inline const ::params::ServerMessage_EvaluateIns& ServerMessage::evaluate_ins() const {
-  // @@protoc_insertion_point(field_get:params.ServerMessage.evaluate_ins)
+inline const ::flower_sdk::ServerMessage_EvaluateIns& ServerMessage::evaluate_ins() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ServerMessage.evaluate_ins)
   return _internal_evaluate_ins();
 }
-inline ::params::ServerMessage_EvaluateIns* ServerMessage::unsafe_arena_release_evaluate_ins() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ServerMessage.evaluate_ins)
+inline ::flower_sdk::ServerMessage_EvaluateIns* ServerMessage::unsafe_arena_release_evaluate_ins() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ServerMessage.evaluate_ins)
   if (_internal_has_evaluate_ins()) {
     clear_has_msg();
-    ::params::ServerMessage_EvaluateIns* temp = msg_.evaluate_ins_;
+    ::flower_sdk::ServerMessage_EvaluateIns* temp = msg_.evaluate_ins_;
     msg_.evaluate_ins_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ServerMessage::unsafe_arena_set_allocated_evaluate_ins(::params::ServerMessage_EvaluateIns* evaluate_ins) {
+inline void ServerMessage::unsafe_arena_set_allocated_evaluate_ins(::flower_sdk::ServerMessage_EvaluateIns* evaluate_ins) {
   clear_msg();
   if (evaluate_ins) {
     set_has_evaluate_ins();
     msg_.evaluate_ins_ = evaluate_ins;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ServerMessage.evaluate_ins)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ServerMessage.evaluate_ins)
 }
-inline ::params::ServerMessage_EvaluateIns* ServerMessage::_internal_mutable_evaluate_ins() {
+inline ::flower_sdk::ServerMessage_EvaluateIns* ServerMessage::_internal_mutable_evaluate_ins() {
   if (!_internal_has_evaluate_ins()) {
     clear_msg();
     set_has_evaluate_ins();
-    msg_.evaluate_ins_ = CreateMaybeMessage< ::params::ServerMessage_EvaluateIns >(GetArena());
+    msg_.evaluate_ins_ = CreateMaybeMessage< ::flower_sdk::ServerMessage_EvaluateIns >(GetArena());
   }
   return msg_.evaluate_ins_;
 }
-inline ::params::ServerMessage_EvaluateIns* ServerMessage::mutable_evaluate_ins() {
-  // @@protoc_insertion_point(field_mutable:params.ServerMessage.evaluate_ins)
+inline ::flower_sdk::ServerMessage_EvaluateIns* ServerMessage::mutable_evaluate_ins() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ServerMessage.evaluate_ins)
   return _internal_mutable_evaluate_ins();
 }
 
-// .params.ServerMessage.PropertiesIns properties_ons = 5;
-inline bool ServerMessage::_internal_has_properties_ons() const {
-  return msg_case() == kPropertiesOns;
+// .flower_sdk.ServerMessage.PropertiesIns properties_ins = 5;
+inline bool ServerMessage::_internal_has_properties_ins() const {
+  return msg_case() == kPropertiesIns;
 }
-inline bool ServerMessage::has_properties_ons() const {
-  return _internal_has_properties_ons();
+inline bool ServerMessage::has_properties_ins() const {
+  return _internal_has_properties_ins();
 }
-inline void ServerMessage::set_has_properties_ons() {
-  _oneof_case_[0] = kPropertiesOns;
+inline void ServerMessage::set_has_properties_ins() {
+  _oneof_case_[0] = kPropertiesIns;
 }
-inline void ServerMessage::clear_properties_ons() {
-  if (_internal_has_properties_ons()) {
+inline void ServerMessage::clear_properties_ins() {
+  if (_internal_has_properties_ins()) {
     if (GetArena() == nullptr) {
-      delete msg_.properties_ons_;
+      delete msg_.properties_ins_;
     }
     clear_has_msg();
   }
 }
-inline ::params::ServerMessage_PropertiesIns* ServerMessage::release_properties_ons() {
-  // @@protoc_insertion_point(field_release:params.ServerMessage.properties_ons)
-  if (_internal_has_properties_ons()) {
+inline ::flower_sdk::ServerMessage_PropertiesIns* ServerMessage::release_properties_ins() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ServerMessage.properties_ins)
+  if (_internal_has_properties_ins()) {
     clear_has_msg();
-      ::params::ServerMessage_PropertiesIns* temp = msg_.properties_ons_;
+      ::flower_sdk::ServerMessage_PropertiesIns* temp = msg_.properties_ins_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    msg_.properties_ons_ = nullptr;
+    msg_.properties_ins_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::params::ServerMessage_PropertiesIns& ServerMessage::_internal_properties_ons() const {
-  return _internal_has_properties_ons()
-      ? *msg_.properties_ons_
-      : reinterpret_cast< ::params::ServerMessage_PropertiesIns&>(::params::_ServerMessage_PropertiesIns_default_instance_);
+inline const ::flower_sdk::ServerMessage_PropertiesIns& ServerMessage::_internal_properties_ins() const {
+  return _internal_has_properties_ins()
+      ? *msg_.properties_ins_
+      : reinterpret_cast< ::flower_sdk::ServerMessage_PropertiesIns&>(::flower_sdk::_ServerMessage_PropertiesIns_default_instance_);
 }
-inline const ::params::ServerMessage_PropertiesIns& ServerMessage::properties_ons() const {
-  // @@protoc_insertion_point(field_get:params.ServerMessage.properties_ons)
-  return _internal_properties_ons();
+inline const ::flower_sdk::ServerMessage_PropertiesIns& ServerMessage::properties_ins() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ServerMessage.properties_ins)
+  return _internal_properties_ins();
 }
-inline ::params::ServerMessage_PropertiesIns* ServerMessage::unsafe_arena_release_properties_ons() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ServerMessage.properties_ons)
-  if (_internal_has_properties_ons()) {
+inline ::flower_sdk::ServerMessage_PropertiesIns* ServerMessage::unsafe_arena_release_properties_ins() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ServerMessage.properties_ins)
+  if (_internal_has_properties_ins()) {
     clear_has_msg();
-    ::params::ServerMessage_PropertiesIns* temp = msg_.properties_ons_;
-    msg_.properties_ons_ = nullptr;
+    ::flower_sdk::ServerMessage_PropertiesIns* temp = msg_.properties_ins_;
+    msg_.properties_ins_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ServerMessage::unsafe_arena_set_allocated_properties_ons(::params::ServerMessage_PropertiesIns* properties_ons) {
+inline void ServerMessage::unsafe_arena_set_allocated_properties_ins(::flower_sdk::ServerMessage_PropertiesIns* properties_ins) {
   clear_msg();
-  if (properties_ons) {
-    set_has_properties_ons();
-    msg_.properties_ons_ = properties_ons;
+  if (properties_ins) {
+    set_has_properties_ins();
+    msg_.properties_ins_ = properties_ins;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ServerMessage.properties_ons)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ServerMessage.properties_ins)
 }
-inline ::params::ServerMessage_PropertiesIns* ServerMessage::_internal_mutable_properties_ons() {
-  if (!_internal_has_properties_ons()) {
+inline ::flower_sdk::ServerMessage_PropertiesIns* ServerMessage::_internal_mutable_properties_ins() {
+  if (!_internal_has_properties_ins()) {
     clear_msg();
-    set_has_properties_ons();
-    msg_.properties_ons_ = CreateMaybeMessage< ::params::ServerMessage_PropertiesIns >(GetArena());
+    set_has_properties_ins();
+    msg_.properties_ins_ = CreateMaybeMessage< ::flower_sdk::ServerMessage_PropertiesIns >(GetArena());
   }
-  return msg_.properties_ons_;
+  return msg_.properties_ins_;
 }
-inline ::params::ServerMessage_PropertiesIns* ServerMessage::mutable_properties_ons() {
-  // @@protoc_insertion_point(field_mutable:params.ServerMessage.properties_ons)
-  return _internal_mutable_properties_ons();
+inline ::flower_sdk::ServerMessage_PropertiesIns* ServerMessage::mutable_properties_ins() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ServerMessage.properties_ins)
+  return _internal_mutable_properties_ins();
 }
 
 inline bool ServerMessage::has_msg() const {
@@ -3631,31 +3652,31 @@ inline ServerMessage::MsgCase ServerMessage::msg_case() const {
 
 // ClientMessage_Disconnect
 
-// .params.Reason reason = 1;
+// .flower_sdk.Reason reason = 1;
 inline void ClientMessage_Disconnect::clear_reason() {
   reason_ = 0;
 }
-inline ::params::Reason ClientMessage_Disconnect::_internal_reason() const {
-  return static_cast< ::params::Reason >(reason_);
+inline ::flower_sdk::Reason ClientMessage_Disconnect::_internal_reason() const {
+  return static_cast< ::flower_sdk::Reason >(reason_);
 }
-inline ::params::Reason ClientMessage_Disconnect::reason() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.Disconnect.reason)
+inline ::flower_sdk::Reason ClientMessage_Disconnect::reason() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.Disconnect.reason)
   return _internal_reason();
 }
-inline void ClientMessage_Disconnect::_internal_set_reason(::params::Reason value) {
+inline void ClientMessage_Disconnect::_internal_set_reason(::flower_sdk::Reason value) {
   
   reason_ = value;
 }
-inline void ClientMessage_Disconnect::set_reason(::params::Reason value) {
+inline void ClientMessage_Disconnect::set_reason(::flower_sdk::Reason value) {
   _internal_set_reason(value);
-  // @@protoc_insertion_point(field_set:params.ClientMessage.Disconnect.reason)
+  // @@protoc_insertion_point(field_set:flower_sdk.ClientMessage.Disconnect.reason)
 }
 
 // -------------------------------------------------------------------
 
 // ClientMessage_ParametersRes
 
-// .params.Parameters parameters = 1;
+// .flower_sdk.Parameters parameters = 1;
 inline bool ClientMessage_ParametersRes::_internal_has_parameters() const {
   return this != internal_default_instance() && parameters_ != nullptr;
 }
@@ -3668,17 +3689,17 @@ inline void ClientMessage_ParametersRes::clear_parameters() {
   }
   parameters_ = nullptr;
 }
-inline const ::params::Parameters& ClientMessage_ParametersRes::_internal_parameters() const {
-  const ::params::Parameters* p = parameters_;
-  return p != nullptr ? *p : reinterpret_cast<const ::params::Parameters&>(
-      ::params::_Parameters_default_instance_);
+inline const ::flower_sdk::Parameters& ClientMessage_ParametersRes::_internal_parameters() const {
+  const ::flower_sdk::Parameters* p = parameters_;
+  return p != nullptr ? *p : reinterpret_cast<const ::flower_sdk::Parameters&>(
+      ::flower_sdk::_Parameters_default_instance_);
 }
-inline const ::params::Parameters& ClientMessage_ParametersRes::parameters() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.ParametersRes.parameters)
+inline const ::flower_sdk::Parameters& ClientMessage_ParametersRes::parameters() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.ParametersRes.parameters)
   return _internal_parameters();
 }
 inline void ClientMessage_ParametersRes::unsafe_arena_set_allocated_parameters(
-    ::params::Parameters* parameters) {
+    ::flower_sdk::Parameters* parameters) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(parameters_);
   }
@@ -3688,37 +3709,37 @@ inline void ClientMessage_ParametersRes::unsafe_arena_set_allocated_parameters(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ClientMessage.ParametersRes.parameters)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ClientMessage.ParametersRes.parameters)
 }
-inline ::params::Parameters* ClientMessage_ParametersRes::release_parameters() {
+inline ::flower_sdk::Parameters* ClientMessage_ParametersRes::release_parameters() {
   
-  ::params::Parameters* temp = parameters_;
+  ::flower_sdk::Parameters* temp = parameters_;
   parameters_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::params::Parameters* ClientMessage_ParametersRes::unsafe_arena_release_parameters() {
-  // @@protoc_insertion_point(field_release:params.ClientMessage.ParametersRes.parameters)
+inline ::flower_sdk::Parameters* ClientMessage_ParametersRes::unsafe_arena_release_parameters() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ClientMessage.ParametersRes.parameters)
   
-  ::params::Parameters* temp = parameters_;
+  ::flower_sdk::Parameters* temp = parameters_;
   parameters_ = nullptr;
   return temp;
 }
-inline ::params::Parameters* ClientMessage_ParametersRes::_internal_mutable_parameters() {
+inline ::flower_sdk::Parameters* ClientMessage_ParametersRes::_internal_mutable_parameters() {
   
   if (parameters_ == nullptr) {
-    auto* p = CreateMaybeMessage<::params::Parameters>(GetArena());
+    auto* p = CreateMaybeMessage<::flower_sdk::Parameters>(GetArena());
     parameters_ = p;
   }
   return parameters_;
 }
-inline ::params::Parameters* ClientMessage_ParametersRes::mutable_parameters() {
-  // @@protoc_insertion_point(field_mutable:params.ClientMessage.ParametersRes.parameters)
+inline ::flower_sdk::Parameters* ClientMessage_ParametersRes::mutable_parameters() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ClientMessage.ParametersRes.parameters)
   return _internal_mutable_parameters();
 }
-inline void ClientMessage_ParametersRes::set_allocated_parameters(::params::Parameters* parameters) {
+inline void ClientMessage_ParametersRes::set_allocated_parameters(::flower_sdk::Parameters* parameters) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete parameters_;
@@ -3735,7 +3756,7 @@ inline void ClientMessage_ParametersRes::set_allocated_parameters(::params::Para
     
   }
   parameters_ = parameters;
-  // @@protoc_insertion_point(field_set_allocated:params.ClientMessage.ParametersRes.parameters)
+  // @@protoc_insertion_point(field_set_allocated:flower_sdk.ClientMessage.ParametersRes.parameters)
 }
 
 // -------------------------------------------------------------------
@@ -3744,7 +3765,7 @@ inline void ClientMessage_ParametersRes::set_allocated_parameters(::params::Para
 
 // ClientMessage_FitRes
 
-// .params.Parameters parameters = 1;
+// .flower_sdk.Parameters parameters = 1;
 inline bool ClientMessage_FitRes::_internal_has_parameters() const {
   return this != internal_default_instance() && parameters_ != nullptr;
 }
@@ -3757,17 +3778,17 @@ inline void ClientMessage_FitRes::clear_parameters() {
   }
   parameters_ = nullptr;
 }
-inline const ::params::Parameters& ClientMessage_FitRes::_internal_parameters() const {
-  const ::params::Parameters* p = parameters_;
-  return p != nullptr ? *p : reinterpret_cast<const ::params::Parameters&>(
-      ::params::_Parameters_default_instance_);
+inline const ::flower_sdk::Parameters& ClientMessage_FitRes::_internal_parameters() const {
+  const ::flower_sdk::Parameters* p = parameters_;
+  return p != nullptr ? *p : reinterpret_cast<const ::flower_sdk::Parameters&>(
+      ::flower_sdk::_Parameters_default_instance_);
 }
-inline const ::params::Parameters& ClientMessage_FitRes::parameters() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.FitRes.parameters)
+inline const ::flower_sdk::Parameters& ClientMessage_FitRes::parameters() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.FitRes.parameters)
   return _internal_parameters();
 }
 inline void ClientMessage_FitRes::unsafe_arena_set_allocated_parameters(
-    ::params::Parameters* parameters) {
+    ::flower_sdk::Parameters* parameters) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(parameters_);
   }
@@ -3777,37 +3798,37 @@ inline void ClientMessage_FitRes::unsafe_arena_set_allocated_parameters(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ClientMessage.FitRes.parameters)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ClientMessage.FitRes.parameters)
 }
-inline ::params::Parameters* ClientMessage_FitRes::release_parameters() {
+inline ::flower_sdk::Parameters* ClientMessage_FitRes::release_parameters() {
   
-  ::params::Parameters* temp = parameters_;
+  ::flower_sdk::Parameters* temp = parameters_;
   parameters_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::params::Parameters* ClientMessage_FitRes::unsafe_arena_release_parameters() {
-  // @@protoc_insertion_point(field_release:params.ClientMessage.FitRes.parameters)
+inline ::flower_sdk::Parameters* ClientMessage_FitRes::unsafe_arena_release_parameters() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ClientMessage.FitRes.parameters)
   
-  ::params::Parameters* temp = parameters_;
+  ::flower_sdk::Parameters* temp = parameters_;
   parameters_ = nullptr;
   return temp;
 }
-inline ::params::Parameters* ClientMessage_FitRes::_internal_mutable_parameters() {
+inline ::flower_sdk::Parameters* ClientMessage_FitRes::_internal_mutable_parameters() {
   
   if (parameters_ == nullptr) {
-    auto* p = CreateMaybeMessage<::params::Parameters>(GetArena());
+    auto* p = CreateMaybeMessage<::flower_sdk::Parameters>(GetArena());
     parameters_ = p;
   }
   return parameters_;
 }
-inline ::params::Parameters* ClientMessage_FitRes::mutable_parameters() {
-  // @@protoc_insertion_point(field_mutable:params.ClientMessage.FitRes.parameters)
+inline ::flower_sdk::Parameters* ClientMessage_FitRes::mutable_parameters() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ClientMessage.FitRes.parameters)
   return _internal_mutable_parameters();
 }
-inline void ClientMessage_FitRes::set_allocated_parameters(::params::Parameters* parameters) {
+inline void ClientMessage_FitRes::set_allocated_parameters(::flower_sdk::Parameters* parameters) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete parameters_;
@@ -3824,7 +3845,7 @@ inline void ClientMessage_FitRes::set_allocated_parameters(::params::Parameters*
     
   }
   parameters_ = parameters;
-  // @@protoc_insertion_point(field_set_allocated:params.ClientMessage.FitRes.parameters)
+  // @@protoc_insertion_point(field_set_allocated:flower_sdk.ClientMessage.FitRes.parameters)
 }
 
 // int64 num_examples = 2;
@@ -3835,7 +3856,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 ClientMessage_FitRes::_internal_num_exampl
   return num_examples_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 ClientMessage_FitRes::num_examples() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.FitRes.num_examples)
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.FitRes.num_examples)
   return _internal_num_examples();
 }
 inline void ClientMessage_FitRes::_internal_set_num_examples(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -3844,10 +3865,10 @@ inline void ClientMessage_FitRes::_internal_set_num_examples(::PROTOBUF_NAMESPAC
 }
 inline void ClientMessage_FitRes::set_num_examples(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_num_examples(value);
-  // @@protoc_insertion_point(field_set:params.ClientMessage.FitRes.num_examples)
+  // @@protoc_insertion_point(field_set:flower_sdk.ClientMessage.FitRes.num_examples)
 }
 
-// map<string, .params.Scalar> metrics = 5;
+// map<string, .flower_sdk.Scalar> metrics = 5;
 inline int ClientMessage_FitRes::_internal_metrics_size() const {
   return metrics_.size();
 }
@@ -3857,22 +3878,22 @@ inline int ClientMessage_FitRes::metrics_size() const {
 inline void ClientMessage_FitRes::clear_metrics() {
   metrics_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ClientMessage_FitRes::_internal_metrics() const {
   return metrics_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ClientMessage_FitRes::metrics() const {
-  // @@protoc_insertion_point(field_map:params.ClientMessage.FitRes.metrics)
+  // @@protoc_insertion_point(field_map:flower_sdk.ClientMessage.FitRes.metrics)
   return _internal_metrics();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ClientMessage_FitRes::_internal_mutable_metrics() {
   return metrics_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ClientMessage_FitRes::mutable_metrics() {
-  // @@protoc_insertion_point(field_mutable_map:params.ClientMessage.FitRes.metrics)
+  // @@protoc_insertion_point(field_mutable_map:flower_sdk.ClientMessage.FitRes.metrics)
   return _internal_mutable_metrics();
 }
 
@@ -3890,7 +3911,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 ClientMessage_EvaluateRes::_internal_num_e
   return num_examples_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 ClientMessage_EvaluateRes::num_examples() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.EvaluateRes.num_examples)
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.EvaluateRes.num_examples)
   return _internal_num_examples();
 }
 inline void ClientMessage_EvaluateRes::_internal_set_num_examples(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -3899,7 +3920,7 @@ inline void ClientMessage_EvaluateRes::_internal_set_num_examples(::PROTOBUF_NAM
 }
 inline void ClientMessage_EvaluateRes::set_num_examples(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_num_examples(value);
-  // @@protoc_insertion_point(field_set:params.ClientMessage.EvaluateRes.num_examples)
+  // @@protoc_insertion_point(field_set:flower_sdk.ClientMessage.EvaluateRes.num_examples)
 }
 
 // float loss = 2;
@@ -3910,7 +3931,7 @@ inline float ClientMessage_EvaluateRes::_internal_loss() const {
   return loss_;
 }
 inline float ClientMessage_EvaluateRes::loss() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.EvaluateRes.loss)
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.EvaluateRes.loss)
   return _internal_loss();
 }
 inline void ClientMessage_EvaluateRes::_internal_set_loss(float value) {
@@ -3919,10 +3940,10 @@ inline void ClientMessage_EvaluateRes::_internal_set_loss(float value) {
 }
 inline void ClientMessage_EvaluateRes::set_loss(float value) {
   _internal_set_loss(value);
-  // @@protoc_insertion_point(field_set:params.ClientMessage.EvaluateRes.loss)
+  // @@protoc_insertion_point(field_set:flower_sdk.ClientMessage.EvaluateRes.loss)
 }
 
-// map<string, .params.Scalar> metrics = 4;
+// map<string, .flower_sdk.Scalar> metrics = 4;
 inline int ClientMessage_EvaluateRes::_internal_metrics_size() const {
   return metrics_.size();
 }
@@ -3932,22 +3953,22 @@ inline int ClientMessage_EvaluateRes::metrics_size() const {
 inline void ClientMessage_EvaluateRes::clear_metrics() {
   metrics_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ClientMessage_EvaluateRes::_internal_metrics() const {
   return metrics_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ClientMessage_EvaluateRes::metrics() const {
-  // @@protoc_insertion_point(field_map:params.ClientMessage.EvaluateRes.metrics)
+  // @@protoc_insertion_point(field_map:flower_sdk.ClientMessage.EvaluateRes.metrics)
   return _internal_metrics();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ClientMessage_EvaluateRes::_internal_mutable_metrics() {
   return metrics_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ClientMessage_EvaluateRes::mutable_metrics() {
-  // @@protoc_insertion_point(field_mutable_map:params.ClientMessage.EvaluateRes.metrics)
+  // @@protoc_insertion_point(field_mutable_map:flower_sdk.ClientMessage.EvaluateRes.metrics)
   return _internal_mutable_metrics();
 }
 
@@ -3957,7 +3978,7 @@ ClientMessage_EvaluateRes::mutable_metrics() {
 
 // ClientMessage_PropertiesRes
 
-// map<string, .params.Scalar> properties = 1;
+// map<string, .flower_sdk.Scalar> properties = 1;
 inline int ClientMessage_PropertiesRes::_internal_properties_size() const {
   return properties_.size();
 }
@@ -3967,22 +3988,22 @@ inline int ClientMessage_PropertiesRes::properties_size() const {
 inline void ClientMessage_PropertiesRes::clear_properties() {
   properties_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ClientMessage_PropertiesRes::_internal_properties() const {
   return properties_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >&
 ClientMessage_PropertiesRes::properties() const {
-  // @@protoc_insertion_point(field_map:params.ClientMessage.PropertiesRes.properties)
+  // @@protoc_insertion_point(field_map:flower_sdk.ClientMessage.PropertiesRes.properties)
   return _internal_properties();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ClientMessage_PropertiesRes::_internal_mutable_properties() {
   return properties_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::params::Scalar >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::flower_sdk::Scalar >*
 ClientMessage_PropertiesRes::mutable_properties() {
-  // @@protoc_insertion_point(field_mutable_map:params.ClientMessage.PropertiesRes.properties)
+  // @@protoc_insertion_point(field_mutable_map:flower_sdk.ClientMessage.PropertiesRes.properties)
   return _internal_mutable_properties();
 }
 
@@ -3990,7 +4011,7 @@ ClientMessage_PropertiesRes::mutable_properties() {
 
 // ClientMessage
 
-// .params.ClientMessage.Disconnect disconnect = 1;
+// .flower_sdk.ClientMessage.Disconnect disconnect = 1;
 inline bool ClientMessage::_internal_has_disconnect() const {
   return msg_case() == kDisconnect;
 }
@@ -4008,11 +4029,11 @@ inline void ClientMessage::clear_disconnect() {
     clear_has_msg();
   }
 }
-inline ::params::ClientMessage_Disconnect* ClientMessage::release_disconnect() {
-  // @@protoc_insertion_point(field_release:params.ClientMessage.disconnect)
+inline ::flower_sdk::ClientMessage_Disconnect* ClientMessage::release_disconnect() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ClientMessage.disconnect)
   if (_internal_has_disconnect()) {
     clear_has_msg();
-      ::params::ClientMessage_Disconnect* temp = msg_.disconnect_;
+      ::flower_sdk::ClientMessage_Disconnect* temp = msg_.disconnect_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4022,48 +4043,48 @@ inline ::params::ClientMessage_Disconnect* ClientMessage::release_disconnect() {
     return nullptr;
   }
 }
-inline const ::params::ClientMessage_Disconnect& ClientMessage::_internal_disconnect() const {
+inline const ::flower_sdk::ClientMessage_Disconnect& ClientMessage::_internal_disconnect() const {
   return _internal_has_disconnect()
       ? *msg_.disconnect_
-      : reinterpret_cast< ::params::ClientMessage_Disconnect&>(::params::_ClientMessage_Disconnect_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ClientMessage_Disconnect&>(::flower_sdk::_ClientMessage_Disconnect_default_instance_);
 }
-inline const ::params::ClientMessage_Disconnect& ClientMessage::disconnect() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.disconnect)
+inline const ::flower_sdk::ClientMessage_Disconnect& ClientMessage::disconnect() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.disconnect)
   return _internal_disconnect();
 }
-inline ::params::ClientMessage_Disconnect* ClientMessage::unsafe_arena_release_disconnect() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ClientMessage.disconnect)
+inline ::flower_sdk::ClientMessage_Disconnect* ClientMessage::unsafe_arena_release_disconnect() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ClientMessage.disconnect)
   if (_internal_has_disconnect()) {
     clear_has_msg();
-    ::params::ClientMessage_Disconnect* temp = msg_.disconnect_;
+    ::flower_sdk::ClientMessage_Disconnect* temp = msg_.disconnect_;
     msg_.disconnect_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ClientMessage::unsafe_arena_set_allocated_disconnect(::params::ClientMessage_Disconnect* disconnect) {
+inline void ClientMessage::unsafe_arena_set_allocated_disconnect(::flower_sdk::ClientMessage_Disconnect* disconnect) {
   clear_msg();
   if (disconnect) {
     set_has_disconnect();
     msg_.disconnect_ = disconnect;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ClientMessage.disconnect)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ClientMessage.disconnect)
 }
-inline ::params::ClientMessage_Disconnect* ClientMessage::_internal_mutable_disconnect() {
+inline ::flower_sdk::ClientMessage_Disconnect* ClientMessage::_internal_mutable_disconnect() {
   if (!_internal_has_disconnect()) {
     clear_msg();
     set_has_disconnect();
-    msg_.disconnect_ = CreateMaybeMessage< ::params::ClientMessage_Disconnect >(GetArena());
+    msg_.disconnect_ = CreateMaybeMessage< ::flower_sdk::ClientMessage_Disconnect >(GetArena());
   }
   return msg_.disconnect_;
 }
-inline ::params::ClientMessage_Disconnect* ClientMessage::mutable_disconnect() {
-  // @@protoc_insertion_point(field_mutable:params.ClientMessage.disconnect)
+inline ::flower_sdk::ClientMessage_Disconnect* ClientMessage::mutable_disconnect() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ClientMessage.disconnect)
   return _internal_mutable_disconnect();
 }
 
-// .params.ClientMessage.ParametersRes parameters_res = 2;
+// .flower_sdk.ClientMessage.ParametersRes parameters_res = 2;
 inline bool ClientMessage::_internal_has_parameters_res() const {
   return msg_case() == kParametersRes;
 }
@@ -4081,11 +4102,11 @@ inline void ClientMessage::clear_parameters_res() {
     clear_has_msg();
   }
 }
-inline ::params::ClientMessage_ParametersRes* ClientMessage::release_parameters_res() {
-  // @@protoc_insertion_point(field_release:params.ClientMessage.parameters_res)
+inline ::flower_sdk::ClientMessage_ParametersRes* ClientMessage::release_parameters_res() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ClientMessage.parameters_res)
   if (_internal_has_parameters_res()) {
     clear_has_msg();
-      ::params::ClientMessage_ParametersRes* temp = msg_.parameters_res_;
+      ::flower_sdk::ClientMessage_ParametersRes* temp = msg_.parameters_res_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4095,48 +4116,48 @@ inline ::params::ClientMessage_ParametersRes* ClientMessage::release_parameters_
     return nullptr;
   }
 }
-inline const ::params::ClientMessage_ParametersRes& ClientMessage::_internal_parameters_res() const {
+inline const ::flower_sdk::ClientMessage_ParametersRes& ClientMessage::_internal_parameters_res() const {
   return _internal_has_parameters_res()
       ? *msg_.parameters_res_
-      : reinterpret_cast< ::params::ClientMessage_ParametersRes&>(::params::_ClientMessage_ParametersRes_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ClientMessage_ParametersRes&>(::flower_sdk::_ClientMessage_ParametersRes_default_instance_);
 }
-inline const ::params::ClientMessage_ParametersRes& ClientMessage::parameters_res() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.parameters_res)
+inline const ::flower_sdk::ClientMessage_ParametersRes& ClientMessage::parameters_res() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.parameters_res)
   return _internal_parameters_res();
 }
-inline ::params::ClientMessage_ParametersRes* ClientMessage::unsafe_arena_release_parameters_res() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ClientMessage.parameters_res)
+inline ::flower_sdk::ClientMessage_ParametersRes* ClientMessage::unsafe_arena_release_parameters_res() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ClientMessage.parameters_res)
   if (_internal_has_parameters_res()) {
     clear_has_msg();
-    ::params::ClientMessage_ParametersRes* temp = msg_.parameters_res_;
+    ::flower_sdk::ClientMessage_ParametersRes* temp = msg_.parameters_res_;
     msg_.parameters_res_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ClientMessage::unsafe_arena_set_allocated_parameters_res(::params::ClientMessage_ParametersRes* parameters_res) {
+inline void ClientMessage::unsafe_arena_set_allocated_parameters_res(::flower_sdk::ClientMessage_ParametersRes* parameters_res) {
   clear_msg();
   if (parameters_res) {
     set_has_parameters_res();
     msg_.parameters_res_ = parameters_res;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ClientMessage.parameters_res)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ClientMessage.parameters_res)
 }
-inline ::params::ClientMessage_ParametersRes* ClientMessage::_internal_mutable_parameters_res() {
+inline ::flower_sdk::ClientMessage_ParametersRes* ClientMessage::_internal_mutable_parameters_res() {
   if (!_internal_has_parameters_res()) {
     clear_msg();
     set_has_parameters_res();
-    msg_.parameters_res_ = CreateMaybeMessage< ::params::ClientMessage_ParametersRes >(GetArena());
+    msg_.parameters_res_ = CreateMaybeMessage< ::flower_sdk::ClientMessage_ParametersRes >(GetArena());
   }
   return msg_.parameters_res_;
 }
-inline ::params::ClientMessage_ParametersRes* ClientMessage::mutable_parameters_res() {
-  // @@protoc_insertion_point(field_mutable:params.ClientMessage.parameters_res)
+inline ::flower_sdk::ClientMessage_ParametersRes* ClientMessage::mutable_parameters_res() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ClientMessage.parameters_res)
   return _internal_mutable_parameters_res();
 }
 
-// .params.ClientMessage.FitRes fit_res = 3;
+// .flower_sdk.ClientMessage.FitRes fit_res = 3;
 inline bool ClientMessage::_internal_has_fit_res() const {
   return msg_case() == kFitRes;
 }
@@ -4154,11 +4175,11 @@ inline void ClientMessage::clear_fit_res() {
     clear_has_msg();
   }
 }
-inline ::params::ClientMessage_FitRes* ClientMessage::release_fit_res() {
-  // @@protoc_insertion_point(field_release:params.ClientMessage.fit_res)
+inline ::flower_sdk::ClientMessage_FitRes* ClientMessage::release_fit_res() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ClientMessage.fit_res)
   if (_internal_has_fit_res()) {
     clear_has_msg();
-      ::params::ClientMessage_FitRes* temp = msg_.fit_res_;
+      ::flower_sdk::ClientMessage_FitRes* temp = msg_.fit_res_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4168,48 +4189,48 @@ inline ::params::ClientMessage_FitRes* ClientMessage::release_fit_res() {
     return nullptr;
   }
 }
-inline const ::params::ClientMessage_FitRes& ClientMessage::_internal_fit_res() const {
+inline const ::flower_sdk::ClientMessage_FitRes& ClientMessage::_internal_fit_res() const {
   return _internal_has_fit_res()
       ? *msg_.fit_res_
-      : reinterpret_cast< ::params::ClientMessage_FitRes&>(::params::_ClientMessage_FitRes_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ClientMessage_FitRes&>(::flower_sdk::_ClientMessage_FitRes_default_instance_);
 }
-inline const ::params::ClientMessage_FitRes& ClientMessage::fit_res() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.fit_res)
+inline const ::flower_sdk::ClientMessage_FitRes& ClientMessage::fit_res() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.fit_res)
   return _internal_fit_res();
 }
-inline ::params::ClientMessage_FitRes* ClientMessage::unsafe_arena_release_fit_res() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ClientMessage.fit_res)
+inline ::flower_sdk::ClientMessage_FitRes* ClientMessage::unsafe_arena_release_fit_res() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ClientMessage.fit_res)
   if (_internal_has_fit_res()) {
     clear_has_msg();
-    ::params::ClientMessage_FitRes* temp = msg_.fit_res_;
+    ::flower_sdk::ClientMessage_FitRes* temp = msg_.fit_res_;
     msg_.fit_res_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ClientMessage::unsafe_arena_set_allocated_fit_res(::params::ClientMessage_FitRes* fit_res) {
+inline void ClientMessage::unsafe_arena_set_allocated_fit_res(::flower_sdk::ClientMessage_FitRes* fit_res) {
   clear_msg();
   if (fit_res) {
     set_has_fit_res();
     msg_.fit_res_ = fit_res;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ClientMessage.fit_res)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ClientMessage.fit_res)
 }
-inline ::params::ClientMessage_FitRes* ClientMessage::_internal_mutable_fit_res() {
+inline ::flower_sdk::ClientMessage_FitRes* ClientMessage::_internal_mutable_fit_res() {
   if (!_internal_has_fit_res()) {
     clear_msg();
     set_has_fit_res();
-    msg_.fit_res_ = CreateMaybeMessage< ::params::ClientMessage_FitRes >(GetArena());
+    msg_.fit_res_ = CreateMaybeMessage< ::flower_sdk::ClientMessage_FitRes >(GetArena());
   }
   return msg_.fit_res_;
 }
-inline ::params::ClientMessage_FitRes* ClientMessage::mutable_fit_res() {
-  // @@protoc_insertion_point(field_mutable:params.ClientMessage.fit_res)
+inline ::flower_sdk::ClientMessage_FitRes* ClientMessage::mutable_fit_res() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ClientMessage.fit_res)
   return _internal_mutable_fit_res();
 }
 
-// .params.ClientMessage.EvaluateRes evaluate_res = 4;
+// .flower_sdk.ClientMessage.EvaluateRes evaluate_res = 4;
 inline bool ClientMessage::_internal_has_evaluate_res() const {
   return msg_case() == kEvaluateRes;
 }
@@ -4227,11 +4248,11 @@ inline void ClientMessage::clear_evaluate_res() {
     clear_has_msg();
   }
 }
-inline ::params::ClientMessage_EvaluateRes* ClientMessage::release_evaluate_res() {
-  // @@protoc_insertion_point(field_release:params.ClientMessage.evaluate_res)
+inline ::flower_sdk::ClientMessage_EvaluateRes* ClientMessage::release_evaluate_res() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ClientMessage.evaluate_res)
   if (_internal_has_evaluate_res()) {
     clear_has_msg();
-      ::params::ClientMessage_EvaluateRes* temp = msg_.evaluate_res_;
+      ::flower_sdk::ClientMessage_EvaluateRes* temp = msg_.evaluate_res_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4241,48 +4262,48 @@ inline ::params::ClientMessage_EvaluateRes* ClientMessage::release_evaluate_res(
     return nullptr;
   }
 }
-inline const ::params::ClientMessage_EvaluateRes& ClientMessage::_internal_evaluate_res() const {
+inline const ::flower_sdk::ClientMessage_EvaluateRes& ClientMessage::_internal_evaluate_res() const {
   return _internal_has_evaluate_res()
       ? *msg_.evaluate_res_
-      : reinterpret_cast< ::params::ClientMessage_EvaluateRes&>(::params::_ClientMessage_EvaluateRes_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ClientMessage_EvaluateRes&>(::flower_sdk::_ClientMessage_EvaluateRes_default_instance_);
 }
-inline const ::params::ClientMessage_EvaluateRes& ClientMessage::evaluate_res() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.evaluate_res)
+inline const ::flower_sdk::ClientMessage_EvaluateRes& ClientMessage::evaluate_res() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.evaluate_res)
   return _internal_evaluate_res();
 }
-inline ::params::ClientMessage_EvaluateRes* ClientMessage::unsafe_arena_release_evaluate_res() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ClientMessage.evaluate_res)
+inline ::flower_sdk::ClientMessage_EvaluateRes* ClientMessage::unsafe_arena_release_evaluate_res() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ClientMessage.evaluate_res)
   if (_internal_has_evaluate_res()) {
     clear_has_msg();
-    ::params::ClientMessage_EvaluateRes* temp = msg_.evaluate_res_;
+    ::flower_sdk::ClientMessage_EvaluateRes* temp = msg_.evaluate_res_;
     msg_.evaluate_res_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ClientMessage::unsafe_arena_set_allocated_evaluate_res(::params::ClientMessage_EvaluateRes* evaluate_res) {
+inline void ClientMessage::unsafe_arena_set_allocated_evaluate_res(::flower_sdk::ClientMessage_EvaluateRes* evaluate_res) {
   clear_msg();
   if (evaluate_res) {
     set_has_evaluate_res();
     msg_.evaluate_res_ = evaluate_res;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ClientMessage.evaluate_res)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ClientMessage.evaluate_res)
 }
-inline ::params::ClientMessage_EvaluateRes* ClientMessage::_internal_mutable_evaluate_res() {
+inline ::flower_sdk::ClientMessage_EvaluateRes* ClientMessage::_internal_mutable_evaluate_res() {
   if (!_internal_has_evaluate_res()) {
     clear_msg();
     set_has_evaluate_res();
-    msg_.evaluate_res_ = CreateMaybeMessage< ::params::ClientMessage_EvaluateRes >(GetArena());
+    msg_.evaluate_res_ = CreateMaybeMessage< ::flower_sdk::ClientMessage_EvaluateRes >(GetArena());
   }
   return msg_.evaluate_res_;
 }
-inline ::params::ClientMessage_EvaluateRes* ClientMessage::mutable_evaluate_res() {
-  // @@protoc_insertion_point(field_mutable:params.ClientMessage.evaluate_res)
+inline ::flower_sdk::ClientMessage_EvaluateRes* ClientMessage::mutable_evaluate_res() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ClientMessage.evaluate_res)
   return _internal_mutable_evaluate_res();
 }
 
-// .params.ClientMessage.PropertiesRes properties_res = 5;
+// .flower_sdk.ClientMessage.PropertiesRes properties_res = 5;
 inline bool ClientMessage::_internal_has_properties_res() const {
   return msg_case() == kPropertiesRes;
 }
@@ -4300,11 +4321,11 @@ inline void ClientMessage::clear_properties_res() {
     clear_has_msg();
   }
 }
-inline ::params::ClientMessage_PropertiesRes* ClientMessage::release_properties_res() {
-  // @@protoc_insertion_point(field_release:params.ClientMessage.properties_res)
+inline ::flower_sdk::ClientMessage_PropertiesRes* ClientMessage::release_properties_res() {
+  // @@protoc_insertion_point(field_release:flower_sdk.ClientMessage.properties_res)
   if (_internal_has_properties_res()) {
     clear_has_msg();
-      ::params::ClientMessage_PropertiesRes* temp = msg_.properties_res_;
+      ::flower_sdk::ClientMessage_PropertiesRes* temp = msg_.properties_res_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -4314,44 +4335,44 @@ inline ::params::ClientMessage_PropertiesRes* ClientMessage::release_properties_
     return nullptr;
   }
 }
-inline const ::params::ClientMessage_PropertiesRes& ClientMessage::_internal_properties_res() const {
+inline const ::flower_sdk::ClientMessage_PropertiesRes& ClientMessage::_internal_properties_res() const {
   return _internal_has_properties_res()
       ? *msg_.properties_res_
-      : reinterpret_cast< ::params::ClientMessage_PropertiesRes&>(::params::_ClientMessage_PropertiesRes_default_instance_);
+      : reinterpret_cast< ::flower_sdk::ClientMessage_PropertiesRes&>(::flower_sdk::_ClientMessage_PropertiesRes_default_instance_);
 }
-inline const ::params::ClientMessage_PropertiesRes& ClientMessage::properties_res() const {
-  // @@protoc_insertion_point(field_get:params.ClientMessage.properties_res)
+inline const ::flower_sdk::ClientMessage_PropertiesRes& ClientMessage::properties_res() const {
+  // @@protoc_insertion_point(field_get:flower_sdk.ClientMessage.properties_res)
   return _internal_properties_res();
 }
-inline ::params::ClientMessage_PropertiesRes* ClientMessage::unsafe_arena_release_properties_res() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:params.ClientMessage.properties_res)
+inline ::flower_sdk::ClientMessage_PropertiesRes* ClientMessage::unsafe_arena_release_properties_res() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:flower_sdk.ClientMessage.properties_res)
   if (_internal_has_properties_res()) {
     clear_has_msg();
-    ::params::ClientMessage_PropertiesRes* temp = msg_.properties_res_;
+    ::flower_sdk::ClientMessage_PropertiesRes* temp = msg_.properties_res_;
     msg_.properties_res_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void ClientMessage::unsafe_arena_set_allocated_properties_res(::params::ClientMessage_PropertiesRes* properties_res) {
+inline void ClientMessage::unsafe_arena_set_allocated_properties_res(::flower_sdk::ClientMessage_PropertiesRes* properties_res) {
   clear_msg();
   if (properties_res) {
     set_has_properties_res();
     msg_.properties_res_ = properties_res;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:params.ClientMessage.properties_res)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:flower_sdk.ClientMessage.properties_res)
 }
-inline ::params::ClientMessage_PropertiesRes* ClientMessage::_internal_mutable_properties_res() {
+inline ::flower_sdk::ClientMessage_PropertiesRes* ClientMessage::_internal_mutable_properties_res() {
   if (!_internal_has_properties_res()) {
     clear_msg();
     set_has_properties_res();
-    msg_.properties_res_ = CreateMaybeMessage< ::params::ClientMessage_PropertiesRes >(GetArena());
+    msg_.properties_res_ = CreateMaybeMessage< ::flower_sdk::ClientMessage_PropertiesRes >(GetArena());
   }
   return msg_.properties_res_;
 }
-inline ::params::ClientMessage_PropertiesRes* ClientMessage::mutable_properties_res() {
-  // @@protoc_insertion_point(field_mutable:params.ClientMessage.properties_res)
+inline ::flower_sdk::ClientMessage_PropertiesRes* ClientMessage::mutable_properties_res() {
+  // @@protoc_insertion_point(field_mutable:flower_sdk.ClientMessage.properties_res)
   return _internal_mutable_properties_res();
 }
 
@@ -4398,12 +4419,12 @@ inline void Scalar::_internal_set_double_(double value) {
   scalar_.double__ = value;
 }
 inline double Scalar::double_() const {
-  // @@protoc_insertion_point(field_get:params.Scalar.double)
+  // @@protoc_insertion_point(field_get:flower_sdk.Scalar.double)
   return _internal_double_();
 }
 inline void Scalar::set_double_(double value) {
   _internal_set_double_(value);
-  // @@protoc_insertion_point(field_set:params.Scalar.double)
+  // @@protoc_insertion_point(field_set:flower_sdk.Scalar.double)
 }
 
 // sint64 sint64 = 2;
@@ -4436,12 +4457,12 @@ inline void Scalar::_internal_set_sint64(::PROTOBUF_NAMESPACE_ID::int64 value) {
   scalar_.sint64_ = value;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 Scalar::sint64() const {
-  // @@protoc_insertion_point(field_get:params.Scalar.sint64)
+  // @@protoc_insertion_point(field_get:flower_sdk.Scalar.sint64)
   return _internal_sint64();
 }
 inline void Scalar::set_sint64(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_sint64(value);
-  // @@protoc_insertion_point(field_set:params.Scalar.sint64)
+  // @@protoc_insertion_point(field_set:flower_sdk.Scalar.sint64)
 }
 
 // bool bool = 3;
@@ -4474,12 +4495,12 @@ inline void Scalar::_internal_set_bool_(bool value) {
   scalar_.bool__ = value;
 }
 inline bool Scalar::bool_() const {
-  // @@protoc_insertion_point(field_get:params.Scalar.bool)
+  // @@protoc_insertion_point(field_get:flower_sdk.Scalar.bool)
   return _internal_bool_();
 }
 inline void Scalar::set_bool_(bool value) {
   _internal_set_bool_(value);
-  // @@protoc_insertion_point(field_set:params.Scalar.bool)
+  // @@protoc_insertion_point(field_set:flower_sdk.Scalar.bool)
 }
 
 // string string = 4;
@@ -4499,15 +4520,15 @@ inline void Scalar::clear_string() {
   }
 }
 inline const std::string& Scalar::string() const {
-  // @@protoc_insertion_point(field_get:params.Scalar.string)
+  // @@protoc_insertion_point(field_get:flower_sdk.Scalar.string)
   return _internal_string();
 }
 inline void Scalar::set_string(const std::string& value) {
   _internal_set_string(value);
-  // @@protoc_insertion_point(field_set:params.Scalar.string)
+  // @@protoc_insertion_point(field_set:flower_sdk.Scalar.string)
 }
 inline std::string* Scalar::mutable_string() {
-  // @@protoc_insertion_point(field_mutable:params.Scalar.string)
+  // @@protoc_insertion_point(field_mutable:flower_sdk.Scalar.string)
   return _internal_mutable_string();
 }
 inline const std::string& Scalar::_internal_string() const {
@@ -4525,7 +4546,7 @@ inline void Scalar::_internal_set_string(const std::string& value) {
   scalar_.string_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
 inline void Scalar::set_string(std::string&& value) {
-  // @@protoc_insertion_point(field_set:params.Scalar.string)
+  // @@protoc_insertion_point(field_set:flower_sdk.Scalar.string)
   if (!_internal_has_string()) {
     clear_scalar();
     set_has_string();
@@ -4533,7 +4554,7 @@ inline void Scalar::set_string(std::string&& value) {
   }
   scalar_.string_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:params.Scalar.string)
+  // @@protoc_insertion_point(field_set_rvalue:flower_sdk.Scalar.string)
 }
 inline void Scalar::set_string(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
@@ -4544,7 +4565,7 @@ inline void Scalar::set_string(const char* value) {
   }
   scalar_.string_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{},
       ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:params.Scalar.string)
+  // @@protoc_insertion_point(field_set_char:flower_sdk.Scalar.string)
 }
 inline void Scalar::set_string(const char* value,
                              size_t size) {
@@ -4557,7 +4578,7 @@ inline void Scalar::set_string(const char* value,
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size),
       GetArena());
-  // @@protoc_insertion_point(field_set_pointer:params.Scalar.string)
+  // @@protoc_insertion_point(field_set_pointer:flower_sdk.Scalar.string)
 }
 inline std::string* Scalar::_internal_mutable_string() {
   if (!_internal_has_string()) {
@@ -4569,7 +4590,7 @@ inline std::string* Scalar::_internal_mutable_string() {
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Scalar::release_string() {
-  // @@protoc_insertion_point(field_release:params.Scalar.string)
+  // @@protoc_insertion_point(field_release:flower_sdk.Scalar.string)
   if (_internal_has_string()) {
     clear_has_scalar();
     return scalar_.string_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
@@ -4589,7 +4610,7 @@ inline void Scalar::set_allocated_string(std::string* string) {
       arena->Own(string);
     }
   }
-  // @@protoc_insertion_point(field_set_allocated:params.Scalar.string)
+  // @@protoc_insertion_point(field_set_allocated:flower_sdk.Scalar.string)
 }
 
 // bytes bytes = 5;
@@ -4609,15 +4630,15 @@ inline void Scalar::clear_bytes() {
   }
 }
 inline const std::string& Scalar::bytes() const {
-  // @@protoc_insertion_point(field_get:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_get:flower_sdk.Scalar.bytes)
   return _internal_bytes();
 }
 inline void Scalar::set_bytes(const std::string& value) {
   _internal_set_bytes(value);
-  // @@protoc_insertion_point(field_set:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_set:flower_sdk.Scalar.bytes)
 }
 inline std::string* Scalar::mutable_bytes() {
-  // @@protoc_insertion_point(field_mutable:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_mutable:flower_sdk.Scalar.bytes)
   return _internal_mutable_bytes();
 }
 inline const std::string& Scalar::_internal_bytes() const {
@@ -4635,7 +4656,7 @@ inline void Scalar::_internal_set_bytes(const std::string& value) {
   scalar_.bytes_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
 inline void Scalar::set_bytes(std::string&& value) {
-  // @@protoc_insertion_point(field_set:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_set:flower_sdk.Scalar.bytes)
   if (!_internal_has_bytes()) {
     clear_scalar();
     set_has_bytes();
@@ -4643,7 +4664,7 @@ inline void Scalar::set_bytes(std::string&& value) {
   }
   scalar_.bytes_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_set_rvalue:flower_sdk.Scalar.bytes)
 }
 inline void Scalar::set_bytes(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
@@ -4654,7 +4675,7 @@ inline void Scalar::set_bytes(const char* value) {
   }
   scalar_.bytes_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{},
       ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_set_char:flower_sdk.Scalar.bytes)
 }
 inline void Scalar::set_bytes(const void* value,
                              size_t size) {
@@ -4667,7 +4688,7 @@ inline void Scalar::set_bytes(const void* value,
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size),
       GetArena());
-  // @@protoc_insertion_point(field_set_pointer:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_set_pointer:flower_sdk.Scalar.bytes)
 }
 inline std::string* Scalar::_internal_mutable_bytes() {
   if (!_internal_has_bytes()) {
@@ -4679,7 +4700,7 @@ inline std::string* Scalar::_internal_mutable_bytes() {
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Scalar::release_bytes() {
-  // @@protoc_insertion_point(field_release:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_release:flower_sdk.Scalar.bytes)
   if (_internal_has_bytes()) {
     clear_has_scalar();
     return scalar_.bytes_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
@@ -4699,7 +4720,7 @@ inline void Scalar::set_allocated_bytes(std::string* bytes) {
       arena->Own(bytes);
     }
   }
-  // @@protoc_insertion_point(field_set_allocated:params.Scalar.bytes)
+  // @@protoc_insertion_point(field_set_allocated:flower_sdk.Scalar.bytes)
 }
 
 inline bool Scalar::has_scalar() const {
@@ -4755,14 +4776,14 @@ inline Scalar::ScalarCase Scalar::scalar_case() const {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace params
+}  // namespace flower_sdk
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::params::Reason> : ::std::true_type {};
+template <> struct is_proto_enum< ::flower_sdk::Reason> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::params::Reason>() {
-  return ::params::Reason_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::flower_sdk::Reason>() {
+  return ::flower_sdk::Reason_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

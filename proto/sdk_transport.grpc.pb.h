@@ -26,10 +26,9 @@
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 
-namespace params {
+namespace flower_sdk {
 
 // service WeightsPasser {
-// //rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
 // rpc streamWeights (stream Parameters) returns (stream Parameters) {}
 // rpc sendWeights (Parameters) returns (stream Parameters) {}
 // }
@@ -37,27 +36,27 @@ namespace params {
 class FlowerServiceSDK final {
  public:
   static constexpr char const* service_full_name() {
-    return "params.FlowerServiceSDK";
+    return "flower_sdk.FlowerServiceSDK";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>> Join(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>>(JoinRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>> Join(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>>(JoinRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>> AsyncJoin(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>>(AsyncJoinRaw(context, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>> AsyncJoin(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>>(AsyncJoinRaw(context, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>> PrepareAsyncJoin(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>>(PrepareAsyncJoinRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>> PrepareAsyncJoin(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>>(PrepareAsyncJoinRaw(context, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Join(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::params::ClientMessage,::params::ServerMessage>* reactor) = 0;
+      virtual void Join(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::flower_sdk::ClientMessage,::flower_sdk::ServerMessage>* reactor) = 0;
       #else
-      virtual void Join(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::params::ClientMessage,::params::ServerMessage>* reactor) = 0;
+      virtual void Join(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::flower_sdk::ClientMessage,::flower_sdk::ServerMessage>* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -68,29 +67,29 @@ class FlowerServiceSDK final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>* JoinRaw(::grpc::ClientContext* context) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>* AsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::params::ClientMessage, ::params::ServerMessage>* PrepareAsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* JoinRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* AsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* PrepareAsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    std::unique_ptr< ::grpc::ClientReaderWriter< ::params::ClientMessage, ::params::ServerMessage>> Join(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriter< ::params::ClientMessage, ::params::ServerMessage>>(JoinRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>> Join(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>>(JoinRaw(context));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::params::ClientMessage, ::params::ServerMessage>> AsyncJoin(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::params::ClientMessage, ::params::ServerMessage>>(AsyncJoinRaw(context, cq, tag));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>> AsyncJoin(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>>(AsyncJoinRaw(context, cq, tag));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::params::ClientMessage, ::params::ServerMessage>> PrepareAsyncJoin(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::params::ClientMessage, ::params::ServerMessage>>(PrepareAsyncJoinRaw(context, cq));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>> PrepareAsyncJoin(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>>(PrepareAsyncJoinRaw(context, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Join(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::params::ClientMessage,::params::ServerMessage>* reactor) override;
+      void Join(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::flower_sdk::ClientMessage,::flower_sdk::ServerMessage>* reactor) override;
       #else
-      void Join(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::params::ClientMessage,::params::ServerMessage>* reactor) override;
+      void Join(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::flower_sdk::ClientMessage,::flower_sdk::ServerMessage>* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -103,9 +102,9 @@ class FlowerServiceSDK final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientReaderWriter< ::params::ClientMessage, ::params::ServerMessage>* JoinRaw(::grpc::ClientContext* context) override;
-    ::grpc::ClientAsyncReaderWriter< ::params::ClientMessage, ::params::ServerMessage>* AsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReaderWriter< ::params::ClientMessage, ::params::ServerMessage>* PrepareAsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* JoinRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* AsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* PrepareAsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Join_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -114,7 +113,7 @@ class FlowerServiceSDK final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status Join(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::params::ServerMessage, ::params::ClientMessage>* stream);
+    virtual ::grpc::Status Join(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::flower_sdk::ServerMessage, ::flower_sdk::ClientMessage>* stream);
   };
   template <class BaseClass>
   class WithAsyncMethod_Join : public BaseClass {
@@ -128,11 +127,11 @@ class FlowerServiceSDK final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::ServerMessage, ::params::ClientMessage>* /*stream*/)  override {
+    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::flower_sdk::ServerMessage, ::flower_sdk::ClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestJoin(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::params::ServerMessage, ::params::ClientMessage>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestJoin(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::flower_sdk::ServerMessage, ::flower_sdk::ClientMessage>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncBidiStreaming(0, context, stream, new_call_cq, notification_cq, tag);
     }
   };
@@ -149,7 +148,7 @@ class FlowerServiceSDK final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(0,
-          new ::grpc::internal::CallbackBidiHandler< ::params::ClientMessage, ::params::ServerMessage>(
+          new ::grpc::internal::CallbackBidiHandler< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
@@ -162,15 +161,15 @@ class FlowerServiceSDK final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::ServerMessage, ::params::ClientMessage>* /*stream*/)  override {
+    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::flower_sdk::ServerMessage, ::flower_sdk::ClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerBidiReactor< ::params::ClientMessage, ::params::ServerMessage>* Join(
+    virtual ::grpc::ServerBidiReactor< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* Join(
       ::grpc::CallbackServerContext* /*context*/)
     #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::params::ClientMessage, ::params::ServerMessage>* Join(
+    virtual ::grpc::experimental::ServerBidiReactor< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* Join(
       ::grpc::experimental::CallbackServerContext* /*context*/)
     #endif
       { return nullptr; }
@@ -192,7 +191,7 @@ class FlowerServiceSDK final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::ServerMessage, ::params::ClientMessage>* /*stream*/)  override {
+    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::flower_sdk::ServerMessage, ::flower_sdk::ClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -209,7 +208,7 @@ class FlowerServiceSDK final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::ServerMessage, ::params::ClientMessage>* /*stream*/)  override {
+    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::flower_sdk::ServerMessage, ::flower_sdk::ClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -242,7 +241,7 @@ class FlowerServiceSDK final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::params::ServerMessage, ::params::ClientMessage>* /*stream*/)  override {
+    ::grpc::Status Join(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::flower_sdk::ServerMessage, ::flower_sdk::ClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -260,7 +259,7 @@ class FlowerServiceSDK final {
   typedef Service StreamedService;
 };
 
-}  // namespace params
+}  // namespace flower_sdk
 
 
 #endif  // GRPC_sdk_5ftransport_2eproto__INCLUDED

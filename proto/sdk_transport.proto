@@ -1,9 +1,8 @@
 syntax = "proto3";
 
-package params;
+package flower_sdk;
 
 /*service WeightsPasser {
-    //rpc sendWeights (WeightsToServer) returns (WeightsToClient) {}
     rpc streamWeights (stream Parameters) returns (stream Parameters) {}
     rpc sendWeights (Parameters) returns (stream Parameters) {}
 }*/
@@ -13,7 +12,7 @@ service FlowerServiceSDK {
 }
 
 message Parameters {
-    bytes parameters = 1;
+    repeated bytes parameters = 1;
     string tensor_type = 2;
 }
 
@@ -57,7 +56,7 @@ message ServerMessage {
         GetParameters get_parameters = 2;
         FitIns fit_ins = 3;
         EvaluateIns evaluate_ins = 4;
-        PropertiesIns properties_ons = 5;
+        PropertiesIns properties_ins = 5;
     }
 }
 

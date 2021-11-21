@@ -19,10 +19,10 @@
 #include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-namespace params {
+namespace flower_sdk {
 
 static const char* FlowerServiceSDK_method_names[] = {
-  "/params.FlowerServiceSDK/Join",
+  "/flower_sdk.FlowerServiceSDK/Join",
 };
 
 std::unique_ptr< FlowerServiceSDK::Stub> FlowerServiceSDK::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,31 +35,31 @@ FlowerServiceSDK::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& c
   : channel_(channel), rpcmethod_Join_(FlowerServiceSDK_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
 
-::grpc::ClientReaderWriter< ::params::ClientMessage, ::params::ServerMessage>* FlowerServiceSDK::Stub::JoinRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::params::ClientMessage, ::params::ServerMessage>::Create(channel_.get(), rpcmethod_Join_, context);
+::grpc::ClientReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* FlowerServiceSDK::Stub::JoinRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>::Create(channel_.get(), rpcmethod_Join_, context);
 }
 
-void FlowerServiceSDK::Stub::experimental_async::Join(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::params::ClientMessage,::params::ServerMessage>* reactor) {
-  ::grpc::internal::ClientCallbackReaderWriterFactory< ::params::ClientMessage,::params::ServerMessage>::Create(stub_->channel_.get(), stub_->rpcmethod_Join_, context, reactor);
+void FlowerServiceSDK::Stub::experimental_async::Join(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::flower_sdk::ClientMessage,::flower_sdk::ServerMessage>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::flower_sdk::ClientMessage,::flower_sdk::ServerMessage>::Create(stub_->channel_.get(), stub_->rpcmethod_Join_, context, reactor);
 }
 
-::grpc::ClientAsyncReaderWriter< ::params::ClientMessage, ::params::ServerMessage>* FlowerServiceSDK::Stub::AsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::params::ClientMessage, ::params::ServerMessage>::Create(channel_.get(), cq, rpcmethod_Join_, context, true, tag);
+::grpc::ClientAsyncReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* FlowerServiceSDK::Stub::AsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>::Create(channel_.get(), cq, rpcmethod_Join_, context, true, tag);
 }
 
-::grpc::ClientAsyncReaderWriter< ::params::ClientMessage, ::params::ServerMessage>* FlowerServiceSDK::Stub::PrepareAsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::params::ClientMessage, ::params::ServerMessage>::Create(channel_.get(), cq, rpcmethod_Join_, context, false, nullptr);
+::grpc::ClientAsyncReaderWriter< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>* FlowerServiceSDK::Stub::PrepareAsyncJoinRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>::Create(channel_.get(), cq, rpcmethod_Join_, context, false, nullptr);
 }
 
 FlowerServiceSDK::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       FlowerServiceSDK_method_names[0],
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
-      new ::grpc::internal::BidiStreamingHandler< FlowerServiceSDK::Service, ::params::ClientMessage, ::params::ServerMessage>(
+      new ::grpc::internal::BidiStreamingHandler< FlowerServiceSDK::Service, ::flower_sdk::ClientMessage, ::flower_sdk::ServerMessage>(
           [](FlowerServiceSDK::Service* service,
              ::grpc::ServerContext* ctx,
-             ::grpc::ServerReaderWriter<::params::ServerMessage,
-             ::params::ClientMessage>* stream) {
+             ::grpc::ServerReaderWriter<::flower_sdk::ServerMessage,
+             ::flower_sdk::ClientMessage>* stream) {
                return service->Join(ctx, stream);
              }, this)));
 }
@@ -67,12 +67,12 @@ FlowerServiceSDK::Service::Service() {
 FlowerServiceSDK::Service::~Service() {
 }
 
-::grpc::Status FlowerServiceSDK::Service::Join(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::params::ServerMessage, ::params::ClientMessage>* stream) {
+::grpc::Status FlowerServiceSDK::Service::Join(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::flower_sdk::ServerMessage, ::flower_sdk::ClientMessage>* stream) {
   (void) context;
   (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
 
-}  // namespace params
+}  // namespace flower_sdk
 
