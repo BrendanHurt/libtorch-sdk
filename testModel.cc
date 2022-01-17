@@ -118,11 +118,12 @@ void fit_test(Client& client, const std::shared_ptr<Network> net) {
     std::fstream writer;
 
     my_map.emplace("here", my_scalar);
+    client.set_fit(net->fit, 1000, my_map);
+
     torch::save(net->fit, buffer);
     writer.open("logs/userFit.txt", std::ios::out);
     writer << buffer.str();
     writer.close();
-    client.set_fit(net->fit, 1000, my_map);
     //client.test_fit();
 }
 

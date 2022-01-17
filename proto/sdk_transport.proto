@@ -24,7 +24,6 @@ enum Reason {
     WIFI_UNAVAILABLE = 3;
     ACK = 4;
 }
-
 //--------------------------------------------------------------
 //server message
 message ServerMessage {

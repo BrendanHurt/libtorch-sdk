@@ -38,6 +38,13 @@ public:
         evaluate_res_msg = new ClientMessage_EvaluateRes();
         properties_res_msg = new ClientMessage_PropertiesRes();
         parameters_msg = new Parameters();
+        fit_parameters_msg = new Parameters();
+
+        //server messages
+        fit_ins_msg = new ServerMessage_FitIns();
+        properties_ins_msg = new ServerMessage_PropertiesIns();
+        evaluate_ins_msg = new ServerMessage_EvaluateIns();
+        reconnect_msg = new ServerMessage_Reconnect();
     }
     ~Client() {}
 
@@ -117,9 +124,8 @@ public:
      * 
     */
     void set_parameters(const std::vector<std::string>& layers) {
-        /*if (parameters_res_msg->has_parameters()) {
-            parameters_res_msg->clear_parameters();
-        }*/
+        if (parameters_res_msg->has_parameters()) {parameters_res_msg->clear_parameters();}
+        if (parameters_msg->parameters_size() != 0) {parameters_msg->clear_parameters();}
 
         for (size_t i = 0; i < layers.size(); i++) {
             parameters_msg->add_parameters(layers[i]);
@@ -134,30 +140,21 @@ public:
     void set_fit(const torch::Tensor& fit,
                 int num_examples, 
                 const std::map<std::string, typing::Scalar>& metrics) {
-        /*std::stringstream buffer;
+        std::stringstream buffer;
 
         //clear messages if they've already been set
         if (fit_res_msg->has_parameters()) {fit_res_msg->clear_parameters();}
-        if (fit_res_msg->num_examples() > 0) {fit_res_msg->clear_num_examples();}
         if (fit_res_msg->metrics_size() != 0) {fit_res_msg->clear_metrics();}
-        if (parameters_msg->parameters_size() != 0) {
-            parameters_msg->clear_parameters();
-            parameters_msg->clear_tensor_type();
-        }
-        
-        //torch::save(fit, buffer);
+        if (fit_parameters_msg->parameters_size() != 0) {fit_parameters_msg->clear_parameters();}
 
-        //can there be more than one fit tensor?
-        parameters_msg->add_parameters(buffer.str());
-        parameters_msg->set_tensor_type(fit_tensor_type);
-        fit_res_msg->set_allocated_parameters(parameters_msg);
+        torch::save(fit, buffer);
+        fit_parameters_msg->add_parameters(buffer.str());
+        fit_parameters_msg->set_tensor_type(fit_tensor_type);
+        fit_res_msg->set_allocated_parameters(fit_parameters_msg);
         fit_res_msg->set_num_examples(num_examples);
         
         //metrics
-        copy_map(metrics, fit_res_msg->mutable_metrics());*/
-        fit_res_msg->clear_parameters();
-        fit_res_msg->clear_num_examples();
-        fit_res_msg->clear_metrics();
+        copy_map(metrics, fit_res_msg->mutable_metrics());
     }
 
     /**----------------------------Evaluate----------------------------
@@ -166,11 +163,7 @@ public:
     void set_evaluate(float loss,
                     int num_examples,
                     const std::map<std::string, typing::Scalar>& metrics) {
-        /*if (evaluate_res_msg->loss() != 0) {
-            evaluate_res_msg->clear_loss();
-            evaluate_res_msg->clear_num_examples();
-            evaluate_res_msg->clear_metrics();
-        }*/
+        if (evaluate_res_msg->metrics_size() != 0) {evaluate_res_msg->clear_metrics();}
         evaluate_res_msg->set_loss(loss);
         evaluate_res_msg->set_num_examples(num_examples);
         copy_map(metrics, evaluate_res_msg->mutable_metrics());
@@ -189,10 +182,21 @@ public:
     //========================================================================
     //methods for user to get model returned from the server
 
-    /**----------------------------Parameters----------------------------*/
-    void get_server_parameters() {
-        //
-    }
+    /**----------------------------Parameters----------------------------
+     * Does:
+     *  -
+     * Returns:
+    */
+    /*std::tuple<std::stringstream, std::string> get_server_parameters() {
+        std::fstream writer;
+        std::stringstream loader;
+        torch::save();
+        writer.open("paramsFromServer.txt", std::ios::out);
+        //1. write the tensor type (so you can find it)
+        
+        //2. write the parameters w/ extra new lines
+        writer.close();
+    }*/
 
     /**----------------------------Fit----------------------------*/
     void get_server_fit() {
@@ -220,39 +224,7 @@ private:
         stream->WritesDone();
     }
 
-    /*//old _Join
-    //  work on this after testing the loading methods
-    grpc::Status old_Join() {
-        //use a thread to send the serialized model to the server
-        ClientContext context;
-        ClientMessage client_msg;
-        ServerMessage server_msg;
-        grpc::Status status;
-
-        //figure out how to get this sending with a thread
-        std::cout << "in Join\n";
-        serialize_client_model(client_msg);
-        std::cout << "out of serialize model\n";
-
-        std::shared_ptr<ClientReaderWriter<ClientMessage, ServerMessage>> stream(
-            stub_->Join(&context)
-        );
-        std::thread model_writer(model_thread, stream, client_msg);
-
-        //read model from a server message
-        while(stream->Read(&server_msg)) {
-            //add deserializing here later
-            std::cout << "got the server message\n";
-        }
-
-        model_writer.join();
-        status = stream->Finish();
-
-        std::cout << "exiting streaming method\n";
-        return status;
-        //return grpc::Status::OK;
-    }*/
-
+    /**----------------------------Join----------------------------*/
     grpc::Status Join() {
         //use a thread to send the serialized model to the server
         ClientContext context;
@@ -260,10 +232,7 @@ private:
         ServerMessage server_msg;
         grpc::Status status;
 
-        //figure out how to get this sending with a thread
-        std::cout << "in Join\n";
         serialize_client_model(client_messages);
-        std::cout << "out of serialize model\n";
 
         std::shared_ptr<ClientReaderWriter<ClientMessage, ServerMessage>> stream(
             stub_->Join(&context)
@@ -274,43 +243,28 @@ private:
         while(stream->Read(&server_msg)) {
             //add deserializing here later
             std::cout << "got the server message\n";
+
+            //handle the server messages here
+            //probably modularize later
+            if (server_msg.has_fit_ins()) {
+                std::cout << "has fit ins\n";
+                fit_from_proto(server_msg);
+            }
+            if (server_msg.has_properties_ins()) {
+                properties_from_proto(server_msg);
+            }
+            if (server_msg.has_evaluate_ins()) {
+                evaluate_from_proto(server_msg);
+            }
         }
+        server_ins_to_file();
 
         model_writer.join();
         status = stream->Finish();
         !status.ok() ? std::cout << "Join rpc failed\n" : std::cout << "Join succeeded\n";
         std::cout << "exiting streaming method\n";
         return status;
-        //return grpc::Status::OK;
     }
-
-    /*-------------------modularize this a bit more-------------------*/
-    /*void deserialize_server_model(const ServerMessage& server_msg) {
-        //Reconnect
-        if (server_msg.HasField("Reconnect")) {
-            reconnect_from_proto(server_msg);
-        }
-
-        //Parameters
-        if (server_msg.HasField("Parameters")) {
-            parameters_from_proto(server_msg);
-        }
-
-        //FitIns
-        if (server_msg.HasField("FitIns")) {
-            fit_from_proto(server_msg);
-        }
-
-        //EvaluateIns
-        if (server_msg.HasField("EvaluateIns")) {
-            evaluate_from_proto(server_msg);
-        }
-
-        //PropertiesIns
-        if (server_msg.HasField("PropertiesIns")) {
-            properties_from_proto(server_msg);
-        }
-    }*/
 
     /**-------------------serialize_client_model-------------------
      * add checking to only add messages that have content in em
@@ -330,7 +284,7 @@ private:
         } else {
             std::cout << "parameters empty\n";
         }
-        if (fit_res_msg->has_parameters()) { //better if statement?
+        if (fit_res_msg->num_examples() != 0) { //better if statement?
             std::cout << "adding fit message\n";
             fit_to_proto(fit_msg);
             client_messages.push_back(fit_msg);
@@ -370,6 +324,18 @@ private:
             );
         }
         to->insert(temp.begin(), temp.end());
+    }
+
+    void map_from_proto(const google::protobuf::Map<std::string, flower_sdk::Scalar>* from,
+                    std::map<std::string, typing::Scalar>& to) {
+        std::map<std::string, typing::Scalar> temp;
+        google::protobuf::Map<std::string, flower_sdk::Scalar>::const_iterator it;
+        for (it = from->cbegin(); it != from->cend(); it++) {
+            temp.insert(
+                std::pair<std::string, typing::Scalar>(it->first, from_flower(it->second))
+            );
+        }
+        to.insert(temp.begin(), temp.end());
     }
 
     /**----------------------------Disconnect----------------------------
@@ -423,8 +389,9 @@ private:
      * 
     */
     /*void parameters_from_proto(const ServerMessage& server_msg) {
-        //for loop to get each of the model's layers
-        get_params.tensor_type = server_msg.get_parameters.tensor_type;
+        for (x : server_msg.parameters) {
+            //
+        }
     }*/
 
     /**----------------------------Fit----------------------------
@@ -434,39 +401,116 @@ private:
      * Constraints? (better term for pre-reqs?):
      *  -Has to actually be in the model?
     */
-    /*void fit_from_proto(const ServerMessage& server_msg) {
-        int config_size = server_msg.fit_ins.config.size();
-
-        torch::load(get_fit.parameters, server_msg.fit_ins.parameters);
-
-        for (int i = 0; i < config_size; i++) {
-            get_fit.config.insert(server_msg.fit_ins.config[i]);
+    void fit_from_proto(const ServerMessage& server_msg) {
+        //copy over the fit tensor (should only be one?)
+        for (int i = 0; i < server_msg.fit_ins().parameters().parameters_size(); i++) {
+            fit_ins_msg->mutable_parameters()->add_parameters(
+                server_msg.fit_ins().parameters().parameters(i)
+            );
         }
-    }*/
+
+        //copy the config from server_msg to fit_ins_msg
+        fit_ins_msg->mutable_config()->insert(
+            server_msg.fit_ins().config().begin(), server_msg.fit_ins().config().end()
+        );
+    }
 
     /**----------------------------Evaluate----------------------------
      * 
     */
-    /*void evaluate_from_proto(const ServerMessage& server_msg) {
-        int config_size = server_msg.evaluate_ins.config.size();
-
-        torch::load(get_evaluate.parameters, server_msg.evaluate_ins.parameters);
-
-        for (int i = 0; i < config_size; i++) {
-            get_evaluate.config.insert(server_msg.evaluate_ins.config[i]);
+    void evaluate_from_proto(const ServerMessage& server_msg) {
+        //copy over the fit tensor (should only be one?)
+        for (int i = 0; i < server_msg.evaluate_ins().parameters().parameters_size(); i++) {
+            evaluate_ins_msg->mutable_parameters()->add_parameters(
+                server_msg.evaluate_ins().parameters().parameters(i)
+            );
         }
-    }*/
+
+        //copy the config from server_msg to evaluate_ins_msg
+        evaluate_ins_msg->mutable_config()->insert(
+            server_msg.evaluate_ins().config().begin(),
+            server_msg.evaluate_ins().config().end()
+        );
+    }
 
     /**----------------------------Properties----------------------------
      * 
     */
-    /*void properties_from_proto(const ServerMessage& server_msg) {
-        int config_size = server_msg.properties_ins.config.size();
+    void properties_from_proto(const ServerMessage& server_msg) {
+        properties_ins_msg->mutable_config()->insert(
+            server_msg.properties_ins().config().begin(),
+            server_msg.properties_ins().config().end()
+        );
+    }
 
-        for (int i = 0; i < config_size; i++) {
-            get_properties.properties.insert(server_msg.properties_ins.config[i]);
+    //modularize individual writes later
+    void server_ins_to_file() {
+        //starting with fit
+        std::fstream writer;
+        writer.open("serverIns.txt", std::ios::out);
+        //--------------------------------------
+        //modularize fit section later
+
+        for (int i = 0; i < fit_ins_msg->parameters().parameters_size(); i++) {
+            writer << fit_ins_msg->parameters().parameters(i) << "\n\n";
         }
-    }*/
+
+        google::protobuf::Map<std::string, flower_sdk::Scalar>::const_iterator it;
+        for (it = fit_ins_msg->config().cbegin(); it != fit_ins_msg->config().cend(); it++) {
+            writer << "Fit:\n" << it->first;
+            write_scalar(writer, it->second); //probably a better way to do this
+        }
+        writer << "\n\n";
+        //--------------------------------------
+
+        //--------------------------------------
+        //modularize properties section later
+        //google::protobuf::Map<std::string, flower_sdk::Scalar>::const_iterator it;
+        for (it = properties_ins_msg->config().cbegin();
+            it != properties_ins_msg->config().cend();
+            it++) {
+            writer << "Properties:\n" << it->first;
+            write_scalar(writer, it->second); //probably a better way to do this
+        }
+        writer << "\n\n";
+        //--------------------------------------
+
+        //--------------------------------------
+        //modularize evaluate section later
+
+        for (int i = 0; i < evaluate_ins_msg->parameters().parameters_size(); i++) {
+            writer << evaluate_ins_msg->parameters().parameters(i) << "\n\n";
+        }
+
+        //google::protobuf::Map<std::string, flower_sdk::Scalar>::const_iterator it;
+        for (it = evaluate_ins_msg->config().cbegin();
+            it != evaluate_ins_msg->config().cend();
+            it++) {
+            writer << "Evaluate:\n" << it->first;
+            write_scalar(writer, it->second); //probably a better way to do this
+        }
+        writer << "\n\n";
+        //--------------------------------------
+
+        writer.close();
+    }
+
+    void write_scalar(std::fstream& writer, const flower_sdk::Scalar& scalar) {
+        if (scalar.has_double_()) {
+            writer << " double; " << scalar.double_() << std::endl;
+        } else if (scalar.has_sint64()) {
+            int converter = scalar.sint64();
+            writer << " sint64: " << converter << std::endl;
+        } else if (scalar.has_bool_()) {
+            writer << " bool: " << scalar.bool_() << std::endl;
+        } else if (scalar.has_string()) {
+            writer << " string: " << scalar.string() << std::endl;
+        } else if (scalar.has_bytes()) { //maybe write to a different file?
+            writer << " bytes: " << scalar.bytes() << std::endl;
+        } else {
+            writer << "Scalar is empty\n";
+        }
+    }
 
 public:
     const flower_sdk::Scalar to_flower(const typing::Scalar& from) const {
@@ -478,6 +522,26 @@ public:
         //new_scalar.set_bytes(from._bytes);
         return new_scalar;
     }
+
+    const typing::Scalar from_flower(const flower_sdk::Scalar& from) const {
+        typing::Scalar to;
+        if (from.has_double_()) {
+            to._double = from.double_();
+        }
+        if (from.has_sint64()) {
+            to._int = from.sint64();
+        }
+        if (from.has_bool_()) {
+            to._bool = from.bool_();
+        }
+        if (from.has_string()) {
+            to._string = from.string();
+        }
+        if (from.has_bytes()) {
+            to._bytes = from.bytes();
+        }
+        return to;
+    }
 private:
 //==========================================================================
 //attributes
@@ -486,36 +550,36 @@ private:
     //determine a method for checking which fields a user has saved
     
     //reduces the amount of allocating & deallocating these
-    std::vector<ClientMessage>   client_messages;
-    ClientMessage_Disconnect*    disconnect_res_msg;
-    ClientMessage_ParametersRes* parameters_res_msg;
-    ClientMessage_FitRes*        fit_res_msg;
-    ClientMessage_EvaluateRes*   evaluate_res_msg;
-    ClientMessage_PropertiesRes* properties_res_msg;
-    
+    std::vector<ClientMessage>      client_messages;
+    ClientMessage_Disconnect*       disconnect_res_msg;
+    ClientMessage_ParametersRes*    parameters_res_msg;
+    ClientMessage_FitRes*           fit_res_msg;
+    ClientMessage_EvaluateRes*      evaluate_res_msg;
+    ClientMessage_PropertiesRes*    properties_res_msg;
 
+    //same idea for these?
+    ServerMessage_Reconnect*        reconnect_msg;
+    ServerMessage_FitIns*           fit_ins_msg;
+    ServerMessage_EvaluateIns*      evaluate_ins_msg;
+    ServerMessage_PropertiesIns*    properties_ins_msg;
+
+    /*for reading parameters into parameters_res and fit_res, seems like
+      add_paramters does a shallow copy, so there has to be 2 of them
+    */
+    flower_sdk::Parameters* parameters_msg;
+    flower_sdk::Parameters* fit_parameters_msg;
+    //flower_sdK::Parameters* get_fit_params;
+    
     //keep these?
     std::string params_tensor_type = "parameters";
     std::string fit_tensor_type = "fit";
-
-    //server elements to be deserialized and returned to the user
-    ServerMessage_FitIns*        fit_ins_msg;
-    ServerMessage_EvaluateIns*   evaluate_ins_msg;
-    ServerMessage_PropertiesIns* properties_ins_msg;
-    ServerMessage_GetParameters* parameters_ins_msg;
-
-    flower_sdk::Parameters* parameters_msg;
+    std::string tensorType = "numpy.ndarray";
+    
     std::unique_ptr<FlowerServiceSDK::Stub> stub_;
 };
 
-/* Current Idea:
-        1. Client receives a server message
-        2. Client checks which fields the message has & calls the
-           corresponding methods
-        3. Each method deserializes a field & returns the values
-        4. This model is returned to the user
-        5. The user can then use methods get the attributes they want from the model
-    */
+//maybe look into docker buildkit
+
 
 /*
 Client (ModelPasser or some other name?):
