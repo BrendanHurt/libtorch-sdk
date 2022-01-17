@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 
 project(modelSend C CXX)
-set(CMAKE_PREFIX_PATH "/home/adduser/libtorch/share/cmake/Torch")
+#set(CMAKE_PREFIX_PATH "/home/adduser/libtorch/share/cmake/Torch")
 
 #find the packagaes & link the proto directory
 find_package(Threads REQUIRED)
