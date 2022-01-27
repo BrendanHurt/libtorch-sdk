@@ -2,7 +2,8 @@
 #include <fstream>
 #include <string>
 #include "proto/sdk_transport.pb.h"
-#include "client.cc"
+//#include "client.cc"
+#include "client.hpp"
 #include "typing.h"
 
 //torch
