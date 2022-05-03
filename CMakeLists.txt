@@ -49,11 +49,12 @@ target_link_libraries(protoModule
 )
 
 #make the executables
-add_executable(client client.cc testModel.cc ${GRPC_SRC} ${PROTO_SRC})
-target_link_libraries(client protoModule)
-add_executable(server server.cc ${GRPC_SRC} ${PROTO_SRC})
-target_link_libraries(server protoModule)
-
+#add_executable(client client.cc testModel.cc ${GRPC_SRC} ${PROTO_SRC})
+#target_link_libraries(client protoModule)
+#add_executable(server server.cc ${GRPC_SRC} ${PROTO_SRC})
+#target_link_libraries(server protoModule)
+add_executable(testModel testModel.cc exampleClient.cc)
+target_link_libraries(testModel protoModule)
 #protoc -I. --grpc_out=. --plugin=protoc-gen-grpc=/home/adduser/grpc/bin/grpc_cpp_plugin sdk_transport.proto
 #protoc -I. --cpp_out=. sdk_transport.proto
 

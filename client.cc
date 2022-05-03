@@ -1,41 +1,143 @@
 #include "client.hpp"
 
+
+////////////////////////////////////////////////////////////////////////////////////
+//new methods to fix things
+
+/**
+ * Process:
+ * 1. server contacts client either by sending get_parameters or x_ins
+ *      i) get_parameters: pack up the model parameters & send them back
+ *      ii) x_ins: update the client model based on the instructions
+ * 
+ * 2. client runs the model for x number of epochs (based on properties)
+ * 
+ * 3. client sends back the fit, eval, and props after training(/evaling?)
+ */
+
+//check to see if stream can write derived messages
+grpc::Status newJoin() {
+    ClientContext context;
+    ClientMessage client_msg;
+    ServerMessage server_msg;
+    grpc::Status status;
+    std::shared_ptr<ClientReaderWriter<ClientMessage, ServerMessage>> stream(
+        stub_->Join(&context)
+    );
+
+    //read messages from the server
+    while(stream->Read(&server_msg)) {
+        
+        //send model to the server
+        if (server_msg.has_get_parameters()) {
+            //make a method that returns a client_msg w/ the params
+            //Write that message here (then maybe wait till server response?)
+        }
+
+        //update the model based on server instructions
+            //use the from_proto methods
+        if (server_msg.has_fit_ins()) {
+            //clear the fit params & set them to the server params
+            //clear the metrics & set them to the server configs
+            fit_from_proto(server_msg.fit_ins());
+        }
+        if (server_msg.has_evaluate_ins()) {
+            //clear the eval params & set them to the server params
+            //clear the metrics & set them to the server configs
+            evaluate_from_proto(server_msg.evaluate_ins());
+        }
+        if (server_msg.has_properties_ins()) {
+            properties_from_proto(server_msg.properties_ins());
+        }
+
+        //disconnect the client from the server
+            //if a time's received, wait that long & reconnect
+            //can worry about wifi & power ones later
+        if (server_msg.has_reconnect()) {
+            if (server_msg.reconnect()->seconds() > 0) {
+                ClientMessage *disc_msg = new ClientMessage();
+                ClientMessage_Disconnect *disc = new ClientMessage_Disconnect();
+
+                disc->set_disconnect(1);
+                disc_msg->set_allocated_disconnect(disc);
+                stream->Write(disc_msg);
+
+                sleep(server_msg.reconnect()->seconds);
+            } else {
+                return status; //maybe do a break?
+            }
+        }
+    }
+
+    //run the model
+
+    //serialize & send the model
+    //  -call the to_proto methods & push the retunrs onto client_messages
+    //  -write all of the client messages
+
+    return status;
+}
+
+//kinda the equivalent of the dummy server's "runServer" method
+void start_client() {
+    //initialized the client
+    //call connect to the server
+    //call join?
+}
+
+
+
+//(consider this in a bit)
+//change from having each msg_res be an attribute of client?
+// pros:
+//  -more memory efficient (messages are only created when they're needed)
+//cons:
+//  -more allocating & deallocating of messages (is this a con?)
+//  -might be better to just clear them out & reassign the values
+
+////////////////////////////////////////////////////////////////////////////////////
+
+
 //==========================================================================
 //private methods
 
-//remove later
-/*void map_from_proto(const google::protobuf::Map<std::string, flower_sdk::Scalar>* from,
-                std::map<std::string, typing::Scalar>& to) {
-    std::map<std::string, typing::Scalar> temp;
-    google::protobuf::Map<std::string, flower_sdk::Scalar>::const_iterator it;
-    for (it = from->cbegin(); it != from->cend(); it++) {
-        temp.insert(
-            std::pair<std::string, typing::Scalar>(it->first, from_flower(it->second))
-        );
-    }
-    to.insert(temp.begin(), temp.end());
-}*/
+//----------------------------------------------
+//prive set methods
+void set_disconnect() {}
 
-//////////////////////////////////////////
-//methods for user to send model to server
-
+//----------------------------------------------
+//to_proto methods
 void Client::disconnect_to_proto(ClientMessage& client_msg) {
-    disconnect_res_msg->set_reason(disconnect_reason);
     client_msg.set_allocated_disconnect(disconnect_res_msg);
 }
-
 void Client::parameters_to_proto(ClientMessage& client_msg) {
     client_msg.set_allocated_parameters_res(parameters_res_msg);
 }
-
 void Client::fit_to_proto(ClientMessage& client_msg) {
-    client_msg.set_allocated_fit_res(fit_res_msg);
-}
+    ClientMessage *client_msg = new ClientMessage();
+    ClientMessage_FitRes *fit = new ClientMessage_FitRes();
+    ClientMessage_ParametersRes *params_msg = new ClientMessage_ParametersRes();
 
+    for (auto x : fit_params) {
+        params_msg->add_parameters(x);
+    }
+
+    fit->set_allocated_parameters(params_msg);
+    fit->set_num_examples(fit_num_examples);
+    fit->mutable_metrics = fit_configs;
+    client_msg.set_allocated_fit(fit);
+    return client_msg;
+}
 void Client::evaluate_to_proto(ClientMessage& client_msg) {
-    client_msg.set_allocated_evaluate_res(evaluate_res_msg);
-}
+    ClientMessage* client_msg = new ClientMessage();
+    ClientMessage_EvaluateRes eval = new ClientMessage_EvaluateRes();
 
+    eval->set_num_examples(num_examples);
+    eval->set_loss(loss);
+    eval->mutable_metrics = eval_configs;
+    client_msg->set_allocated_evaluate_res(eval);
+    return client_msg;
+}
 void Client::properties_to_proto(ClientMessage& client_msg) {
     client_msg.set_allocated_properties_res(properties_res_msg);
 }
@@ -43,47 +145,38 @@ void Client::properties_to_proto(ClientMessage& client_msg) {
 
 //////////////////////////////////////////
 //functions for user to load model received from the server
+//don't need a reconnect_from_proto, can be handled in an if-else
+void Client::fit_from_proto(const ServerMessage_FitIns& server_fit) {
 
-void Client::reconnect_from_proto(const ServerMessage& server_msg) {
-    //reconnect_time = server_msg.reconnect.seconds;
-}
+    if (!fit_params.empty()) {fit_params.clear();}
+    if (!fit_configs.empty()) {fit_configs.clear();}
 
-void Client::fit_from_proto(const ServerMessage& server_msg) {
-    //copy over the fit tensor (should only be one?)
-    for (int i = 0; i < server_msg.fit_ins().parameters().parameters_size(); i++) {
-        fit_ins_msg->mutable_parameters()->add_parameters(
-            server_msg.fit_ins().parameters().parameters(i)
-        );
+    //get the parameters from the fit_msg
+    for (auto x : server_fit->parameters->parameters()) {
+        fit_params.push_back(x);
     }
-
-    //copy the config from server_msg to fit_ins_msg
-    fit_ins_msg->mutable_config()->insert(
-        server_msg.fit_ins().config().begin(), server_msg.fit_ins().config().end()
-    );
+    //get the config from the fit_msg
+    //  probably have to change how copy_map works
+    copy_map(server_fit->mutable_configs, fit_configs);
 }
+void Client::evaluate_from_proto(const ServerMessage_EvaluateIns& server_eval) {
+    if (!fit_params.empty()) {fit_params.clear();}
+    if (!fit_configs.empty()) {fit_configs.clear();}
 
-void Client::evaluate_from_proto(const ServerMessage& server_msg) {
-    //copy over the fit tensor (should only be one?)
-    for (int i = 0; i < server_msg.evaluate_ins().parameters().parameters_size(); i++) {
-        evaluate_ins_msg->mutable_parameters()->add_parameters(
-            server_msg.evaluate_ins().parameters().parameters(i)
-        );
+    //get the parameters from the fit_msg
+    for (auto x : server_eval->parameters->parameters()) {
+        eval_params.push_back(x);
     }
-
-    //copy the config from server_msg to evaluate_ins_msg
-    evaluate_ins_msg->mutable_config()->insert(
-        server_msg.evaluate_ins().config().begin(),
-        server_msg.evaluate_ins().config().end()
-    );
+    //get the config from the fit_msg
+    //  probably have to change how copy_map works
+    copy_map(server_eval->mutable_configs, eval_configs);
+}
+void Client::properties_from_proto(const ServerMessage_PropertiesIns& server_props) {
+    if (!fit_configs.empty()) {fit_configs.clear();}
+    copy_map(server_props->mutable_configs, props_configs);
 }
 
-void Client::properties_from_proto(const ServerMessage& server_msg) {
-    properties_ins_msg->mutable_config()->insert(
-        server_msg.properties_ins().config().begin(),
-        server_msg.properties_ins().config().end()
-    );
-}
-
+//probably just gunna get rid of these two
 void Client::server_ins_to_file() {
     //starting with fit
     std::fstream writer;
@@ -134,7 +227,6 @@ void Client::server_ins_to_file() {
 
     writer.close();
 }
-
 void Client::write_scalar(std::fstream& writer, const flower_sdk::Scalar& scalar) {
     if (scalar.has_double_()) {
         writer << " double; " << scalar.double_() << std::endl;
@@ -152,6 +244,7 @@ void Client::write_scalar(std::fstream& writer, const flower_sdk::Scalar& scalar
     }
 }
 
+
 grpc::Status Client::Join() {
     ClientContext context;
     ClientMessage client_msg;
@@ -165,7 +258,7 @@ grpc::Status Client::Join() {
     );
     std::thread model_writer(model_thread, std::ref(stream), std::ref(client_messages));
 
-    //read model from a server message
+    //modularize this?
     while(stream->Read(&server_msg)) {
         //add deserializing here later
         std::cout << "got the server message\n";
@@ -191,47 +284,6 @@ grpc::Status Client::Join() {
     std::cout << "exiting streaming method\n";
     return status;
 }
-
-//serialize model
-//add checking to only add messages that have content in 'em
-void Client::serialize_client_model(std::vector<ClientMessage>& client_messages) {
-    std::cout << "in serialize model\n";
-    ClientMessage disconnect_msg, params_msg,
-        fit_msg, evaluate_msg, properties_msg;
-
-    //add an if here later
-    disconnect_to_proto(disconnect_msg);
-
-    if (parameters_res_msg->has_parameters()) {
-        std::cout << "adding parameters messsage\n";
-        parameters_to_proto(params_msg);
-        client_messages.push_back(params_msg);
-    } else {
-        std::cout << "parameters empty\n";
-    }
-    if (fit_res_msg->num_examples() != 0) { //better if statement?
-        std::cout << "adding fit message\n";
-        fit_to_proto(fit_msg);
-        client_messages.push_back(fit_msg);
-    } else {
-        std::cout << "fit empty\n";
-    }
-    if (evaluate_res_msg->loss() != 0) { //better if statement?
-        std::cout << "adding evaluate message\n";
-        evaluate_to_proto(evaluate_msg);
-        client_messages.push_back(evaluate_msg);
-    } else {
-        std::cout << "evaluate empty\n";
-    }
-    if (properties_res_msg->properties_size() != 0) {
-        std::cout << "adding properties message\n";
-        properties_to_proto(properties_msg);
-        client_messages.push_back(properties_msg);
-    } else {
-        std::cout << "properties empty\n";
-    }
-}
-
 void Client::copy_map(const std::map<std::string, typing::Scalar>& from,
             google::protobuf::Map<std::string, Scalar>* to) {
     if (to->size() != 0) {to->clear();}
@@ -248,80 +300,49 @@ void Client::copy_map(const std::map<std::string, typing::Scalar>& from,
 
 //========================================================================
 //public methods
-
 Client::Client(std::shared_ptr<Channel> channel)
-    : stub_(FlowerServiceSDK::NewStub(channel)) {
-    //disconnect_reason = 0;
-
-    //client_msg = new ClientMessage();
-    disconnect_res_msg = new ClientMessage_Disconnect();
-    parameters_res_msg = new ClientMessage_ParametersRes();
-    fit_res_msg = new ClientMessage_FitRes();
-    evaluate_res_msg = new ClientMessage_EvaluateRes();
-    properties_res_msg = new ClientMessage_PropertiesRes();
-    parameters_msg = new Parameters();
-    fit_parameters_msg = new Parameters();
-
-    //server messages
-    fit_ins_msg = new ServerMessage_FitIns();
-    properties_ins_msg = new ServerMessage_PropertiesIns();
-    evaluate_ins_msg = new ServerMessage_EvaluateIns();
-    reconnect_msg = new ServerMessage_Reconnect();
-}
+    : stub_(FlowerServiceSDK::NewStub(channel)) {}
 Client::~Client() {}
 
-void Client::set_parameters(const std::vector<std::string>& layers) {
-    if (parameters_res_msg->has_parameters()) {parameters_res_msg->clear_parameters();}
-    if (parameters_msg->parameters_size() != 0) {parameters_msg->clear_parameters();}
-
-    for (size_t i = 0; i < layers.size(); i++) {
-        parameters_msg->add_parameters(layers[i]);
-    }
-    parameters_msg->set_tensor_type(params_tensor_type);
-    parameters_res_msg->set_allocated_parameters(parameters_msg);
-}
-
-void Client::set_fit(const torch::Tensor& fit,
+/*----------making them pure virtual, remove later----------------
+void Client::set_client_fit(const torch::nn::Module& fit,
             int num_examples, 
             const std::map<std::string, typing::Scalar>& metrics) {
-    std::stringstream buffer;
-
-    //clear messages if they've already been set
-    if (fit_res_msg->has_parameters()) {fit_res_msg->clear_parameters();}
-    if (fit_res_msg->metrics_size() != 0) {fit_res_msg->clear_metrics();}
-    if (fit_parameters_msg->parameters_size() != 0) {fit_parameters_msg->clear_parameters();}
-
-    torch::save(fit, buffer);
-    fit_parameters_msg->add_parameters(buffer.str());
-    fit_parameters_msg->set_tensor_type(fit_tensor_type);
-    fit_res_msg->set_allocated_parameters(fit_parameters_msg);
-    fit_res_msg->set_num_examples(num_examples);
     
-    //metrics
-    copy_map(metrics, fit_res_msg->mutable_metrics());
+    if (!fit_configs->empty()) {fit_configs->clear();}
+    if (!fit_paramters.empty()) {fit_parameters.clear();}
+
+    fit_parameters = serialize_parameters(fit); //probably not gunna work
+    fit_num_examples = num_examples;
+    copy_map(metrics, fit_configs);
 }
 
-void Client::set_evaluate(float loss,
+void Client::set_client_evaluate(float loss,
                 int num_examples,
                 const std::map<std::string, typing::Scalar>& metrics) {
-    if (evaluate_res_msg->metrics_size() != 0) {evaluate_res_msg->clear_metrics();}
-    evaluate_res_msg->set_loss(loss);
-    evaluate_res_msg->set_num_examples(num_examples);
-    copy_map(metrics, evaluate_res_msg->mutable_metrics());
-}
+                    
+    if (!eval_configs.empty()) {eval_configs.clear();}
 
-void Client::set_properties(const std::map<std::string, typing::Scalar>& props) {
-    /*if (properties_res_msg->properties_size() != 0) {
-        properties_res_msg->clear_properties();
-    }*/
+    eval_loss = loss;
+    eval_num_examples = num_examples;
+    copy_map(metrics, eval_configs);
+}
+*/
+
+//fix along with typing::Scalar
+void Client::set_client_properties(const std::map<std::string, typing::Scalar>& props) {
+    if (!props_configs.empty()) {props_configs.clear();}
     copy_map(props, properties_res_msg->mutable_properties());
 }
 
+
+//probably going to remove later
 grpc::Status Client::transport_model() {
     std::cout << "in transport_model\n";
     return Join();
 }
 
+//change up after figuring out how std::optional works
 const flower_sdk::Scalar Client::to_flower(const typing::Scalar& from) const {
     flower_sdk::Scalar new_scalar;
     new_scalar.set_double_(from._double);
@@ -331,101 +352,3 @@ const flower_sdk::Scalar Client::to_flower(const typing::Scalar& from) const {
     new_scalar.set_bytes(from._bytes);
     return new_scalar;
 }
-
-/*const typing::Scalar from_flower(const flower_sdk::Scalar& from) const {
-    typing::Scalar to;
-    if (from.has_double_()) {
-        to._double = from.double_();
-    }
-    if (from.has_sint64()) {
-        to._int = from.sint64();
-    }
-    if (from.has_bool_()) {
-        to._bool = from.bool_();
-    }
-    if (from.has_string()) {
-        to._string = from.string();
-    }
-    if (from.has_bytes()) {
-        to._bytes = from.bytes();
-    }
-    return to;
-}*/
-
-
-///////////////////////////////////////////////////////////////////////////
-//Test methods, remove later
-void Client::test_eval() {
-    std::cout << "Client loss: " << evaluate_res_msg->loss() << std::endl;
-    std::cout << "Client num_examples: " << evaluate_res_msg->num_examples() 
-        << std::endl;
-}
-
-void Client::test_params() {
-    std::fstream writer;
-    writer.open("clientParams.txt", std::ios::out);
-    for (int i = 0; i < parameters_res_msg->parameters().parameters_size(); i++) {
-        writer << parameters_res_msg->parameters().parameters(i);
-        writer << "\n\n";
-    }
-    writer.close();
-}
-
-void Client::test_fit() {
-    std::fstream writer;
-    writer.open("clientFit.txt", std::ios::out);
-    writer << fit_res_msg->parameters().parameters(0);
-    writer.close();
-
-    google::protobuf::Map<std::string, Scalar>::const_iterator it;
-    for (it = fit_res_msg->metrics().begin(); 
-            it != fit_res_msg->metrics().end(); 
-            it++) {
-        std::cout << it->first << " ";
-        print_scalar(it->second);
-    }
-}
-
-void Client::print_scalar(const Scalar& scaler) {
-    std::cout << scaler.double_() << " ";
-    std::cout << scaler.sint64() << " ";
-    std::cout << scaler.bool_() << " ";
-    std::cout << scaler.string() << " ";
-    std::cout << scaler.bytes() << std::endl;
-}
-
-void Client::write_to_file(std::string file_name, const std::stringstream& stream) {
-    std::fstream writer;
-
-    writer.open(file_name, std::ios::out);
-    writer << stream.str();
-    writer.close();
-}
-
-///////////////////////////////////////////////////////////////////////////
-
-/*
-Client (ModelPasser or some other name?):
-    Process:
-        1. User passes details of their model to the client (or some structure)
-        2. Client serializes these and sends them to the server
-        3. Client receives details from the server and deserializes these
-        4. Client then returns these to the user
-
-    Attributes:
-        Class/Struct: Parameters, Evaluate, Properties, Fit
-        int: disconnect_reason, reconnect_time
-
-        Shared pointer for Network(remove later?)
-
-        Unique pointer for stub_
-
-    Methods:
-        -Deserialize server messages
-        -put user's model into the client message (handles serialization)
-            -separate methods for: parameters, fit, eval, properties, disconnect
-        -get model returned from the server to the user
-            -separate methods for: parameters, fit, eval, properties, reconnect
-
-        add a method for connecting to the server?
-*/

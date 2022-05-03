@@ -49,5 +49,6 @@
         "ctime": "cpp",
         "map": "cpp",
         "ratio": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": false
 }

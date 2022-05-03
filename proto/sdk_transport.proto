@@ -2,11 +2,6 @@ syntax = "proto3";
 
 package flower_sdk;
 
-/*service WeightsPasser {
-    rpc streamWeights (stream Parameters) returns (stream Parameters) {}
-    rpc sendWeights (Parameters) returns (stream Parameters) {}
-}*/
-
 service FlowerServiceSDK {
     rpc Join (stream ClientMessage) returns (stream ServerMessage) {}
 }
@@ -16,7 +11,6 @@ message Parameters {
     string tensor_type = 2;
 }
 
-//disconnection reasons
 enum Reason {
     UNKOWN = 0;
     RECONNECT = 1;
@@ -24,32 +18,25 @@ enum Reason {
     WIFI_UNAVAILABLE = 3;
     ACK = 4;
 }
-//--------------------------------------------------------------
-//server message
+
 message ServerMessage {
 
-    //reason for why the client lost connection
     message Reconnect { int64 seconds = 1; }
 
-    //parameters from client
     message GetParameters {}
 
-    //fit client params into the server model
     message FitIns {
-        Parameters parameters = 1;          //model params
-        map<string, Scalar> config = 2;     //test metrics
+        Parameters parameters = 1;
+        map<string, Scalar> config = 2;
     }
 
-    //Evaluation details
     message EvaluateIns {
-        Parameters parameters = 1;          //model params
-        map<string, Scalar> config = 2;     //test metrics
+        Parameters parameters = 1;
+        map<string, Scalar> config = 2;
     }
 
-    //model properties that the server's taking in
     message PropertiesIns { map<string, Scalar> config = 1; }
 
-    //compiled server message
     oneof msg {
         Reconnect reconnect = 1;
         GetParameters get_parameters = 2;
@@ -61,29 +48,22 @@ message ServerMessage {
 
 message ClientMessage {
 
-    //disconnect from the server
     message Disconnect { Reason reason = 1; }
 
-    //params to send to the server
     message ParametersRes { Parameters parameters = 1; }
 
-    //Model Fit details
     message FitRes {
-        Parameters parameters = 1;          //model params
-        int64 num_examples = 2;             //# of test examples
-        //include deprecated variables?
-        map<string, Scalar> metrics = 5;    //test metrics
+        Parameters parameters = 1;
+        int64 num_examples = 2;
+        map<string, Scalar> metrics = 5;
     }
 
-    //Evaluation details
     message EvaluateRes {
-        int64 num_examples = 1;             //# of test examples
-        float loss = 2;                     //model's loss (loss of accuracy?)
-        //include depcrated variable?
-        map<string, Scalar> metrics = 4;    //test metrics
+        int64 num_examples = 1;
+        float loss = 2;
+        map<string, Scalar> metrics = 4;
     }
 
-    //Model properties?
     message PropertiesRes { map<string, Scalar> properties = 1; }
 
     oneof msg {

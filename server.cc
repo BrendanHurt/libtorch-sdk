@@ -17,7 +17,7 @@
 
 #include "proto/sdk_transport.grpc.pb.h"
 #include "proto/sdk_transport.pb.h"
-#include "typing.h"
+#include "typing.hpp"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -28,30 +28,10 @@ using grpc::Status;
 //flower namespace elements
 using namespace flower_sdk;
 
-//simple network
-struct Network : torch::nn::Module {
-Network() {
-        layer1 = register_module("layer1", torch::nn::Linear(784, 64));
-        layer2 = register_module("layer2", torch::nn::Linear(64, 32));
-        output = register_module("output", torch::nn::Linear(32, 10));
-    }
-    
-    //network algorithm
-    torch::Tensor forward(torch::Tensor x) {
-        x = torch::relu(layer1->forward(x.reshape({x.size(0), 784})));
-        x = torch::dropout(x, 0.5, is_training());
-        
-        x = torch::relu(layer2->forward(x));
-        x = torch::log_softmax(output->forward(x), 1);
-        return x;
-    }
-    
-    torch::Tensor fit;
-    torch::Tensor loss;
-
-    //defining the layers
-    torch::nn::Linear layer1{nullptr}, layer2{nullptr}, output{nullptr};
-};
+/**
+ * -really just to test if the client can properly receive messages
+ * -
+ */
 
 //class that the server uses to do the do
 class FlowerServiceSDKImpl final : public FlowerServiceSDK::Service {
@@ -73,74 +53,24 @@ public:
     /**-----------------Join-----------------
      * 
     */
-    Status Join(ServerContext* context,
+   Status Join(ServerContext* context,
             ServerReaderWriter<ServerMessage, ClientMessage>* stream) override {
-        ServerMessage server_msg;
-        ClientMessage client_msg;
-        int i = 0;
-        logger.open("logs/serverLog.txt", std::ios::out);
+        //figure out how to check for connection
+        //once a connection is received:
+        //  1. test get_parameters message
+        //  2. test fit_ins messages
+        //          send some dummy values & see if the model updates
+        //  3. test evaluate_ins messages
+        //          send some dummy values & see if the model updates
+        //  4. test properties_ins messages
+        //          send some dummy values & see if the model updates
 
-        while (stream->Read(&client_msg)) {
-            std::unique_lock<std::mutex> lock(server_lock);
-            logger << "reading client message " << i << std::endl;
 
-            if (client_msg.has_disconnect()) {
-                logger << "disconnect from message " << i << std::endl;
-                get_disconnect_res(client_msg.disconnect());
-
-            } else if (client_msg.has_parameters_res()) {
-                logger << "parameters from message " << i << std::endl;
-                get_parameters_res(client_msg.parameters_res());
-
-            } else if (client_msg.has_fit_res()) {
-                logger << "fit from message " << i << std::endl;
-                get_fit_res(client_msg.fit_res());
-
-            } else if (client_msg.has_evaluate_res()) {
-                logger << "evaluate from message " << i << std::endl;
-                get_evaluate_res(client_msg.evaluate_res());
-
-            } else if (client_msg.has_properties_res()) {
-                logger << "properties from message " << i << std::endl;
-                get_properties_res(client_msg.properties_res());
-
-            } else {
-                logger << "message " << i << " is empty\n";
-            }
-            i++;
-            client_messages.push_back(client_msg);
-            //stream->Write(server_msg);
-        }
-
-        test_fit();
-        test_eval();
-        test_props();
-        for (auto msg : server_messages) {
-            stream->Write(msg);
-        }
-        server_messages.clear();
-
-        //testing sending messages to the client
-        /*send_fit_ins(server_msg);
-        stream->Write(server_msg);
-        
-        send_properties_ins(server_msg);
-        stream->Write(server_msg);
-
-        send_evaluate_ins(server_msg);
-        stream->Write(server_msg);
-
-        //clear the messages here
-        server_msg.clear_fit_ins();
-        server_msg.clear_evaluate_ins();
-        server_msg.clear_properties_ins();*/
-
-        logger.close();        
-        return Status::OK;
+        //probably just need to do some repurposing of the current methods
+        //in here, so they just save the client model to a file and send
+        //dummy messages to the client to see if it updates
     }
 
-    /////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     //receive client messages
 
@@ -305,28 +235,6 @@ private:
         writeTo.close();
     }
 
-    //runs the evaluation of the simple model that i've made
-    void runModel() {
-        auto data_loader = torch::data::make_data_loader(
-            torch::data::datasets::MNIST("../mnist").map(torch::data::transforms::Stack<>()), 64
-        );
-
-        torch::optim::SGD optimizer(server_network->parameters(), 0.01);
-
-        for (size_t epoch = 1; epoch <= 2; epoch++) {
-            size_t batch_index = 0;
-
-            for (auto& batch : *data_loader) {
-                optimizer.zero_grad();
-
-                server_network->fit = server_network->forward(batch.data);
-                server_network->loss = torch::nll_loss(server_network->fit, batch.target);
-                server_network->loss.backward();
-
-                optimizer.step();
-            }
-        }
-    }
 
     /*========================testing methods==============================*/
     void test_fit() {

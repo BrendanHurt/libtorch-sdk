@@ -6,7 +6,7 @@
 #include <string>
 #include <sstream>
 #include <thread>
-#include "typing.h"     //c++ version of typing.py
+#include "typing.hpp"     //c++ version of typing.py
 
 //torch
 #include <torch/torch.h>
@@ -25,24 +25,30 @@ using grpc::ClientReader;
 using grpc::ClientReaderWriter;
 
 //flower namespace elements
+//  maybe make into individual ones like w/ grpc
 using namespace flower_sdk;
 
 class Client {
 //private methods
     //sending messages to server
-    void disconnect_to_proto(ClientMessage& client_msg);
-    void parameters_to_proto(ClientMessage& client_msg);
-    void fit_to_proto(ClientMessage& client_msg);
-    void evaluate_to_proto(ClientMessage& client_msg);
-    void properties_to_proto(ClientMessage& client_msg);
+    ClientMessage* disconnect_to_proto(ClientMessage& client_msg);
+    ClientMessage* parameters_to_proto(ClientMessage& client_msg);
+    ClientMessage* fit_to_proto();
+    ClientMessage* evaluate_to_proto(ClientMessage& client_msg);
+    ClientMessage* properties_to_proto(ClientMessage& client_msg);
 
+    //////////////////////////////////////////////////////////
     //getting messages from server
     void reconnect_from_proto(const ServerMessage& server_msg);
+
+    //take in a const server message ref and module pointer?
+    //  module pointer might allow for directly updating the model
     void fit_from_proto(const ServerMessage& server_msg);
     void evaluate_from_proto(const ServerMessage& server_msg);
     void properties_from_proto(const ServerMessage& server_msg);
     void server_ins_to_file();
     void write_scalar(std::fstream& writer, const flower_sdk::Scalar& scalar);
+    //////////////////////////////////////////////////////////
 
     static void model_thread(
         std::shared_ptr<ClientReaderWriter<ClientMessage, ServerMessage>>& stream,
@@ -55,76 +61,92 @@ class Client {
 
     //doing the message sending
     grpc::Status Join();
-    void serialize_client_model(std::vector<ClientMessage>& client_messages);
-
     //dealing with maps
     void copy_map(const std::map<std::string, typing::Scalar>& from,
-                google::protobuf::Map<std::string, Scalar>* to);
+        google::protobuf::Map<std::string, Scalar>* to);
+    
     
 
 public:
     Client(std::shared_ptr<Channel> channel);
     ~Client();
     
-    //set messages
-    void set_parameters(const std::vector<std::string>& layers);
+    //figure out how to handle
+    virtual void fit(int num_examples, const std::map<std::string, typing::Scalar>& metrics) = 0;
+    virtual void evaluate(float loss, int num_examples, const std::map<std::string, typing::Scalar>& metrics) = 0;
+    virtual void set_properties(const std::map<std::string, typing::Scalar>& props);
+    virtual void save_parameters() = 0;
+    virtual void load_parameters() = 0;
 
-    void set_fit(const torch::Tensor& fit,
-            int num_examples, 
-            const std::map<std::string, typing::Scalar>& metrics);
-
-    void set_evaluate(float loss, int num_examples,
-                const std::map<std::string, typing::Scalar>& metrics);
-
-    void set_properties(const std::map<std::string, typing::Scalar>& props);
+    //getters for the server info will go here
+    /*
+    void get_server_fit();
+    void get_server_evaluate();
+    void get_server_properties();
+    */
 
     //sending the model
     grpc::Status transport_model();
     const flower_sdk::Scalar to_flower(const typing::Scalar& from) const;
 
-    ///////////////////////////////////////////////////////////////////////////
-    //Test methods, remove later
-    void test_eval();
-    void test_params();
-    void test_fit();
-    void print_scalar(const Scalar& scalar);
-    void write_to_file(std::string file_name, const std::stringstream& stream);
+private:
+    torch::nn::Module *model; //question mark
 
-private: //attributes
-
-    Reason disconnect_reason, reconnect_reason;
-
-    int reconnect_time;
-    //determine a method for checking which fields a user has saved
-    
-    //reduces the amount of allocating & deallocating these
-    std::vector<ClientMessage>      client_messages;
-    ClientMessage_Disconnect*       disconnect_res_msg;
-    ClientMessage_ParametersRes*    parameters_res_msg;
-    ClientMessage_FitRes*           fit_res_msg;
-    ClientMessage_EvaluateRes*      evaluate_res_msg;
-    ClientMessage_PropertiesRes*    properties_res_msg;
-
-    //same idea for these?
-    ServerMessage_Reconnect*        reconnect_msg;
-    ServerMessage_FitIns*           fit_ins_msg;
-    ServerMessage_EvaluateIns*      evaluate_ins_msg;
-    ServerMessage_PropertiesIns*    properties_ins_msg;
-
-    /*for reading parameters into parameters_res and fit_res, seems like
-      add_paramters does a shallow copy, so there has to be 2 of them
-    */
-    flower_sdk::Parameters* parameters_msg;
-    flower_sdk::Parameters* fit_parameters_msg;
-    //flower_sdK::Parameters* get_fit_params;
-    
-    //keep these?
-    std::string params_tensor_type = "parameters";
-    std::string fit_tensor_type = "fit";
+    //fit
+    std::vector<std::string> fit_params; //for fit_ins (necessary?)
+    int fit_num_examples;
+    google::protobuf::Map<std::string, Scalar> *fit_configs; //allocate in constructor?
     std::string tensorType = "numpy.ndarray";
+    //evaluate
+    std::vector<std::string> eval_params; //used for eval_ins
+    float eval_loss;
+    int eval_num_examples;
+    google::protobuf::Map<std::string, Scalar> *eval_configs;
+    //properties
+    google::protobuf::Map<std::string, Scalar> *props_configs;
     
     std::unique_ptr<FlowerServiceSDK::Stub> stub_;
 
 };
 
 #endif
+
+/**
+ * Setting parameters from server:
+ * method 1:
+ * -figure out how to access submodules in a torch::nn::Module
+ * -then you can use torch::load for each of the server's parameters
+ * -don't really have to worry about tensor_type, not really being used
+ * -idea: maybe make a method for loading into modules
+ * -(might have to add checks to see if there's a different number of 
+ *   modules than the the server has)
+ * 
+ * method 2 (seems a little extreme):
+ * -back up the model into a file at the end of each cycle
+ * -deallocate the model & reallocate the new one from the server
+ */
+
+/**
+ * Setting maps from the server
+ * -clear the map
+ * -copy the server's map
+ * 
+ * things to change with Scalar
+ * -make accessors & mutators
+ * -remove/change to_flower
+ * -look up how std::optional actually works
+ */
+
+/**
+ * Methods for user to set the model
+ * -make them have the same params as the current set_x methods
+ * -have them set the attributes in client
+ * -don't have to return anything, maybe verification? probably not
+ * -change the current set_x methods to be to_proto methods (just rename)
+ */
+
+/**
+ * things to do later on:
+ * -add more error checking for server messages
+ * -get the set_reconnect to work with wifi & power issues
+ */

@@ -1,47 +1,47 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "proto/sdk_transport.pb.h"
-//#include "client.cc"
-#include "client.hpp"
-#include "typing.h"
 
 //torch
 #include <torch/torch.h>
 #include <torch/script.h>
 #include <dirent.h>
 #include <ATen/ATen.h>
+#include "exampleClient.hpp"
+
+
+
+int main () {
+    exampleClient testClient;
+
+    //train(net, 2);
+    //std::pair<float, float> temp = test(net, 1);
+    testClient.train();
+    std::pair<float, float> temp = testClient.test();
+    std::cout << "loss: " << temp.first << std::endl;
+    std::cout << "accuracy: " << temp.second << std::endl;
+    return 0;
+}
+
+/**
+ * Once model's been completed
+ * -figure out how to connect client
+ *      -how the client get's the model's parameters
+ *      -how to get the fit to the client
+ *      -how to get the evaluate to the client
+ *      -should probably have a container class for the model
+ *      -once the client can get the model, should only have
+ *       to reverse the process to update the model
+ *          -also this only requires tweaking the current client methods
+ *          -or maybe implementing the model as a derived client?
+ *              -might just have to save for later for my sanity
+ */
 
 //----------------------------------------------------------------------------
 //----------------------------------------------------------------------------
-//simple network
-struct Network : torch::nn::Module {
-Network() {
-        layer1 = register_module("layer1", torch::nn::Linear(784, 64));
-        layer2 = register_module("layer2", torch::nn::Linear(64, 32));
-        output = register_module("output", torch::nn::Linear(32, 10));
-    }
-    
-    //network algorithm
-    torch::Tensor forward(torch::Tensor x) {
-        x = torch::relu(layer1->forward(x.reshape({x.size(0), 784})));
-        x = torch::dropout(x, 0.5, is_training());
-        
-        x = torch::relu(layer2->forward(x));
-        x = torch::log_softmax(output->forward(x), 1);
-        return x;
-    }
-    
-    torch::Tensor fit;
-    torch::Tensor loss;
-    //defining the layers
-    torch::nn::Linear layer1{nullptr}, layer2{nullptr}, output{nullptr};
-};
 
-//----------------------------------------------------------------------------
-//----------------------------------------------------------------------------
 
-void writeToFile(std::string fileName, std::shared_ptr<Network> net) {
+/*void writeToFile(std::string fileName, std::shared_ptr<Network> net) {
     std::fstream writeTo;
 
     writeTo.open(fileName, std::ios::out);
@@ -49,6 +49,7 @@ void writeToFile(std::string fileName, std::shared_ptr<Network> net) {
     writeTo.close();
 }
 
+//rework this
 void runModel(std::shared_ptr<Network> net) {
     int kNoiseSize = 1;
     int kBatchSize = 64;
@@ -56,9 +57,9 @@ void runModel(std::shared_ptr<Network> net) {
     int kNumberOfEpochs = 10;
 
     auto data_loader = torch::data::make_data_loader(
-        torch::data::datasets::MNIST("../mnist").map(torch::data::transforms::Stack<>()), /*batch size*/ 64);
+        torch::data::datasets::MNIST("../mnist").map(torch::data::transforms::Stack<>()), /*batch size*/// 64);
 
-    torch::optim::SGD optimizer(net->parameters(), 0.01);
+    /*torch::optim::SGD optimizer(net->parameters(), 0.01);
 
     //loop for actually running the network
         //comments for me to have a better idea on how the model works
@@ -84,8 +85,9 @@ void runModel(std::shared_ptr<Network> net) {
             }
         }
     }
-}
+}*/
 
+/* old test methods
 void disconnect_test(Client& client) {
     //
 }
@@ -145,10 +147,10 @@ void properties_test(Client& client) {
     my_map.emplace("here", my_scalar);
     client.set_properties(my_map);
     //add a test method?
-}
+}*/
 
 //================================================================================
-int main(int argc, char* argv[]) {
+/*int main(int argc, char* argv[]) {
     std::string targetString = "localhost:50051";
     std::shared_ptr<Network> net = std::make_shared<Network>();
     std::stringstream buffer;
@@ -170,6 +172,9 @@ int main(int argc, char* argv[]) {
     //3. test the streaming method
     client.transport_model();
 
+    //4. test reconnect
+    client.set_reconnect(1);
+
     //kinda just an end marker for now
     typing::Scalar a_scalar;
     a_scalar._bool = true;
@@ -186,4 +191,4 @@ int main(int argc, char* argv[]) {
     
     google::protobuf::ShutdownProtobufLibrary();
     return 0;
-}
+}*/
